@@ -71,11 +71,10 @@ class ProjectesController extends Controller
         }
         $imatges_db = [];
         foreach($data['imatges'] as $imatge){
-            $imatge->store('public');
-            $url = Storage::url($imatge);
-            dd($url);
+            $imgArxiu = $imatge->store('public');
+            $urlImgArxiu = Storage::url($imgArxiu);
             $imatge_db =  Imatge::create([
-                'url' => Storage::url($imatge),
+                'url' => $urlImgArxiu,
                 'nom' => $imatge->getClientOriginalName(),
             ]);
             array_push($imatges_db,$imatge_db);
@@ -124,6 +123,22 @@ class ProjectesController extends Controller
     public function edit($id)
     {
         //
+        $projecte = Projecte::find($id);
+        $projecte_categorias = Projecte_Categoria::where('projecte_id', '=', $projecte->id)->get();
+        $projecte_imatges = Projecte_Imatge::where('projecte_id', '=', $projecte->id)->get();
+        $categories = Categoria::all();
+        $categoriesDelProjecte = [];
+        $imatges = [];
+        foreach($projecte_categorias as $projecte_categoria ){
+            $categoria = Categoria::find($projecte_categoria->categoria_id);
+            array_push($categoriesDelProjecte,$categoria);
+        }
+        foreach($projecte_imatges as $projecte_imatge){
+            $imatge = Imatge::find($projecte_imatge->imatge_id);
+            array_push($imatges,$imatge);
+        }
+        return view('backend.projectes.edit', compact(['projecte','categoriesDelProjecte','imatges','categories']));
+
     }
 
     /**
@@ -136,6 +151,18 @@ class ProjectesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->validate([
+            'titol' => 'required|string|min:3|max:50|unique:projectes',
+            'descripcio_breu' => 'required|string|min:3|max:50',
+            'descripcio_detallada' => 'required|string|min:3|max:500',
+            'imatges' => 'required',
+            'imatges.*' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
+            'categories' => 'required',
+            'categories.*' => 'exists:categories,id',
+        ]);
+        $projecte = Projecte::find($id);
+        $projecte
+        return redirect()->route('projectes.index');
     }
 
     /**
@@ -147,5 +174,23 @@ class ProjectesController extends Controller
     public function destroy($id)
     {
         //
+        $projecte = Projecte::find($id);
+        $projecte->delete();
+        return redirect()->route('projectes.index');
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyImatge(Request $request)
+    {
+        //
+        $id = $request['id'];
+        $imatge = Imatge::find($id);
+        $imatge->delete();
+        $resposta = ['resposta'=>'tot be'];
+        return($resposta);        
     }
 }

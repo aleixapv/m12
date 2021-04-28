@@ -16,7 +16,7 @@
     <h1>imatges:</h1>
     <ul>
         @forelse($imatges as $imatge)
-            <img src="{{url($imatge->url)}}" alt="">
+            <img src="{{url($imatge->url)}}" alt="{{$imatge->alt}}">
         @empty
             <li>no te imatges</li>
         @endforelse

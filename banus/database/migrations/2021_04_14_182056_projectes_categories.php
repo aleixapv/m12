@@ -19,8 +19,8 @@ class ProjectesCategories extends Migration
             $table->unsignedBigInteger('projecte_id');
             $table->unsignedBigInteger('categoria_id');
             $table->timestamps();
-            $table->foreign('projecte_id')->references('id')->on('projectes')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('categoria_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('projecte_id')->references('id')->on('projectes')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('categoria_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             
         });
     }

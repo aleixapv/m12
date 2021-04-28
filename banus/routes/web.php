@@ -38,6 +38,7 @@ Route::get('/admin/projectes/edit/{id}', [ProjectesController::class, 'edit'])->
 Route::get('/admin/projectes/show/{id}', [ProjectesController::class, 'show'])->name('projectes.show');
 Route::put('/admin/projectes/update/{id}', [ProjectesController::class, 'update'])->name('projectes.update');
 Route::delete('/admin/projectes/destroy/{id}', [ProjectesController::class, 'destroy'])->name('projectes.destroy');
+Route::delete('/admin/projectes/edit/destroy/imatge', [ProjectesController::class, 'destroyImatge'])->name('projectes.imatge.destroy');
 
 
 

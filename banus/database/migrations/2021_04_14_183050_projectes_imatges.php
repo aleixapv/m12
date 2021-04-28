@@ -19,8 +19,8 @@ class ProjectesImatges extends Migration
             $table->unsignedBigInteger('projecte_id');
             $table->unsignedBigInteger('imatge_id');
             $table->timestamps();
-            $table->foreign('projecte_id')->references('id')->on('projectes')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('imatge_id')->references('id')->on('imatges')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('projecte_id')->references('id')->on('projectes')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('imatge_id')->references('id')->on('imatges')->onUpdate('cascade')->onDelete('cascade');
             
         });
     }

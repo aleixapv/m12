@@ -14,7 +14,7 @@
         <label for="descripcio_detallada">Descripció detallada del nou projecte</label>
         <textarea name="descripcio_detallada" >{{ old('descripcio_detallada') }}</textarea><br>
         <label for="categories">Categorias del nou projecte</label>
-        <select name="categories[]" multiple value="{{ old('categories') }}">
+        <select name="categories[]" multiple ">
             @forelse ($categories as $categoria)
                 <option value="{{$categoria->id}}">{{$categoria->name}}</option>
             @empty
