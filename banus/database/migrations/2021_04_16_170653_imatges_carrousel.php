@@ -18,6 +18,7 @@ class ImatgesCarrousel extends Migration
             $table->id();
             $table->string('url');
             $table->string('nom');
+            $table->string('alt');
             $table->timestamps();
         });
     }

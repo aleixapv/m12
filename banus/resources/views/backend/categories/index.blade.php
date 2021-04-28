@@ -1,6 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <a href="{{route('categories.create')}}">nova categoria</a>
+    <a href="{{route('categories.create')}}">Nova Categoria</a>
     @forelse ($categories as $categoria)
         <li>
             {{ $categoria->name }}

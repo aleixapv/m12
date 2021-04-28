@@ -1,6 +1,11 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <form action="{{route('categories.update')}}" method="POST">
+    @if($errors->any())
+        @foreach ($errors->all() as $error)
+            <div>{{ $error }}</div>
+        @endforeach
+    @endif
+    <form action="{{route('categories.update',['id' => $categoria->id])}}" method="POST">
         @csrf
         @method('PUT')
         <label for="name">Nom de la categoria</label>

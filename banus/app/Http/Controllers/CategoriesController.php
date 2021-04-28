@@ -89,10 +89,10 @@ class CategoriesController extends Controller
     {
         //
         $data = $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|min:3|max:50|unique:categories',
         ]);
         $categoria = Categoria::find($id);
-        $categoria = Categoria::update([
+        $categoria->update([
             'name' => $data['name'],
         ]);
         return redirect()->route('categories.index');
