@@ -16,6 +16,9 @@ class frontEndController extends Controller
         //
         return view('frontend.index');
     }
+    public function showprojectes(){
+        return view('frontend.projectes');
+    }
 
     /**
      * Show the form for creating a new resource.

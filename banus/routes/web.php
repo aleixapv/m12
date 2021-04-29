@@ -32,6 +32,7 @@ Route::delete('/admin/categories/destroy/{id}', [CategoriesController::class, 'd
 
 //projectes
 Route::get('/admin/projectes', [ProjectesController::class, 'index'])->name('projectes.index');
+Route::get('/projectes', [frontEndController::class, 'showprojectes'])->name('projectes.show');
 Route::get('/admin/projectes/create', [ProjectesController::class, 'create'])->name('projectes.create');
 Route::post('/admin/projectes/store', [ProjectesController::class, 'store'])->name('projectes.store');
 Route::get('/admin/projectes/edit/{id}', [ProjectesController::class, 'edit'])->name('projectes.edit');
