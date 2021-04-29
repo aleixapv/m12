@@ -17,7 +17,7 @@ class Serveis extends Migration
         Schema::create('serveis', function (Blueprint $table) {
             $table->id();
             $table->string('nom')->unique();
-            $table->string('icona');
+            $table->string('descripcio');
             $table->string('imatge');
             $table->timestamps();
             

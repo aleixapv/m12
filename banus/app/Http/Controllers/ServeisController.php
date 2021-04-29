@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Servei;
+use Illuminate\Support\Facades\Storage; 
 class ServeisController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class ServeisController extends Controller
         //
         $serveis = Servei::all();
         return view('backend.serveis.index',compact('serveis'));
-        
+
     }
 
     /**
@@ -27,6 +28,7 @@ class ServeisController extends Controller
     public function create()
     {
         //
+        return view('backend.serveis.create');
     }
 
     /**
@@ -38,6 +40,19 @@ class ServeisController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->validate([
+            'nom' => 'required|string|min:3|max:50|unique:serveis',
+            'descripcio' => 'required|string|min:3|max:200',
+            'imatge' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
+        ]);
+        $imgArxiu = $data['imatge']->store('public');
+        $urlImgArxiu = Storage::url($imgArxiu);
+        $servei = Servei::create([
+            'nom' => $data['nom'],
+            'descripcio' => $data['descripcio'],
+            'imatge' => $urlImgArxiu,
+        ]);
+        return redirect()->route('serveis.index');
     }
 
     /**
@@ -49,6 +64,8 @@ class ServeisController extends Controller
     public function show($id)
     {
         //
+        $servei = Servei::find($id);
+        return view('backend.serveis.show',compact('servei'));
     }
 
     /**
@@ -60,6 +77,8 @@ class ServeisController extends Controller
     public function edit($id)
     {
         //
+        $servei = Servei::find($id);
+        return view('backend.serveis.edit',compact('servei'));
     }
 
     /**
@@ -72,6 +91,28 @@ class ServeisController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->validate([
+            'nom' => 'required|string|min:3|max:50|unique:serveis,nom,'.$id,
+            'descripcio' => 'required|string|min:3|max:200',
+            'imatge' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
+        ]);
+        $servei = Servei::find($id);
+        if(isset($data['imatge'])){
+            Storage::delete( public_path($servei->imatge));
+            $imgArxiu = $data['imatge']->store('public');
+            $urlImgArxiu = Storage::url($imgArxiu);
+            $servei->update([
+                'nom' => $data['nom'],
+                'descripcio' => $data['descripcio'],
+                'imatge' => $urlImgArxiu,
+            ]);
+        }else{
+            $servei->update([
+                'nom' => $data['nom'],
+                'descripcio' => $data['descripcio'],
+            ]);
+        }
+        return redirect()->route('serveis.index');
     }
 
     /**
@@ -83,5 +124,7 @@ class ServeisController extends Controller
     public function destroy($id)
     {
         //
+        $servei = Servei::find($id);
+        $servei->delete();
     }
 }

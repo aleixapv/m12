@@ -11,7 +11,7 @@ class Servei extends Model
     protected $table = 'serveis';
     protected $fillable = [
         'nom',
-        'icona',
+        'descripcio',
         'imatge',
     ];
 }

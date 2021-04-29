@@ -49,7 +49,7 @@ Route::get('/admin/serveis/edit/{id}', [ServeisController::class, 'edit'])->name
 Route::get('/admin/serveis/show/{id}', [ServeisController::class, 'show'])->name('serveis.show');
 Route::put('/admin/serveis/update/{id}', [ServeisController::class, 'update'])->name('serveis.update');
 Route::delete('/admin/serveis/destroy/{id}', [ServeisController::class, 'destroy'])->name('serveis.destroy');
-Route::delete('/admin/serveis/edit/destroy/imatge', [ServeisController::class, 'destroyImatge'])->name('serveis.imatge.destroy');
+
 
 
 
