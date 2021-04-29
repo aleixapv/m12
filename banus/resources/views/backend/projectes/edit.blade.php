@@ -5,8 +5,9 @@
             <div>{{ $error }}</div>
         @endforeach
     @endif
-    <form action="{{route('projectes.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('projectes.update',['id' => $projecte->id])}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <label for="titol">Titol del nou projecte</label>
         <input type="text" name="titol" value="{{ $projecte->titol }}" "><br>
         <label for="descripcio_breu">Descripció breu del nou projecte</label>
