@@ -150,18 +150,47 @@ class ProjectesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //unique:users,email,'.Auth::id(),
         $data = $request->validate([
-            'titol' => 'required|string|min:3|max:50|unique:projectes',
+            'titol' => 'required|string|min:3|max:50|unique:projectes,titol,'.$id,
             'descripcio_breu' => 'required|string|min:3|max:50',
             'descripcio_detallada' => 'required|string|min:3|max:500',
             'imatges' => 'required',
-            'imatges.*' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
+            'imatges.*' => 'image|mimes:jpeg,png,jpg,gif,svg|dimensions:min_width=300,min_height=300',
             'categories' => 'required',
             'categories.*' => 'exists:categories,id',
         ]);
         $projecte = Projecte::find($id);
-        $projecte
+        $projecte->update([
+            'titol' => $data['titol'],
+            'descripcio_breu' => $data['descripcio_breu'],
+            'descripcio_detallada' => $data['descripcio_detallada'],
+        ]);
+        foreach($projecte_categorias = Projecte_Categoria::where('projecte_id','=', $projecte->id) as $projecte_categoria){
+            $projecte_categoria->delete();
+        }
+        foreach($data['categories'] as $categoriaId){
+            $projecte_categoria = Projecte_Categoria::create([
+                'projecte_id' => $projecte->id,
+                'categoria_id'=> $categoriaId,
+            ]); 
+        }
+        $imatges_db = [];
+        foreach($data['imatges'] as $imatge){
+            $imgArxiu = $imatge->store('public');
+            $urlImgArxiu = Storage::url($imgArxiu);
+            $imatge_db =  Imatge::create([
+                'url' => $urlImgArxiu,
+                'nom' => $imatge->getClientOriginalName(),
+            ]);
+            array_push($imatges_db,$imatge_db);
+        }
+        foreach($imatges_db as $imatge_db){
+            $projecte_imatge = Projecte_Imatge::create([
+                'projecte_id' => $projecte->id,
+                'imatge_id' => $imatge_db->id,
+            ]);
+        }
         return redirect()->route('projectes.index');
     }
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\BackEndController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProjectesController;
+use App\Http\Controllers\ServeisController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +41,15 @@ Route::get('/admin/projectes/show/{id}', [ProjectesController::class, 'show'])->
 Route::put('/admin/projectes/update/{id}', [ProjectesController::class, 'update'])->name('projectes.update');
 Route::delete('/admin/projectes/destroy/{id}', [ProjectesController::class, 'destroy'])->name('projectes.destroy');
 Route::delete('/admin/projectes/edit/destroy/imatge', [ProjectesController::class, 'destroyImatge'])->name('projectes.imatge.destroy');
+
+//serveis
+Route::get('/admin/serveis', [ServeisController::class, 'index'])->name('serveis.index');
+Route::get('/admin/serveis/create', [ServeisController::class, 'create'])->name('serveis.create');
+Route::post('/admin/serveis/store', [ServeisController::class, 'store'])->name('serveis.store');
+Route::get('/admin/serveis/edit/{id}', [ServeisController::class, 'edit'])->name('serveis.edit');
+Route::get('/admin/serveis/show/{id}', [ServeisController::class, 'show'])->name('serveis.show');
+Route::put('/admin/serveis/update/{id}', [ServeisController::class, 'update'])->name('serveis.update');
+Route::delete('/admin/serveis/destroy/{id}', [ServeisController::class, 'destroy'])->name('serveis.destroy');
 
 
 
