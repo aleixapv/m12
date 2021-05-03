@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Projecte;
-use App\Models\Categoria;
-use App\Models\Projecte_Categoria;
-use App\Models\Imatge;
-use App\Models\Projecte_Imatge;
+use App\Models\InformacioEmpresa;
 
-class frontEndController extends Controller
+class InformacioEmpresaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,12 +15,12 @@ class frontEndController extends Controller
     public function index()
     {
         //
-        return view('frontend.index');
-    }
-
-    public function showprojectes(){
-        
-        return view('frontend.projectes');
+        $informacio = InformacioEmpresa::all();
+        if($informacio->isEmpty()){
+            return view('backend.informacioEmpresa.create');
+        }else{
+            return view('backend.informacioEmpresa.show',compact('informacio'));
+        }
     }
 
     /**

@@ -28,7 +28,7 @@
 				<li class="nav-item"><a href="#" class="nav-link">Contacte</a></li>
 	        	<li class="nav-item"><a href="#" class="nav-link">Nosaltres</a></li>
 	        	<li class="nav-item dropdown">
-              <a class="nav-link" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projectes</a>
+              <a class="nav-link" href="{{ route('projectes.view') }}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projectes</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
               	<a class="dropdown-item" href="#">Cuines</a>
                 <a class="dropdown-item" href="#">Banys</a>

@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProjectesController;
 use App\Http\Controllers\ServeisController;
 use App\Http\Controllers\XarxesSocialsController;
+use App\Http\Controllers\InformacioEmpresaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +35,7 @@ Route::delete('/admin/categories/destroy/{id}', [CategoriesController::class, 'd
 
 //projectes
 Route::get('/admin/projectes', [ProjectesController::class, 'index'])->name('projectes.index');
-Route::get('/projectes', [frontEndController::class, 'showprojectes'])->name('projectes.show');
+Route::get('/projectes', [frontEndController::class, 'showprojectes'])->name('projectes.view');
 Route::get('/admin/projectes/create', [ProjectesController::class, 'create'])->name('projectes.create');
 Route::post('/admin/projectes/store', [ProjectesController::class, 'store'])->name('projectes.store');
 Route::get('/admin/projectes/edit/{id}', [ProjectesController::class, 'edit'])->name('projectes.edit');
@@ -61,6 +62,14 @@ Route::get('/admin/xarxes/show/{id}', [XarxesSocialsController::class, 'show'])-
 Route::put('/admin/xarxes/update/{id}', [XarxesSocialsController::class, 'update'])->name('xarxes.update');
 Route::delete('/admin/xarxes/destroy/{id}', [XarxesSocialsController::class, 'destroy'])->name('xarxes.destroy');
 
-
+//informacio empresa
+Route::get('/admin/informacio-empresa', [InformacioEmpresaController::class, 'index'])->name('informacio.empresa.index');
+Route::get('/admin/informacio-empresa/create', [InformacioEmpresaController::class, 'create'])->name('informacio.empresa.create');
+Route::post('/admin/informacio-empresa/store', [InformacioEmpresaController::class, 'store'])->name('informacio.empresa.store');
+Route::get('/admin/informacio-empresa/edit/{id}', [InformacioEmpresaController::class, 'edit'])->name('informacio.empresa.edit');
+Route::get('/admin/informacio-empresa/show/{id}', [InformacioEmpresaController::class, 'show'])->name('informacio.empresa.show');
+Route::put('/admin/informacio-empresa/update/{id}', [InformacioEmpresaController::class, 'update'])->name('informacio.empresa.update');
+Route::delete('/admin/informacio-empresa/destroy/{id}', [InformacioEmpresaController::class, 'destroy'])->name('informacio.empresa.destroy');
+Route::delete('/admin/informacio-empresa/edit/destroy/imatge', [InformacioEmpresaController::class, 'destroyImatge'])->name('informacio.empresa.imatge.destroy');
 
 require __DIR__.'/auth.php';

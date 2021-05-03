@@ -18,10 +18,12 @@ class InformacioEmpresa extends Migration
             $table->id();
             $table->string('nom_empresa');
             $table->string('eslogan')->nullable();
-            $table->string('direccio');
-            $table->string('telefon');
+            $table->string('tel');
             $table->string('correu');
-            $table->string('cordenades');
+            $table->string('cp');
+            $table->string('ciutat');
+            $table->string('carrer');
+            $table->string('numero');
             $table->unsignedBigInteger('imatge_logo_id');
             $table->timestamps();
             $table->foreign('imatge_logo_id')->references('id')->on('imatge_logo')->onUpdate('cascade')->onDelete('restrict');
