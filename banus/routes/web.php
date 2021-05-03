@@ -6,6 +6,7 @@ use App\Http\Controllers\BackEndController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProjectesController;
 use App\Http\Controllers\ServeisController;
+use App\Http\Controllers\XarxesSocialsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,7 +51,14 @@ Route::get('/admin/serveis/show/{id}', [ServeisController::class, 'show'])->name
 Route::put('/admin/serveis/update/{id}', [ServeisController::class, 'update'])->name('serveis.update');
 Route::delete('/admin/serveis/destroy/{id}', [ServeisController::class, 'destroy'])->name('serveis.destroy');
 
-
+//xarxes socials
+Route::get('/admin/xarxes', [XarxesSocialsController::class, 'index'])->name('xarxes.index');
+Route::get('/admin/xarxes/create', [XarxesSocialsController::class, 'create'])->name('xarxes.create');
+Route::post('/admin/xarxes/store', [XarxesSocialsController::class, 'store'])->name('xarxes.store');
+Route::get('/admin/xarxes/edit/{id}', [XarxesSocialsController::class, 'edit'])->name('xarxes.edit');
+Route::get('/admin/xarxes/show/{id}', [XarxesSocialsController::class, 'show'])->name('xarxes.show');
+Route::put('/admin/xarxes/update/{id}', [XarxesSocialsController::class, 'update'])->name('xarxes.update');
+Route::delete('/admin/xarxes/destroy/{id}', [XarxesSocialsController::class, 'destroy'])->name('xarxes.destroy');
 
 
 
