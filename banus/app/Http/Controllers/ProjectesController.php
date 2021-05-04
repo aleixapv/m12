@@ -170,7 +170,6 @@ class ProjectesController extends Controller
         foreach($projecte_categorias as $projecte_categoria){
             $projecte_categoria->delete();
         }
-        dd($data['categories']);
         foreach($data['categories'] as $categoriaId){
             $projecte_categoria = Projecte_Categoria::create([
                 'projecte_id' => $projecte->id,

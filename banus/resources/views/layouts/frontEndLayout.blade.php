@@ -24,9 +24,10 @@
 	      </button>
 	      <div class="collapse navbar-collapse justify-content-center col-11" id="ftco-nav">
 	        <ul class="navbar-nav m-auto">
-	        	<li class="nav-item active"><a href="#" class="nav-link">Inici</a></li>
+	        	<li class="nav-item active"><a href="{{route('f.index')}}" class="nav-link">Inici</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Contacte</a></li>
 	        	<li class="nav-item"><a href="#" class="nav-link">Nosaltres</a></li>
+				<li class="nav-item"><a href="{{route('projectes.view')}}" class="nav-link">Projectes</a></li>
 	        	<li class="nav-item dropdown">
               <a class="nav-link" href="{{ route('projectes.view') }}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projectes</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
