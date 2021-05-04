@@ -23,7 +23,7 @@ class frontEndController extends Controller
     }
 
     public function showprojectes(){
-        $projectess = [];
+        $projectesObj = [];
         $projectes = Projecte::all();
         $categories = Categoria::all();
         $imatges = Imatge::all();
@@ -41,14 +41,13 @@ class frontEndController extends Controller
             }
             foreach($projecte_imatges as $projecte_imatge){
                 $imatge = Imatge::find($projecte_imatge->imatge_id);
-                $data['imatges'][]['url'] = $imatge->url;
-                $data['imatges'][]['alt'] = $imatge->alt;
-                
+                $data['imatges'][$imatge->nom]['url'] = $imatge->url;
+                $data['imatges'][$imatge->nom]['alt'] = $imatge->alt;
             }
+            array_push($projectesObj,$data);
             
-
         }
-        
+        dd($projectesObj);
         return view('frontend.projectes');
     }
 
