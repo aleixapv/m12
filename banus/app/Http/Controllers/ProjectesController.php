@@ -52,7 +52,7 @@ class ProjectesController extends Controller
         $data = $request->validate([
             'titol' => 'required|string|min:3|max:50|unique:projectes',
             'descripcio_breu' => 'required|string|min:3|max:50',
-            'descripcio_detallada' => 'required|string|min:3|max:500',
+            'descripcio_detallada' => 'required|string|min:3|max:1000',
             'imatges' => 'required',
             'imatges.*' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
             'categories' => 'required',
@@ -60,8 +60,8 @@ class ProjectesController extends Controller
         ]);
         $projecte = Projecte::create([
             'titol' => ucfirst($data['titol']),
-            'descripcio_breu' => $data['descripcio_breu'],
-            'descripcio_detallada' => $data['descripcio_detallada'],
+            'descripcio_breu' => ucfirst($data['descripcio_breu']),
+            'descripcio_detallada' => ucfirst($data['descripcio_detallada']),
         ]);
         foreach($data['categories'] as $categoriaId){
             $projecte_categoria = Projecte_Categoria::create([
@@ -163,8 +163,8 @@ class ProjectesController extends Controller
         $projecte = Projecte::find($id);
         $projecte->update([
             'titol' => ucfirst($data['titol']),
-            'descripcio_breu' => $data['descripcio_breu'],
-            'descripcio_detallada' => $data['descripcio_detallada'],
+            'descripcio_breu' => ucfirst($data['descripcio_breu']),
+            'descripcio_detallada' => ucfirst($data['descripcio_detallada']),
         ]);
         $projecte_categorias = Projecte_Categoria::where('projecte_id','=', $projecte->id)->get();
         foreach($projecte_categorias as $projecte_categoria){

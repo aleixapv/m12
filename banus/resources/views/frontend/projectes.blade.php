@@ -7,7 +7,7 @@
     <div class="col-12">
       <div class="row border-bottom border-dark mt-5 mb ml-1" id="containerprojecte">
         <!--Carousel Wrapper-->
-        <div id="carousel-example-{{$contador}}z" class="carousel slide carousel-fade col-5" data-ride="carousel">
+        <div id="carousel-example-{{$contador}}z" class="carousel slide carousel-fade col-5 " data-ride="carousel">
           <!--Indicators-->
           <ol class="carousel-indicators">
             @php
@@ -49,6 +49,8 @@
                 <strong>
                   <a href="#" class="text-dark" id="text_titulo">{{$projecte['titol']}}</a>
                 </strong>
+              </p>
+              <p class="text-center text-justify">{{$projecte['data']}}
               </p>
               <p class="text-center text-justify">{{$projecte['descripcio_breu']}}
               </p>

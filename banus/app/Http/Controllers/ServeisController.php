@@ -48,8 +48,8 @@ class ServeisController extends Controller
         $imgArxiu = $data['imatge']->store('public');
         $urlImgArxiu = Storage::url($imgArxiu);
         $servei = Servei::create([
-            'nom' => $data['nom'],
-            'descripcio' => $data['descripcio'],
+            'nom' => ucfirst($data['nom']),
+            'descripcio' => ucfirst($data['descripcio']),
             'imatge' => $urlImgArxiu,
         ]);
         return redirect()->route('serveis.index');
@@ -102,13 +102,13 @@ class ServeisController extends Controller
             $imgArxiu = $data['imatge']->store('public');
             $urlImgArxiu = Storage::url($imgArxiu);
             $servei->update([
-                'nom' => $data['nom'],
-                'descripcio' => $data['descripcio'],
+                'nom' => ucfirst($data['nom']),
+                'descripcio' => ucfirst($data['descripcio']),
                 'imatge' => $urlImgArxiu,
             ]);
         }else{
             $servei->update([
-                'nom' => $data['nom'],
+                'nom' => ucfirst($data['nom']),
                 'descripcio' => $data['descripcio'],
             ]);
         }

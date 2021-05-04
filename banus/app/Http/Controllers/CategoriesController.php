@@ -47,7 +47,7 @@ class CategoriesController extends Controller
             'name' => 'required',
         ]);
         $categoria = Categoria::create([
-            'name' => $data['name'],
+            'name' => ucfirst($data['name']),
         ]);
         return redirect()->route('categories.index');
     }
@@ -93,7 +93,7 @@ class CategoriesController extends Controller
         ]);
         $categoria = Categoria::find($id);
         $categoria->update([
-            'name' => $data['name'],
+            'name' => ucfirst($data['name']),
         ]);
         return redirect()->route('categories.index');
     }

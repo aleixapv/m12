@@ -20,11 +20,11 @@ class InformacioEmpresa extends Migration
             $table->string('eslogan')->nullable();
             $table->string('tel');
             $table->string('correu');
-            $table->string('cp');
+            $table->string('adreca_1');
+            $table->string('adreca_2')->nullable();
             $table->string('ciutat');
-            $table->string('carrer');
-            $table->string('numero');
-
+            $table->string('provincia');
+            $table->string('zip/cp');
             $table->string('nom_logo');
             $table->string('alt_logo');
             $table->string('url_logo');
