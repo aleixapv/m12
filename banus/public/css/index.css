@@ -8,3 +8,10 @@
     padding-left: 0px !important;
     padding-right: 0px !important;
     }
+    #carousel-example-1z .carousel-item {
+        height: 300px;
+      }
+      #carousel1 .carousel-item {
+        height: 100px;
+        width: 300px;
+      }

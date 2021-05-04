@@ -21,6 +21,9 @@ class frontEndController extends Controller
         //
         return view('frontend.index');
     }
+    public function showprojecte(){
+        return view('frontend.projecte');
+    }
 
     public function showprojectes(){
         $projectesObj = [];

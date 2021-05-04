@@ -1,18 +1,21 @@
 @extends('layouts.frontEndLayout')
 @section('content')
-<div class="" id="containerprojecte">
+<div class="col-12" id="containerprojecte">
       <!--Carousel Wrapper-->
       <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+          <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
         <!--Slides-->
         <div class="carousel-inner" role="listbox">
           <!--First slide-->
           <div class="carousel-item active">
-            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
               alt="First slide">
-              <div class="carousel-caption">
-                <h3>Maricon</h3>
-                <p>Si Soy</p>
-            </div>
           </div>
           <!--/First slide-->
           <!--Second slide-->
@@ -48,7 +51,7 @@
         <div class="col-md-4 .col-xs-12">
           <div class="service card">
             <a href="#"><h3>Titulo</h3></a> 
-            <div id="carousel1" class="carousel slide" data-ride="carousel">
+            <div id="demo" class="carousel slide" data-ride="carousel">
 
   <!-- Indicators -->
 
@@ -67,28 +70,5 @@
 
 
 </div>
-            <p>descripció.</p>
-          </div>
-        </div>
-        <div class="col-md-4 .col-xs-12">
-          <div class="service card">
-            <h3><strong>titulo</strong></h3>
-            <hr>
-            <p>descripció.</p>
-          </div>
-        </div>
-        <div class="col-md-4 .col-xs-12">
-          <div class="service card"> 
-            <h3><strong>titulo</strong></h3>
-            <hr>
-            <p>descripció.</p>
-          </div>
-        </div>
-      </div>
-    </div>  
-      <br>
-    </div>
-<!--/.Carousel Wrapper-->
-  </div>
   <link rel="stylesheet" href="{{url('css/index.css')}}">
 @endsection
