@@ -21,7 +21,7 @@ class frontEndController extends Controller
     {
         //
         $categories = Categoria::all();
-        $informacio = InformacioEmpresa::all();
+        $informacio = InformacioEmpresa::all()->first();
         return view('frontend.index',compact(['categories','informacio']));
     }
     public function showprojecte(){
@@ -29,6 +29,7 @@ class frontEndController extends Controller
     }
 
     public function showprojectes(){
+        $informacio = InformacioEmpresa::all()->first();
         $projectesObj = [];
         $projectes = Projecte::all();
         $categories = Categoria::all();
@@ -55,7 +56,7 @@ class frontEndController extends Controller
             
         }
         //dd($projectesObj);
-        return view('frontend.projectes',compact(['projectesObj','categories']));
+        return view('frontend.projectes',compact(['projectesObj','categories','informacio']));
     }
 
     /**
