@@ -46,7 +46,7 @@ class InformacioEmpresaController extends Controller
             'imatge'=> '',
         ]);
         $informacio = InformacioEmpresa::create([
-            'nom_empresa' => $data[''],
+            'nom_empresa' => $data['nom_empresa'],
             'eslogan' => '',
             'tel'=> '',
             'correu'=> '',
