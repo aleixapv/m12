@@ -74,9 +74,9 @@
 				<li><a href="#">Politica de Privacitat</a></li>
 			  </ul>
 			</div>
-			<div class="col-md-3 mb-3 d-none d-lg-block">
+			<!--<div class="col-md-3 mb-3 d-none d-lg-block">
 				<div style="width: 100%"><iframe width="300" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=400&amp;height=200&amp;hl=es&amp;q=Carrer%20d'Avinyonet%20del%20Pened%C3%A8s,%2015,%2008720%20Vilafranca%20del%20Pened%C3%A8s+(Fusteria%20Ban%C3%BAs)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.mapsdirections.info/marcar-radio-circulo-mapa/"></a></div>
-			</div>
+			</div>-->
 			
   
 		<div class="container mt-3 border-top border-dark">

@@ -17,13 +17,7 @@
         <label for="categories">Categorias del nou projecte</label>
         <select name="categories[]" multiple ">
             @forelse ($categories as $categoria)
-                @foreach ($categoriesDelProjecte as $categoriaDelProjecte)
-                    @if ($categoriaDelProjecte->id == $categoria->id)
-                        <option value="{{$categoria->id}}" selected>{{$categoria->name}}</option>
-                    @else
-                        <option value="{{$categoria->id}}">{{$categoria->name}}</option>
-                    @endif
-                @endforeach
+                <option value="{{$categoria->id}}">{{$categoria->name}}</option>
             @empty
                 <p>No hi han categories</p>
             @endforelse

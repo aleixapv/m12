@@ -50,8 +50,8 @@ class frontEndController extends Controller
             array_push($projectesObj,$data);
             
         }
-        dd($projectesObj);
-        return view('frontend.projectes');
+        //dd($projectesObj);
+        return view('frontend.projectes',compact('projectesObj'));
     }
 
     /**
