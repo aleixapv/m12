@@ -1,5 +1,4 @@
 #carousel-example-1z{
-    height:100vh !important;
     width:100% !important;
     max-height: none !important;
     max-width: none !important;
@@ -11,7 +10,27 @@
     #carousel-example-1z .carousel-item {
         height: 300px;
       }
-      #carousel1 .carousel-item {
-        height: 100px;
-        width: 300px;
-      }
+
+#carousel1 img{
+  height: 200px !important;
+  width: 100%;
+}
+#titol_card{
+  color: black;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  margin-left: 5px;
+  letter-spacing: 2px;
+}
+#tags_card{
+  color: black;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  margin-left: 35px;
+  letter-spacing: 2px;
+}
+#service_card{
+  border-right: solid black 1px;
+}
