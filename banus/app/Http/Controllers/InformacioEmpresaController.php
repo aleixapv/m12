@@ -23,15 +23,6 @@ class InformacioEmpresaController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -42,18 +33,33 @@ class InformacioEmpresaController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->validate([
+            'nom_empresa' => '',
+            'eslogan' => '',
+            'tel'=> '',
+            'correu'=> '',
+            'cp'=> '',
+            'ciutat'=> '',
+            'carrer'=> '',
+            'numero'=> '',
+            'alt_logo'=> '',
+            'imatge'=> '',
+        ]);
+        $informacio = InformacioEmpresa::create([
+            'nom_empresa' => $data[''],
+            'eslogan' => '',
+            'tel'=> '',
+            'correu'=> '',
+            'cp'=> '',
+            'ciutat'=> '',
+            'carrer'=> '',
+            'numero'=> '',
+            'nom_logo'=>,
+            'alt_logo'=>,
+            'url_logo'=>,
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -61,7 +67,7 @@ class InformacioEmpresaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
     }
@@ -73,19 +79,10 @@ class InformacioEmpresaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+ 
 }

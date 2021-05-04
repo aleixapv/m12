@@ -24,9 +24,12 @@ class InformacioEmpresa extends Migration
             $table->string('ciutat');
             $table->string('carrer');
             $table->string('numero');
-            $table->unsignedBigInteger('imatge_logo_id');
+
+            $table->string('nom_logo');
+            $table->string('alt_logo');
+            $table->string('url_logo');
             $table->timestamps();
-            $table->foreign('imatge_logo_id')->references('id')->on('imatge_logo')->onUpdate('cascade')->onDelete('restrict');
+            
         });
     }
 

@@ -64,12 +64,9 @@ Route::delete('/admin/xarxes/destroy/{id}', [XarxesSocialsController::class, 'de
 
 //informacio empresa
 Route::get('/admin/informacio-empresa', [InformacioEmpresaController::class, 'index'])->name('informacio.empresa.index');
-Route::get('/admin/informacio-empresa/create', [InformacioEmpresaController::class, 'create'])->name('informacio.empresa.create');
 Route::post('/admin/informacio-empresa/store', [InformacioEmpresaController::class, 'store'])->name('informacio.empresa.store');
-Route::get('/admin/informacio-empresa/edit/{id}', [InformacioEmpresaController::class, 'edit'])->name('informacio.empresa.edit');
-Route::get('/admin/informacio-empresa/show/{id}', [InformacioEmpresaController::class, 'show'])->name('informacio.empresa.show');
-Route::put('/admin/informacio-empresa/update/{id}', [InformacioEmpresaController::class, 'update'])->name('informacio.empresa.update');
-Route::delete('/admin/informacio-empresa/destroy/{id}', [InformacioEmpresaController::class, 'destroy'])->name('informacio.empresa.destroy');
-Route::delete('/admin/informacio-empresa/edit/destroy/imatge', [InformacioEmpresaController::class, 'destroyImatge'])->name('informacio.empresa.imatge.destroy');
+Route::get('/admin/informacio-empresa/edit', [InformacioEmpresaController::class, 'edit'])->name('informacio.empresa.edit');
+Route::put('/admin/informacio-empresa/update', [InformacioEmpresaController::class, 'update'])->name('informacio.empresa.update');
+
 
 require __DIR__.'/auth.php';

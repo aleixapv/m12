@@ -18,6 +18,8 @@ class InformacioEmpresa extends Model
         'ciutat',
         'carrer',
         'numero',
-        'imatge_logo_id',
+        'nom_logo',
+        'alt_logo',
+        'url_logo',
     ];
 }
