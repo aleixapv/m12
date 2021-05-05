@@ -11,9 +11,28 @@
     cursor: pointer;
     margin-left: 35%;
   }
+#containerprojecte{
+  margin-left: 20px;
+}
 #text_projecte{
-    margin-left: 8%;
+    margin-left: 5%;
+    font-size: 26px;
 }
 #text_titulo:hover{
         color: #40bfc1 !important;
+    }
+    @media (max-width: 800px) {
+      #carousel-example-1z .carousel-item {
+        height: 200px;
+        min-height: 100%;
+        min-width: 100%;
+        margin-left: 0px;
+      }
+      #text_projecte{
+        font-size: 24px;
+        margin-left: 0%;
+    }
+    #containerprojecte{
+      margin-right: 10px;
+    }
     }

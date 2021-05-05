@@ -7,7 +7,7 @@
     <div class="col-12">
       <div class="row border-bottom border-dark mt-5 mb ml-1" id="containerprojecte">
         <!--Carousel Wrapper-->
-        <div id="carousel-example-{{$contador}}z" class="carousel slide carousel-fade col-7 " data-ride="carousel">
+        <div id="carousel-example-{{$contador}}z" class="carousel slide carousel-fade col-xl-7 col-md-12 " data-ride="carousel">
           <!--Indicators-->
           <ol class="carousel-indicators">
             @php
@@ -25,7 +25,7 @@
           <div class="carousel-inner" role="listbox">
             @foreach ($projecte['imatges'] as $imatge)
               <div class="carousel-item @if($loop->first) active @endif">
-                <img class="d-block" width="800" height="400" src="{{ url($imatge['url']) }}"
+                <img class="d-block img-fluid" width="900" height="450" src="{{ url($imatge['url']) }}"
                   alt="{{$imatge['alt']}}">
               </div>
             @endforeach
@@ -43,7 +43,7 @@
           <!--/.Controls-->
         </div>
         <!--/.Carousel Wrapper-->
-        <div class="col-5 ml" id="text_projecte">
+        <div class="col-xl-4 col-md-12 ml" id="text_projecte">
           <div>
               <p class="text-center">
                 <strong>
@@ -59,7 +59,7 @@
               <!--<button class="boto_informacio">Mes Informacio</button>-->
             </div>
         </div>
-        <div class="col-12 mb-5"></div>
+        <div class="col-5 mb-5"></div>
       </div>
     </div>
     @php
