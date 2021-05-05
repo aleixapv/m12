@@ -9,6 +9,7 @@ use App\Models\Projecte_Categoria;
 use App\Models\Imatge;
 use App\Models\Projecte_Imatge;
 use App\Models\InformacioEmpresa;
+use App\Models\XarxaSocial;
 
 class frontEndController extends Controller
 {
@@ -22,7 +23,8 @@ class frontEndController extends Controller
         //
         $categories = Categoria::all();
         $informacio = InformacioEmpresa::all()->first();
-        return view('frontend.index',compact(['categories','informacio']));
+        $xarxes = XarxaSocial::all();
+        return view('frontend.index',compact(['categories','informacio','xarxes']));
     }
     public function showprojecte(){
         return view('frontend.projecte');
@@ -53,7 +55,6 @@ class frontEndController extends Controller
                 $data['imatges'][$imatge->id]['alt'] = $imatge->alt;
             }
             array_push($projectesObj,$data);
-            
         }
         //dd($projectesObj);
         return view('frontend.projectes',compact(['projectesObj','categories','informacio']));

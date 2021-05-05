@@ -2,6 +2,7 @@
 @section('content')
 <br class="d-block d-lg-none">
 <br class="d-block d-lg-none">
+<a href="https://api.whatsapp.com/send?phone=34688200839" target="_blank">whatsap</a>
 <div class="" id="containerprojecte">
       <!--Carousel Wrapper-->
       <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<!--<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>-->
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
@@ -17,8 +17,8 @@
 	<section class="ftco-section">
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-				<img src="{{url('storage/logo_navbar.png')}}" id="logo_navbar" width="50px" height="50px">
-				<a class="navbar-brand d-none d-lg-block" id="title_navbar" href="index.html">Banús</a>
+				<img src="{{url($informacio->url_logo)}}" id="logo_navbar" width="50px" height="50px">
+				<a class="navbar-brand d-none d-lg-block" id="title_navbar" href="index.html">{{$informacio->nom_empresa}}</a>
 	      <button class="navbar-toggler" id="boton_menu" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="fa fa-bars"></span> Menu
 	      </button>
@@ -41,11 +41,11 @@
 	        </ul>
 	      </div>
 		  <div class="col-1 d-none d-lg-block">
-			<i class="fab fa-instagram"></i>
-			<i class="fab fa-instagram"></i>
-			<i class="fab fa-instagram"></i>
-			<i class="fab fa-instagram"></i>
-			<i class="fab fa-instagram"></i>
+			  @forelse ($xarxes as $xarxa)
+				  <a href="{{$xarxa->enllac}}"><i class="fab fa-instagram"></i></a>
+			  @empty
+				  <p>Xarxes soscials no disponibles</p>
+			  @endforelse
 		  </div>
 	    </div>
 	  </nav>
@@ -57,10 +57,9 @@
 		  <div class="row">
 			<div class="col-sm-12 col-md-6">
 			  <h6>contacte</h6>
-			  <p class="text-justify">EMAIL: info@fusteriabanus.com
-				  <br> TELEFON: 938 173 400
-				  <br> FAX: 938 173 400
-				  <br> DIRECCIÓ: Carrer d'Avinyonet del Penedès 15, Vilafranca del Penedès
+			  <p class="text-justify">EMAIL: {{$informacio->correu}}
+				  <br> TELEFON: {{$informacio->tel}}
+				  <br> DIRECCIÓ: {{$informacio->adreca_1}}{{$informacio->adreca_2}}, {{$informacio->ciutat}}
 			  </p>
 			</div>
   
@@ -83,7 +82,7 @@
 		  <div class="row mt-2">
 			<div class="col-md-8 col-sm-6 col-xs-12">
 			  <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by 
-		   <a href="#">Banís</a>.
+		   <a href="#">{{$informacio->nom_empresa}}</a>.
 			  </p>
 			</div>
   
