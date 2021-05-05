@@ -8240,6 +8240,7 @@
         }
           
     .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
+      z-index: 100000;
       border: none;
       color: grey;
       -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
