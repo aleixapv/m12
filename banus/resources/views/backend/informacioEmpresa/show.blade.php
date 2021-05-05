@@ -1,6 +1,9 @@
 @extends('layouts.backEndLayout')
 @section('content')
 <a href="{{route('informacio.empresa.edit')}}">Editar</a>
+<div class="container">
+
+</div>
 {{$informacio->nom_empresa}}
 {{$informacio->eslogan}}
 {{$informacio->tel}}
