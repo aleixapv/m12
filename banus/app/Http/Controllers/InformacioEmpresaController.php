@@ -50,7 +50,7 @@ class InformacioEmpresaController extends Controller
             'adreca_2'=> 'nullable|string|max:50',
             'ciutat'=> 'required|string|max:50',
             'provincia'=> 'required|string|max:50',
-            'zip_cp' => 'required|digits:5|integer',
+            'zip_cp' => 'required|digits:5|numeric',
             'alt_logo'=> 'required',
             'imatge'=> 'required|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -100,6 +100,48 @@ class InformacioEmpresaController extends Controller
     public function update(Request $request)
     {
         //
+        $informacio =InformacioEmpresa::all()->first();
+        $data = $request->validate([
+            'nom_empresa' => 'required|string|min:3|max:50',
+            'eslogan' => 'nullable|string|min:3|max:50',
+            'tel'=> 'required|digits:9|numeric',
+            'tel2'=> 'nullable|digits:9|numeric',
+            'whatsapp'=> 'nullable|digits:11|numeric',
+            'correu'=> 'required|email',
+            'adreca_1'=> 'required|string|max:50',
+            'adreca_2'=> 'nullable|string|max:50',
+            'ciutat'=> 'required|string|max:50',
+            'provincia'=> 'required|string|max:50',
+            'zip_cp' => 'required|digits:5|numeric',
+            'alt_logo'=> 'required',
+            'imatge'=> 'nullable|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+        if(!isset($data['imatge'])){
+            $nomImatge = $informacio->nom_logo;
+            $urlImgArxiu = $informacio->url_logo;
+        }else{
+            $nomImatge = $data['imatge']->getClientOriginalName();
+            $imgArxiu = $imatge->store('public');
+            $urlImgArxiu = Storage::url($imgArxiu);
+        }
+        $informacio->update([
+            'nom_empresa' => strtoupper($data['nom_empresa']),
+            'eslogan' => ucfirst($data['eslogan']),
+            'tel'=> $data['tel'],
+            'tel2'=> $data['tel2'],
+            'tel2'=> $data['tel2'],
+            'whatsapp'=> $data['whatsapp'],
+            'correu'=> $data['correu'],
+            'adreca_1'=> ucfirst($data['adreca_1']),
+            'adreca_2'=> ucfirst($data['adreca_2']),
+            'ciutat'=> ucfirst($data['ciutat']),
+            'provincia'=> ucfirst($data['provincia']),
+            'zip_cp'=> $data['zip_cp'],
+            'nom_logo'=> $nomImatge,
+            'alt_logo'=>$data['nom_empresa'],
+            'url_logo'=>$urlImgArxiu,
+        ]);
+        return redirect()->route('informacio.empresa.index');
     }
 
  
