@@ -49,8 +49,6 @@
 		  </div>
 	    </div>
 	  </nav>
-	  <br>
-	  <br>
 	  @yield('content')
 	</section>
 	  <!-- Site footer -->
