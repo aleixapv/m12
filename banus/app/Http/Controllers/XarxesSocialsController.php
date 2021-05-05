@@ -7,6 +7,10 @@ use App\Models\XarxaSocial;
 
 class XarxesSocialsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +49,7 @@ class XarxesSocialsController extends Controller
             'enllac' => 'required|string|min:3|max:50',
         ]);
         $xarxa = XarxaSocial::create([
-            'nom' => $data['nom'],
+            'nom' => ucfirst($data['nom']),
             'icona' => $data['icona'],
             'enllac' => $data['enllac'],
         ]);
@@ -87,13 +91,13 @@ class XarxesSocialsController extends Controller
     {
         //
         $data = $request->validate([
-            'nom' => 'required|string|min:3|max:50|unique:xarxes_socials',
+            'nom' => 'required|string|min:3|max:50|unique:xarxes_socials,nom,'.$id,
             'icona' => 'required|string|min:3|max:50',
             'enllac' => 'required|string|min:3|max:50',
         ]);
         $xarxa = XarxaSocial::find($id);
         $xarxa->update([
-            'nom' => $data['nom'],
+            'nom' => ucfirst($data['nom']),
             'icona' => $data['icona'],
             'enllac' => $data['enllac'],
         ]);

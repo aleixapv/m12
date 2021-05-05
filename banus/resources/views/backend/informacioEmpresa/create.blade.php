@@ -49,7 +49,7 @@
         
         <div class="row">
             <div class="col-25">
-                <label for="whatsapp">Whatsapp de contacte</label>
+                <label for="whatsapp">Whatsapp de contacte:</label>
             </div>
             <div class="col-75">
                 <input type="text" name="whatsapp" value="{{ old('whatsapp') }}">
