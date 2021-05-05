@@ -1,24 +1,16 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <h1>titol: {{$projecte->titol}}</h1><br>
-    <h1>descripcio breu:</h1><br>
-    <p>{{$projecte->descripcio_breu}}</p><br>
-    <h1>descripcio detallada:</h1><br>
-    <p>{{$projecte->descripcio_detallada}}</p><br>
-    <h1>categorias:</h1>
-    <ul>
-        @forelse($categories as $categoria)
-            <li>{{$categoria->name}}</li>
-        @empty
-            <li>no te categories</li>
-        @endforelse
-    </ul>
-    <h1>imatges:</h1>
-    <ul>
-        @forelse($imatges as $imatge)
-            <img src="{{url($imatge->url)}}" alt="{{$imatge->alt}}">
-        @empty
-            <li>no te imatges</li>
-        @endforelse
-    </ul>
+<a href="{{route('informacio.empresa.edit')}}">Editar</a>
+{{$informacio->nom_empresa}}
+{{$informacio->eslogan}}
+{{$informacio->tel}}
+{{$informacio->tel2}}
+{{$informacio->whatsapp}}
+{{$informacio->correu}}
+{{$informacio->adreca_1}}
+{{$informacio->adreca_2}}
+{{$informacio->ciutat}}
+{{$informacio->provincia}}
+{{$informacio->zip_cp}}
+<img src="{{url($informacio->url_logo)}}" alt="{{$informacio->alt_logo}}" srcset="">
 @endsection  

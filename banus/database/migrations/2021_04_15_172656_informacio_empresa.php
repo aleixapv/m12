@@ -19,12 +19,14 @@ class InformacioEmpresa extends Migration
             $table->string('nom_empresa');
             $table->string('eslogan')->nullable();
             $table->string('tel');
+            $table->string('tel2')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->string('correu');
             $table->string('adreca_1');
             $table->string('adreca_2')->nullable();
             $table->string('ciutat');
             $table->string('provincia');
-            $table->string('zip/cp');
+            $table->string('zip_cp');
             $table->string('nom_logo');
             $table->string('alt_logo');
             $table->string('url_logo');

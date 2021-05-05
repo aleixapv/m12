@@ -14,5 +14,4 @@
     @empty
         <p>No hi han categories</p>
     @endforelse
-    <h1>Corrector Ortografico en HTML5</h1>
 @endsection

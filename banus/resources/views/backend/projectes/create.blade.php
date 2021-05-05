@@ -8,7 +8,7 @@
     <form action="{{route('projectes.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="titol">Titol del nou projecte</label>
-        <input type="text" name="titol" value="{{ old('titol') }}" "><br>
+        <input type="text" name="titol" value="{{ old('titol') }}" ><br>
         <label for="descripcio_breu">Descripció breu del nou projecte</label>
         <textarea name="descripcio_breu" >{{ old('descripcio_breu') }}</textarea><br>
         <label for="descripcio_detallada">Descripció detallada del nou projecte</label>

@@ -37,6 +37,7 @@ class frontEndController extends Controller
         $categories = Categoria::all();
         $imatges = Imatge::all();
         $projectes_imatges = Projecte_imatge::all();
+        $xarxes = XarxaSocial::all();
         foreach($projectes as $projecte){
             $data = [];
             $projecte_categories = Projecte_Categoria::where('projecte_id', '=', $projecte->id)->get();
@@ -57,7 +58,7 @@ class frontEndController extends Controller
             array_push($projectesObj,$data);
         }
         //dd($projectesObj);
-        return view('frontend.projectes',compact(['projectesObj','categories','informacio']));
+        return view('frontend.projectes',compact(['projectesObj','categories','informacio','xarxes']));
     }
 
     /**
