@@ -88,28 +88,29 @@
             </div>
         </div>
         
-        
-        
-        <div class="row">
-            <div class="col-25">
-                <label for="ciutat">Ciutat: <i class="req">*</i></label>
-            </div>
-            <div class="col-75">
-                <input type="text" name="ciutat" value="{{ $informacio->ciutat }}">
-            </div>
-        </div>
-        
-        
-        
         <div class="row">
             <div class="col-25">
                 <label for="provincia">Provincia: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input type="text" name="provincia" value="{{ $informacio->provincia }}">
+                <select id="selecProvincia">
+                    <option value="{{ $informacio->provincia }}">{{ $informacio->provincia }}</option>
+                </select>
+                <input type="text" id="provinciaInput" name="provincia" value="{{ $informacio->provincia }}" hidden>
             </div>
         </div>
         
+        <div class="row">
+            <div class="col-25">
+                <label for="ciutat">Poblacio: <i class="req">*</i></label>
+            </div>
+            <div class="col-75">
+                <select name="" id="selecPoblacio">
+                    <option value="{{ $informacio->ciutat }}">{{ $informacio->ciutat }}</option>
+                </select>
+                <input type="text" id="poblacioInput" name="ciutat" value="{{ $informacio->ciutat }}" hidden>
+            </div>
+        </div>
         
         
         <div class="row">
@@ -117,7 +118,10 @@
                 <label for="zip_cp">Codi postal: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input type="text" name="zip_cp" value="{{ $informacio->zip_cp }}">
+                <select name="" id="selecCp">
+                    <option value="{{ $informacio->zip_cp }}">{{ $informacio->zip_cp }}</option>
+                </select>
+                <input type="text" id="cpInput" name="zip_cp" value="{{ $informacio->zip_cp }}" hidden>
             </div>
         </div>
         
@@ -155,4 +159,6 @@
         </div>
         
     </form>
+    <script src="{{url('js/src/jquery.min.js')}}"></script>
+    <script src="{{url('js/informacio.js')}}"></script>
 @endsection

@@ -92,24 +92,26 @@
         
         <div class="row">
             <div class="col-25">
-                <label for="ciutat">Ciutat: <i class="req">*</i></label>
-            </div>
-            <div class="col-75">
-                <input type="text" name="ciutat" value="{{ old('ciutat') }}">
-            </div>
-        </div>
-        
-        
-        
-        <div class="row">
-            <div class="col-25">
                 <label for="provincia">Provincia: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input type="text" name="provincia" value="{{ old('provincia') }}">
+                <select id="selecProvincia">
+                </select>
+                <input type="text" id="provinciaInput" name="provincia" value="" hidden>
             </div>
         </div>
         
+        <div class="row">
+            <div class="col-25">
+                <label for="ciutat">Poblacio: <i class="req">*</i></label>
+            </div>
+            <div class="col-75">
+                <select name="" id="selecPoblacio">
+                    
+                </select>
+                <input type="text" id="poblacioInput" name="ciutat" value="" hidden>
+            </div>
+        </div>
         
         
         <div class="row">
@@ -117,7 +119,10 @@
                 <label for="zip_cp">Codi postal: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input type="text" name="zip_cp" value="{{ old('zip_cp') }}">
+                <select name="" id="selecCp">
+                    
+                </select>
+                <input type="text" id="cpInput" name="zip_cp" value="" hidden>
             </div>
         </div>
         
@@ -146,4 +151,6 @@
             <input type="submit" value="Crear">
         </div>
     </form>
+    <script src="{{url('js/src/jquery.min.js')}}"></script>
+    <script src="{{url('js/informacio.js')}}"></script>
 @endsection

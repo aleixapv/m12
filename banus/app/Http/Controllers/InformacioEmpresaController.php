@@ -70,7 +70,7 @@ class InformacioEmpresaController extends Controller
             'provincia'=> ucfirst($data['provincia']),
             'zip_cp'=> $data['zip_cp'],
             'nom_logo'=>$data['imatge']->getClientOriginalName(),
-            'alt_logo'=>$data['nom_empresa'],
+            'alt_logo'=>$data['alt_logo'],
             'url_logo'=>$urlImgArxiu,
         ]);
         return redirect()->route('informacio.empresa.index');
@@ -112,7 +112,7 @@ class InformacioEmpresaController extends Controller
             'adreca_2'=> 'nullable|string|max:50',
             'ciutat'=> 'required|string|max:50',
             'provincia'=> 'required|string|max:50',
-            'zip_cp' => 'required|digits:5|numeric',
+            'zip_cp' => 'required|string|max:5',
             'alt_logo'=> 'required',
             'imatge'=> 'nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
