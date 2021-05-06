@@ -73,7 +73,7 @@ class InformacioEmpresaController extends Controller
             'alt_logo'=>$data['alt_logo'],
             'url_logo'=>$urlImgArxiu,
         ]);
-        return redirect()->route('informacio.empresa.index');
+        return redirect()->route('informacio.empresa.index')->with('status', 'Informació de la empresa desada correctament.');
     }
 
 
@@ -141,7 +141,7 @@ class InformacioEmpresaController extends Controller
             'alt_logo'=>$data['nom_empresa'],
             'url_logo'=>$urlImgArxiu,
         ]);
-        return redirect()->route('informacio.empresa.index');
+        return redirect()->route('informacio.empresa.index')->with('status', 'Informació de la empresa desada correctament.');
     }
 
  

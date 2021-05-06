@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class XarxesSeeder extends Seeder
 {
     /**
@@ -14,7 +14,7 @@ class XarxesSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('informacio_empresa')->insert([
+        DB::table('xarxes_socials')->insert([
             'nom' => 'Instagram',
             'icona' => 'fab fa-instagram',
             'enllac' => 'https://www.instagram.com/fusteriabanus/',

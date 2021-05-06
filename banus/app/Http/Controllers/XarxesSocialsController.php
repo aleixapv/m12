@@ -46,14 +46,14 @@ class XarxesSocialsController extends Controller
         $data = $request->validate([
             'nom' => 'required|string|min:3|max:50|unique:xarxes_socials',
             'icona' => 'required|string|min:3|max:50',
-            'enllac' => 'required|string|min:3|max:50',
+            'enllac' => 'required|url',
         ]);
         $xarxa = XarxaSocial::create([
             'nom' => ucfirst($data['nom']),
             'icona' => $data['icona'],
             'enllac' => $data['enllac'],
         ]);
-        return redirect()->route('xarxes.index');
+        return redirect()->route('xarxes.index')->with('status', 'Xarxa social desada correctament.');
     }
 
     /**
@@ -93,7 +93,7 @@ class XarxesSocialsController extends Controller
         $data = $request->validate([
             'nom' => 'required|string|min:3|max:50|unique:xarxes_socials,nom,'.$id,
             'icona' => 'required|string|min:3|max:50',
-            'enllac' => 'required|string|min:3|max:50',
+            'enllac' => 'required|url',
         ]);
         $xarxa = XarxaSocial::find($id);
         $xarxa->update([
@@ -101,7 +101,7 @@ class XarxesSocialsController extends Controller
             'icona' => $data['icona'],
             'enllac' => $data['enllac'],
         ]);
-        return redirect()->route('xarxes.index');
+        return redirect()->route('xarxes.index')->with('status', 'Xarxa social desada correctament.');
     }
 
     /**
