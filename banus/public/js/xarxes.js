@@ -2,7 +2,6 @@ $( document ).ready(function() {
 
     $error = $('#error');
     
-    $formXarxa = $('#formXarxa' +" *");
     $nomXarxa = $('#nomXarxa');
     $iconaXarxa = $('#iconaXarxa');
     $enllac = $('#enllac');
@@ -15,16 +14,12 @@ $( document ).ready(function() {
     
     
     $nomXarxa.keypress(function(){
-        $iconaXarxa.val('fab fa-'+$nomXarxa.val());
+        $iconaXarxa.val('fab fa-'+$nomXarxa.val().toLowerCase());
     });
     
-    $formXarxa.on("change keydown",function(){
-        $iconaXarxa.val('fab fa-'+$nomXarxa.val());
-    });
 
     $comprovar.click(function(){
         if(!$nomXarxa.val() == '' && !$iconaXarxa.val() == '' && !$enllac.val() == ''){
-            $iconaXarxa.val('fab fa-'+$nomXarxa.val());
             $error.attr('hidden',true);
             $exemple.children().removeClass();
             $exemple.children().addClass($iconaXarxa.val());
