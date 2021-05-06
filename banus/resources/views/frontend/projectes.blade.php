@@ -7,7 +7,7 @@
     <div class="col-12">
       <div class="row border-bottom border-dark mt-5 mb ml-1" id="containerprojecte">
         <!--Carousel Wrapper-->
-        <div id="carousel-example-{{$contador}}z" class="carousel slide carousel-fade col-5 " data-ride="carousel">
+        <div id="carousel-example-{{$contador}}z" class="carousel slide carousel-fade col-7 " data-ride="carousel">
           <!--Indicators-->
           <ol class="carousel-indicators">
             @php
