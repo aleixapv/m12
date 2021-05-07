@@ -1,3 +1,44 @@
+#projectes_body{
+  background-color: whitesmoke;
+}
+input[type=checkbox] {
+  position: relative;
+  cursor: pointer;
+}
+input[type=checkbox]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color:#e9e9e9;
+}
+input[type=checkbox]:checked:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color:#1E80EF;
+}
+input[type=checkbox]:checked:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
+}
 .boto_informacio {
     background-color: #555555; /* Green */
     border: none;
@@ -13,6 +54,17 @@
   }
 #containerprojecte{
   margin-left: 20px;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 12px;
+  box-shadow: 5px 5px 5px grey;
+  margin-right: 20;
+}
+#filtrador{
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 12px;
+  box-shadow: 5px 5px 5px black;
 }
 #text_projecte{
     margin-left: 5%;

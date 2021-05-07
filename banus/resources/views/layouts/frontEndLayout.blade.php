@@ -12,6 +12,10 @@
 	<link rel="stylesheet" href="{{url('css/frontEndLayout.css')}}">
 
 	<script src="https://kit.fontawesome.com/11b884f405.js" crossorigin="anonymous"></script>
+	<script src="{{url('js/src/jquery.min.js')}}"></script>
+	<script src="{{url('js/src/popper.js')}}"></script>
+	<script src="{{url('js/src/bootstrap.min.js')}}"></script>
+	<script src="{{url('js/src/main.js')}}"></script>
 	</head>
 	<body>
 	<section class="ftco-section">
@@ -44,12 +48,12 @@
 			  @forelse ($xarxes as $xarxa)
 				  <a href="{{$xarxa->enllac}}"><i class="fab fa-instagram"></i></a>
 			  @empty
-				  <p>Xarxes soscials no disponibles</p>
+				  <p></p>
 			  @endforelse
 		  </div>
 	    </div>
 	  </nav>
-	  <a href="https://api.whatsapp.com/send?phone={{$informacio->whatsapp}}" target="_blank">whatsap</a>
+	  <!--<a href="https://api.whatsapp.com/send?phone={{$informacio->whatsapp}}" target="_blank">whatsap</a>-->
 	  @yield('content')
 	</section>
 	  <!-- Site footer -->
@@ -97,10 +101,7 @@
 		</div>
   </footer>
 
-	<script src="{{url('js/src/jquery.min.js')}}"></script>
-  <script src="{{url('js/src/popper.js')}}"></script>
-  <script src="{{url('js/src/bootstrap.min.js')}}"></script>
-  <script src="{{url('js/src/main.js')}}"></script>
+	
 	</body>
 </html>
 

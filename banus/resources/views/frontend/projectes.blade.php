@@ -3,11 +3,28 @@
   @php
     $contador = 1;
   @endphp
+  <div id="projectes_body">
+    <br>
+    <br>
+    <ul class="navbar-nav m-auto">
+      <li class="nav-item dropdown">
+        <a class="ml-5 text-dark mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrador de Categories ↓</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown04" id="filtrador">
+          <p>Seleciona un filtre</p>
+    @forelse ($categories as $categoria)
+      <input class="border-bottom border-dark mr-3" border-dark" type="checkbox" href="#">{{$categoria->name}}</a> <br>
+      <p class="mb-2"></p>
+    @empty
+      <a class="dropdown-item" href="#">Sense categories</a>
+    @endforelse
+        </div>
+      </li>
+    </ul>
   @forelse ($projectesObj as $projecte)
     <div class="col-12">
-      <div class="row border-bottom border-dark mt-5 mb ml-1" id="containerprojecte">
+      <div class="row" id="containerprojecte">
         <!--Carousel Wrapper-->
-        <div id="carousel-example-{{$contador}}z" class="carousel slide carousel-fade col-xl-7 col-md-12 " data-ride="carousel">
+        <div id="carousel-example-{{$contador}}z" class="carousel slide carousel-fade mt-5 col-xl-7 col-md-12 " data-ride="carousel">
           <!--Indicators-->
           <ol class="carousel-indicators">
             @php
@@ -43,7 +60,7 @@
           <!--/.Controls-->
         </div>
         <!--/.Carousel Wrapper-->
-        <div class="col-xl-4 col-md-12 ml" id="text_projecte">
+        <div class="col-xl-4 col-md-12 mt-5" id="text_projecte">
           <div>
               <p class="text-center">
                 <strong>
@@ -52,16 +69,22 @@
               </p>
               <p class="text-center text-justify">{{$projecte['data']}}
               </p>
-              <p class="text-center text-justify">{{$projecte['descripcio_breu']}}
+              <p class="text-center text-justify d-block d-lg-none">{{$projecte['descripcio_breu']}}
               </p>
-              <p class="text-center text-justify">{{$projecte['descripcio_detallada']}}
+              <p class="text-center text-justify d-none d-lg-block">{{$projecte['descripcio_detallada']}}
               </p>
+              <div id="detallada_boto{{$contador}}"  class=" ver_mas text-center text-justify d-block d-lg-none">
+                <p>Click para ver mas</p>
+                <p id="detallada_boto{{$contador}}" class="text-center text-justify" hidden="true">{{$projecte['descripcio_detallada']}}
+                </p>
+              </div>
               <!--<button class="boto_informacio">Mes Informacio</button>-->
             </div>
         </div>
         <div class="col-5 mb-5"></div>
       </div>
     </div>
+    <br>
     @php
       $contador ++;
     @endphp
@@ -69,4 +92,6 @@
       <h1>No hi han projectes en aquest moment</h1>
   @endforelse
     <link rel="stylesheet" href="{{url('css/projectes.css')}}">
+    <script src="{{url('js/projectesfrontend.js')}}"></script>
 @endsection
+</div>
