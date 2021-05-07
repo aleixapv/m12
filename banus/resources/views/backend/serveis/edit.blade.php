@@ -62,7 +62,6 @@
         </div>
 
     </form>
-    
     <script src="{{url('js/src/jquery.min.js')}}"></script>
     <script src="{{url('js/serveis.js')}}"></script>
 @endsection

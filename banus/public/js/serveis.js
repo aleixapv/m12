@@ -1,12 +1,20 @@
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+function IsValidImageUrl(url) {
+    $("<img>", {
+        src: url,
+        error: function() { alert(url + ': ' + false); },
+        load: function() { alert(url + ': ' + true); }
+    });
+}
 function readURL(input,exemple){
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
             exemple.attr('src', e.target.result);
         }
+        console.log(input.files);
         reader.readAsDataURL(input.files[0]);
     }
 }
