@@ -37,7 +37,12 @@ class ProjectesController extends Controller
     {
         //
         $categories = Categoria::all();
-        return view('backend.projectes.create',compact('categories'));
+        if($categories->isEmpty()){
+            return redirect()->route('projectes.index')->with('malStatus','Sense categories no es pot crear un projecte.');
+        }else{
+            return view('backend.projectes.create',compact('categories'));
+        }
+        
     }
 
     /**
