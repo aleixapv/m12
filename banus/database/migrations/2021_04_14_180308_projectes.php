@@ -19,6 +19,9 @@ class Projectes extends Migration
             $table->string('titol')->unique();
             $table->string('descripcio_breu');
             $table->string('descripcio_detallada');
+            $table->string('provincia')->nullable();
+            $table->string('ciutat')->nullable();
+            $table->string('zip_cp')->nullable();
             $table->timestamps();
             
         });

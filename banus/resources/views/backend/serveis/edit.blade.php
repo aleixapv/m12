@@ -6,7 +6,7 @@
         @endforeach
     @endif
     <div class="alert alert-danger" id="error" hidden>
-        Omple els camps.
+        Omple els camps requerits <i class="req">*</i>.
     </div>
     <form action="{{route('serveis.update',['id'=>$servei->id])}}" method="POST" enctype="multipart/form-data">
         @csrf

@@ -13,5 +13,8 @@ class Projecte extends Model
         'titol',
         'descripcio_breu',
         'descripcio_detallada',
+        'provincia',
+        'ciutat',
+        'zip_cp',
     ];
 }

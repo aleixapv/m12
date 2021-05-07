@@ -16,6 +16,7 @@ function readURL(input,exemple){
         }
         console.log(input.files);
         reader.readAsDataURL(input.files[0]);
+        
     }
 }
 $( document ).ready(function() {

@@ -10,6 +10,14 @@
         @method('PUT')
         <div class="row">
             <div class="col-25">
+                <h3>Informació:</h3>
+            </div>
+            <div class="col-75">
+                
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-25">
                 <label for="nom_empresa">Nom de la empresa: <i class="req">*</i></label>
             </div>
             <div class="col-75">
@@ -25,8 +33,45 @@
                 <input type="text" name="eslogan" value="{{ $informacio->eslogan }}">
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="imatge">Logo actual: </i></label>
+            </div>
+            <div class="col-75">
+                <img src="{{ url($informacio->url_logo) }}" alt="{{ $informacio->alt_logo }}"  width="50px" height="50px">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="imatge">Nou logo de la empresa: </label>
+            </div>
+            <div class="col-75">
+                <input type="file" name="imatge"  value="{{ old('imatge') }}">
+            </div>
+        </div>
         
         
+        
+        <div class="row">
+            <div class="col-25">
+                <label for="alt_logo">Alt logo: <i class="req">*</i></label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="alt_logo" value="{{ $informacio->alt_logo }}">
+            </div>
+        </div>
+        
+        
+        <div class="row">
+            <div class="col-25">
+                <h3>Informació de contacte:</h3>
+            </div>
+            <div class="col-75">
+                
+            </div>
+        </div> 
         <div class="row">
             <div class="col-25">
                 <label for="tel">Tel de contacte: <i class="req">*</i></label>
@@ -67,7 +112,14 @@
         </div>
         
         
-        
+        <div class="row">
+            <div class="col-25">
+                <h3>Ubicació:</h3>
+            </div>
+            <div class="col-75">
+                
+            </div>
+        </div> 
         <div class="row">
             <div class="col-25">
                 <label for="adreca_1">Adreça de contacte: <i class="req">*</i></label>
@@ -125,34 +177,7 @@
             </div>
         </div>
         
-        <div class="row">
-            <div class="col-25">
-                <label for="imatge">Logo actual: </i></label>
-            </div>
-            <div class="col-75">
-                <img src="{{ url($informacio->url_logo) }}" alt="{{ $informacio->alt_logo }}"  width="50px" height="50px">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-25">
-                <label for="imatge">Nou logo de la empresa: </label>
-            </div>
-            <div class="col-75">
-                <input type="file" name="imatge"  value="{{ old('imatge') }}">
-            </div>
-        </div>
         
-        
-        
-        <div class="row">
-            <div class="col-25">
-                <label for="alt_logo">Alt logo: <i class="req">*</i></label>
-            </div>
-            <div class="col-75">
-                <input type="text" name="alt_logo" value="{{ $informacio->alt_logo }}">
-            </div>
-        </div>
 
         <div class="row">
             <input type="submit" value="Editar">
