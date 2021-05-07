@@ -67,17 +67,21 @@
                   <a href="#" class="text-dark" id="text_titulo">{{$projecte['titol']}}</a>
                 </strong>
               </p>
-              <p class="text-center text-justify">{{$projecte['data']}}
+              <p class="text-center text-justify">Localització
               </p>
+              
               <p class="text-center text-justify d-block d-lg-none">{{$projecte['descripcio_breu']}}
               </p>
               <p class="text-center text-justify d-none d-lg-block">{{$projecte['descripcio_detallada']}}
               </p>
               <div id="detallada_boto{{$contador}}"  class=" ver_mas text-center text-justify d-block d-lg-none">
-                <p>Click para ver mas</p>
+                <p class="text-primary"">Click para ver mas</p>
                 <p id="detallada_boto{{$contador}}" class="text-center text-justify" hidden="true">{{$projecte['descripcio_detallada']}}
                 </p>
               </div>
+              <br>
+              <p class="text-center text-justify" id="data_projecte" style="position:absolute; right:0px; bottom:0px;">{{$projecte['data']}}
+              </p>
               <!--<button class="boto_informacio">Mes Informacio</button>-->
             </div>
         </div>

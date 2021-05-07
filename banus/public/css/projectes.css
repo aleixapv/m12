@@ -56,14 +56,12 @@ input[type=checkbox]:checked:after {
   margin-left: 20px;
   background-color: white;
   border: 2px solid white;
-  border-radius: 12px;
   box-shadow: 5px 5px 5px grey;
   margin-right: 20;
 }
 #filtrador{
   background-color: white;
   border: 2px solid white;
-  border-radius: 12px;
   box-shadow: 5px 5px 5px black;
 }
 #text_projecte{
@@ -86,5 +84,9 @@ input[type=checkbox]:checked:after {
     }
     #containerprojecte{
       margin-right: 10px;
+    }
+    #data_projecte{
+      justify-content: center;
+      position: unset !important;
     }
     }

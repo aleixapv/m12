@@ -19,12 +19,12 @@
 	</head>
 	<body>
 	<section class="ftco-section">
-		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light sticky-top" id="ftco-navbar">
+	    <div class="container sticky-top" id="navbar_banus">
 				<img src="{{url($informacio->url_logo)}}" alt="{{$informacio->alt_logo}}" id="logo_navbar" width="50px" height="50px">
 				<a class="navbar-brand d-none d-lg-block" id="title_navbar" href="index.html">{{$informacio->nom_empresa}}</a>
 	      <button class="navbar-toggler" id="boton_menu" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="fa fa-bars"></span> Menu
+	        <span class="fa fa-bars"></span>
 	      </button>
 	      <div class="collapse navbar-collapse justify-content-center col-11" id="ftco-nav">
 	        <ul class="navbar-nav m-auto">

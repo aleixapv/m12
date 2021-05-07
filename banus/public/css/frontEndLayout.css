@@ -8519,4 +8519,15 @@
       margin-right:0;
       font-weight:600
     }
+    #ftco-navbar{
+      background-color: white;
+      z-index: 999999;
+      position: unset !important;
+    }
   }
+#navbar_banus{
+  background-color: white;
+  z-index: 999999;
+  position: sticky;
+  top: 0;
+}
