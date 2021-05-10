@@ -12,9 +12,9 @@
           <div class="carousel-item active">
             <img class="d-block  w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
               alt="First slide">
-              <div class="carousel-caption">
-                <h3>Maricon</h3>
-                <p>Si Soy</p>
+              <div class="carousel-caption" id="frase_index" style="display: none; ">
+                <h3>Fusteria Banús</h3>
+                <p>La millor Fusteria</p>
             </div>
           </div>
           <!--/First slide-->
