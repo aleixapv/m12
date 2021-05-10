@@ -1,6 +1,10 @@
 #projectes_body{
   background-color: whitesmoke;
 }
+.carousel-item .img-fluid {
+  width:900px;
+  height:450px;
+}
 input[type=checkbox] {
   position: relative;
   cursor: pointer;
@@ -71,11 +75,14 @@ input[type=checkbox]:checked:after {
 #text_titulo:hover{
         color: #40bfc1 !important;
     }
+
     @media (max-width: 800px) {
-      #carousel-example-1z .carousel-item {
+      .carousel-item .img-fluid {
         height: 200px;
         min-height: 100%;
         min-width: 100%;
+        max-width: 100%;
+        max-height: 100%;
         margin-left: 0px;
       }
       #text_projecte{
@@ -85,6 +92,12 @@ input[type=checkbox]:checked:after {
     #containerprojecte{
       margin-right: 10px;
     }
+    #data_projecte{
+      justify-content: center;
+      position: unset !important;
+    }
+    }
+    @media (max-width: 1200px) {
     #data_projecte{
       justify-content: center;
       position: unset !important;
