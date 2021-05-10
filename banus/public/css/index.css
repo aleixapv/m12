@@ -34,3 +34,24 @@
 #service_card{
   border-right: solid black 1px;
 }
+.card{
+  margin-top: 10px;
+  background-color: white;
+  border: 2px solid white;
+  box-shadow: 5px 5px 5px grey;
+  margin-left: 6%;
+}
+#containerprojecte{
+  background-color: whitesmoke;
+}
+@media (max-width: 800px) {
+  .card{
+    margin-top: 10px;
+    background-color: white;
+    border: 2px solid white;
+    box-shadow: 5px 5px 5px grey;
+    margin-left: 12%;
+    justify-content: center;
+    width: 300px;
+  }
+}
