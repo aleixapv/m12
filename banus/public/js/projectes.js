@@ -66,48 +66,42 @@ $( document ).ready(function(){
             $('html, body').animate({ scrollTop: 0 }, 'fast');
         }
     });
-
-    for(let i = 0; i < $imatges[0].files.length; i++){
+    function afegirDivImatge(i){
+        var $img= $('<img>').attr('width',100).attr('height',100).addClass('imatge');
         $divImatges.append($('<div>').addClass('container border row').append(
-            $('<div>').addClass('col-4').append($('<img>').attr('width',100).attr('height',100).addClass('imatge'))
+            $('<input>').attr('type','number').attr('hidden',true).attr('name','imatgesOrdre[]').val(i)
+        ).append(
+            $('<div>').addClass('col-4').append($img)
         ).append(
             $('<div>').addClass('col-4').append($imatges[0].files[i].name)
         ).append(
             $('<div>').addClass('col-4').append($('<i>').addClass("far fa-hand-rock"))
         ));
+        
         var reader = new FileReader();
         reader.onload = function (e) {
-            $div= $divImatges.children().first();
-            $divDeLaImatge = $div.children().first();
-            $divDeLaImatge.children().first().attr('src', e.target.result);
+           
+            $img.attr('src', e.target.result);
         }
         reader.readAsDataURL($imatges[0].files[i]);
     }
 
-    
+    for(let i = 0; i < $imatges[0].files.length; i++){
+        let $inputInvisible = $('<input>').attr('hidden',true).attr('type','file');
+        $inputInvisible[0].files[0] = $imatges[0].files[i];
+        console.log($imatges[0]);
+
+
+        //console.log($inputInvisible[0].files);
+
+        afegirDivImatge(i);
+    }
+
+
     $imatges.change(function(){
         $divImatges.empty();
         for(let i = 0; i < $imatges[0].files.length; i++){
-            $divImatges.append($('<div>').addClass('container border row').append(
-                $('<div>').addClass('col-4').append($('<img>').attr('width',100).attr('height',100).addClass('imatge'))
-            ).append(
-                $('<div>').addClass('col-4').append($imatges[0].files[i].name)
-            ).append(
-                $('<div>').addClass('col-4').append($('<i>').addClass("far fa-hand-rock"))
-            ));
-            readURL(input,exemple)
-            var reader = new FileReader();
-            
-             
-
-            reader.onload = function (e) {
-                $div= $divImatges.children().first();
-                $divDeLaImatge = $div.children().first();
-                $divDeLaImatge.children().first().attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL($imatges[0].files[i]);
-
+            afegirDivImatge(i);
         }
     });
 

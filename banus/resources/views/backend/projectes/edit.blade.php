@@ -13,6 +13,14 @@
         @method('PUT')
         <div class="row">
             <div class="col-25">
+                <h3>Informació:</h3>
+            </div>
+            <div class="col-75">
+                
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-25">
                 <label for="titol">Titol del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
@@ -52,7 +60,14 @@
                 </select>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-25">
+                <h3>Imatges:</h3>
+            </div>
+            <div class="col-75">
+                
+            </div>
+        </div> 
         <div class="row">
             <div class="col-25">
                 <label for="descripcio_detallada">Noves imates del projecte: <i class="req">*</i></label>
