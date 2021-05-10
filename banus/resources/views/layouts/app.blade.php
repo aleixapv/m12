@@ -21,6 +21,17 @@
 	    <link rel="stylesheet" href="{{url('css/frontEndLayout.css')}}">
 
 	    <script src="https://kit.fontawesome.com/11b884f405.js" crossorigin="anonymous"></script>
+
+
+
+
+        
+        <script src="{{url('js/src/jquery.min.js')}}"></script>
+        <script src="{{url('js/src/popper.js')}}"></script>
+        <script src="{{url('js/src/bootstrap.min.js')}}"></script>
+        <script src="{{url('js/src/main.js')}}"></script>
+
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
