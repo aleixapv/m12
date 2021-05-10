@@ -12,9 +12,9 @@
           <div class="carousel-item active">
             <img class="d-block  w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
               alt="First slide">
-              <div class="carousel-caption">
-                <h3>Maricon</h3>
-                <p>Si Soy</p>
+              <div class="carousel-caption" id="frase_index" style="display: none; ">
+                <h3>Fusteria Banús</h3>
+                <p>La millor Fusteria</p>
             </div>
           </div>
           <!--/First slide-->
@@ -42,6 +42,72 @@
           <span class="sr-only">Next</span>
         </a>
         <!--/.Controls-->
+      </div>
+      <br>
+      <div class="row" id="card_index" style="display: none; ">
+        <div class="card col-xl-3 col-md-10">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlnAdLDDUleYuoMO9QhfjjxBAv1Xf_v2bQpg&usqp=CAU"
+            class="card-img-top mt-3"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Qui Som</h5>
+            <p class="card-text">
+            Som una empresa jove, que des de l'any 2003
+hem anat creixent al costat dels nostres clients
+fins a ser una empresa consolidada dins del nostre sector.
+
+La nostra polivalent trajectòria ens ha format en tots els sentits,
+amb experiència, sacrifici i servei.
+
+Al llarg d'aquests anys ens hem especialitzat
+en diferents camps.
+            </p>
+          </div>
+        </div>
+        <div class="card col-xl-3 col-md-10">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlnAdLDDUleYuoMO9QhfjjxBAv1Xf_v2bQpg&usqp=CAU"
+            class="card-img-top mt-3"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Qui Som</h5>
+            <p class="card-text">
+            Som una empresa jove, que des de l'any 2003
+hem anat creixent al costat dels nostres clients
+fins a ser una empresa consolidada dins del nostre sector.
+
+La nostra polivalent trajectòria ens ha format en tots els sentits,
+amb experiència, sacrifici i servei.
+
+Al llarg d'aquests anys ens hem especialitzat
+en diferents camps.
+            </p>
+          </div>
+        </div>
+        <div class="card col-xl-3 col-md-10">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlnAdLDDUleYuoMO9QhfjjxBAv1Xf_v2bQpg&usqp=CAU"
+            class="card-img-top mt-3"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Qui Som</h5>
+            <p class="card-text">
+            Som una empresa jove, que des de l'any 2003
+hem anat creixent al costat dels nostres clients
+fins a ser una empresa consolidada dins del nostre sector.
+
+La nostra polivalent trajectòria ens ha format en tots els sentits,
+amb experiència, sacrifici i servei.
+
+Al llarg d'aquests anys ens hem especialitzat
+en diferents camps.
+            </p>
+          </div>
+        </div>
       </div>
       <br>
       <div class="container">
@@ -144,5 +210,7 @@
     </div>
 <!--/.Carousel Wrapper-->
   </div>
+</div>
   <link rel="stylesheet" href="{{url('css/index.css')}}">
+  <script src="{{url('js/indexfrontend.js')}}"></script>
 @endsection
