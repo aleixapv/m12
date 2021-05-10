@@ -75,7 +75,7 @@
               <p class="text-center text-justify d-none d-lg-block">{{$projecte['descripcio_detallada']}}
               </p>
               <div id="detallada_boto{{$contador}}"  class=" ver_mas text-center text-justify d-block d-lg-none">
-                <p class="text-primary"">Click para ver mas</p>
+                <p class="text-primary"">Click per veure més.</p>
                 <p id="detallada_boto{{$contador}}" class="text-center text-justify" hidden="true">{{$projecte['descripcio_detallada']}}
                 </p>
               </div>

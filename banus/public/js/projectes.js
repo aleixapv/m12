@@ -1,79 +1,4 @@
-function Manual(){
-    let $selectProvincia = $('#selecProvincia');
-    let $provinciaInput = $('#provinciaInput');
-
-	let $selectPoblacio = $('#selecPoblacio');
-    let $poblacioInput = $('#poblacioInput');
-
-	let $selectCp = $('#selecCp');
-    let $cpInput = $('#cpInput');
-
-    $selectProvincia.attr("hidden",true);
-    $selectPoblacio.attr("hidden",true);
-    $selectCp.attr("hidden",true);
-
-    $provinciaInput.attr("hidden",false);
-    $poblacioInput.attr("hidden",false);
-    $cpInput.attr("hidden",false);
-    alert('Les poblacions no han cargat automàticament, mode manual.');
-}
-async function Provicia(tipus,select,input){
-    try{
-        let data = await fetch('https://exemple2021-c42ba-default-rtdb.europe-west1.firebasedatabase.app/'+tipus+'.json')
-        let dates = await data.json()
-        for(i=0; i < dates.length; i++){
-            //console.log(json[i]);
-            let $option = $('<option>').html(dates[i]['provincia']).val(dates[i]['codi']).addClass("optionApi");
-            select.append($option);
-        }
-        input.val(select.children().first().text());
-    }
-    catch{
-        Manual();
-    }
-}
-async function Poblacio(tipus,idProvincia,select,input){
-    try{
-        let data = await fetch('https://exemple2021-c42ba-default-rtdb.europe-west1.firebasedatabase.app/'+tipus+'.json')
-        let dates = await data.json()
-        for(i=0; i < dates.length; i++){
-            if(dates[i]['cod_prov'] == idProvincia){
-                let $option = $('<option>').val(dates[i]['codi']).html(dates[i]['poblacio']);
-                select.append($option);
-            }
-        }
-        input.val(select.children().first().text());
-    }
-    catch{
-        Manual();
-    }
-}
-async function Postal(tipus,idPoblacio,select,input){
-    try{
-        let data = await fetch('https://exemple2021-c42ba-default-rtdb.europe-west1.firebasedatabase.app/'+tipus+'.json')
-        let dates = await data.json()
-        for(i=0; i < dates.length; i++){
-            if(dates[i]['codi_poble'] == idPoblacio){
-                let $option = $('<option>').val(dates[i]['codi_poble']).html(dates[i]['codi_postal']);
-                select.append($option);
-            }
-        }
-        input.val(select.children().first().text());
-    }
-    catch{
-        Manual();
-    }
-}
 $( document ).ready(function(){
-
-    let $selectProvincia = $('#selecProvincia');
-    let $provinciaInput = $('#provinciaInput');
-
-	let $selectPoblacio = $('#selecPoblacio');
-    let $poblacioInput = $('#poblacioInput');
-
-	let $selectCp = $('#selecCp');
-    let $cpInput = $('#cpInput');
 
     let $comprovar = $('#comprovar');
     let $error = $('#error');
@@ -84,25 +9,47 @@ $( document ).ready(function(){
     let $descripcio_detallada = $('#descripcio_detallada');
     let $categories = $('#categories');
     let $imatges = $('#imatges');
+    let $divImatges = $('#divImatges');
 
-    Provicia("Provincies",$selectProvincia,$provinciaInput);
-    $selectProvincia.on('change',function() {
-        $provinciaInput.val($( "#selecProvincia option:selected" ).text());
-        $selectPoblacio.empty();
-		Poblacio("Poblacions",$selectProvincia.val(),$selectPoblacio,$poblacioInput);
-	});
-    $selectPoblacio.change(function(){
-        $poblacioInput.val($( "#selecPoblacio option:selected" ).text());
-        $selectCp.empty();
-		Postal("Codis_Postals",$selectPoblacio.val(),$selectCp,$cpInput);
-	}); 
-    $selectCp.change(function(){
-        $cpInput.val($( "#selecCp option:selected" ).text());
+    let $tiolExemple = $('#text_titulo');
+    let $localitzacioExemple = $('#localitzacioExemple');
+    let $breuExemple = $('#breuExemple');
+    let $detalladaExemple = $('.detalladaExemple');
+
+    let $olIndicadors =$('#olIndicadors');
+    let $slidesDiv =$('#slidesDiv');
+    let $indicador =$('<li>').attr('data-targe',"data-target='#carousel-example-1z'");
+    //<li data-target="#carousel-example-1z" data-slide-to="0"   class="active"></li>
+
+
+    for(let i = 0; i < $imatges[0].files.length; i++){
+        $divImatges.append($('<img>').attr('width',100).attr('height',100));
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $divImatges.children().last().attr('src', e.target.result);
+        }
+        reader.readAsDataURL($imatges[0].files[i]);
+    }
+    $imatges.change(function(){
+        for(let i = 0; i < $(this)[0].files.length; i++){
+            $divImatges.append($('<img>').attr('width',100).attr('height',100));
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $divImatges.children().last().attr('src', e.target.result);
+            }
+            reader.readAsDataURL($(this)[0].files[i]);
+        }
+        
     });
 
     $comprovar.click(function(){
         if(!$titol.val() == '' && !$descripcio_breu.val() == '' && !$descripcio_detallada.val() == '' && !$categories.val() == '' && !$imatges.val() == ''){
-            console.log('entro');
+            $tiolExemple.html($titol.val());
+            $breuExemple.html($descripcio_breu.val());
+            $detalladaExemple.html($descripcio_detallada.val());
+            if(!$( "#selecProvincia option:selected" ).text() == '' && !$( "#selecPoblacio option:selected" ).text() == '' && !$( "#selecCp option:selected" ).text() == ''){
+                $localitzacioExemple.html($( "#selecProvincia option:selected" ).text()+$( "#selecPoblacio option:selected" ).text()+$( "#selecCp option:selected" ).text());
+            }
             $error.attr('hidden',true);
  
             $divExemple.attr('hidden',false);
