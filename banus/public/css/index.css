@@ -58,10 +58,6 @@
 #carousel1 img{
   width: 100%;
 }
-#carousel-example-1z .carousel-item {
-  min-height: 100% !important;
-  min-width: 100% !important  ;
-}
 .card
 {
     display:inline-block;
@@ -78,7 +74,7 @@
 }
 .card:hover
 {
-    box-shadow: 0px 0px 150px #000000;
+    box-shadow: 0px 0px 50px #000000;
     z-index: 2;
     -webkit-transition: all 200ms ease-in;
     -webkit-transform: scale(1.2);
@@ -88,4 +84,8 @@
     -moz-transform: scale(1.2);
     transition: all 200ms ease-in;
     transform: scale(1.2);
+}
+#card_index{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }
