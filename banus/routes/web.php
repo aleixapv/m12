@@ -28,6 +28,7 @@ Route::get('/dashboard', function () {
 //frontend
 Route::get('/', [frontEndController::class, 'index'])->name('f.index');
 Route::get('/projectes', [frontEndController::class, 'showprojectes'])->name('projectes.view');
+Route::get('/contacte', [frontEndController::class, 'showcontacte'])->name('contacte.view');
 
 //categories
 Route::get('/admin/categories', [CategoriesController::class, 'index'])->name('categories.index');

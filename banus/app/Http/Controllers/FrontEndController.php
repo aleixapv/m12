@@ -29,6 +29,13 @@ class frontEndController extends Controller
     public function showprojecte(){
         return view('frontend.projecte');
     }
+    public function showcontacte(){
+        //
+        $categories = Categoria::all();
+        $informacio = InformacioEmpresa::all()->first();
+        $xarxes = XarxaSocial::all();
+        return view('frontend.contacte', compact(['categories','informacio','xarxes']));
+    }
 
     public function showprojectes(){
         $informacio = InformacioEmpresa::all()->first();
