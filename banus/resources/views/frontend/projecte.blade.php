@@ -1,5 +1,4 @@
-@extends('layouts.frontEndLayout')
-@section('content')
+
 <div class="col-12" id="containerprojecte">
       <!--Carousel Wrapper-->
       <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
@@ -71,4 +70,3 @@
 
 </div>
   <link rel="stylesheet" href="{{url('css/index.css')}}">
-@endsection

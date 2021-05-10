@@ -36,4 +36,5 @@
         @empty
             <p>No hi han serveis</p>
         @endforelse
+    </table>
 @endsection

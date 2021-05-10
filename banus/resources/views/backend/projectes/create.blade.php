@@ -5,6 +5,7 @@
             <div class="alert alert-danger">{{ $error }}</div>
         @endforeach
     @endif
+    
     <div class="alert alert-danger" id="error" hidden>
         Omple els camps requerits <i class="req">*</i>.
     </div>
@@ -147,15 +148,15 @@
                       <div id="carousel-example-1z" class="carousel slide carousel-fade mt-5 col-xl-7 col-md-12 " data-ride="carousel">
                         <!--Indicators-->
                         <ol class="carousel-indicators" id="olIndicadors">
-                           <li data-target="#carousel-example-1z" data-slide-to="0"   class="active"></li>
+                           <!--<li data-target="#carousel-example-1z" data-slide-to="0"   class="active"></li>-->
                         </ol>
                         <!--/.Indicators-->
                         <!--Slides-->
                         <div class="carousel-inner" role="listbox" id="slidesDiv">
-                            <div class="carousel-item  active ">
+                           <!-- <div class="carousel-item  active ">
                               <img class="d-block img-fluid" width="900" height="450" src=""
                                 alt="">
-                            </div>
+                            </div>-->
                         </div>
                         <!--/.Slides-->
                         <!--Controls-->

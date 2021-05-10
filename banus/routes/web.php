@@ -24,6 +24,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
 //frontend
 Route::get('/', [frontEndController::class, 'index'])->name('f.index');
 Route::get('/projectes', [frontEndController::class, 'showprojectes'])->name('projectes.view');
