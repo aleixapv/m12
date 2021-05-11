@@ -54,6 +54,7 @@ class ProjectesController extends Controller
     public function store(Request $request)
     {
         //
+        
         $data = $request->validate([
             'titol' => 'required|string|min:3|max:50|unique:projectes',
             'descripcio_breu' => 'required|string|min:3|max:50',
@@ -62,7 +63,15 @@ class ProjectesController extends Controller
             'imatges.*' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
             'categories' => 'required',
             'categories.*' => 'exists:categories,id',
+            'provincia' => 'nullable',
+            'ciutat' =>'nullable',
+            'zip_cp' => 'nullable',
+            'imatgesOrdre' => 'required',
         ]);
+        $imatgesOrdenades = [];
+        foreach($data['imatgesOrdre'] as $ordre){
+            dd($data['imatges'][$ordre]);
+        }
         $projecte = Projecte::create([
             'titol' => ucfirst($data['titol']),
             'descripcio_breu' => ucfirst($data['descripcio_breu']),
@@ -74,6 +83,12 @@ class ProjectesController extends Controller
                 'categoria_id'=> $categoriaId,
             ]);
         }
+
+        
+        
+        
+
+
         $imatges_db = [];
         foreach($data['imatges'] as $imatge){
             $imgArxiu = $imatge->store('public');

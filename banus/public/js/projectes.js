@@ -1,5 +1,32 @@
+function afegirDivImatge(i,$imatges,$divImatges){
+    var $img= $('<img>').addClass('imatge card-img-top ').attr('style','width: 12rem; height: 8rem;');
+    let nom = $imatges[0].files[i].name;
+    if(nom.length > 15){
+        nom = nom.substr(0,13);
+        nom = nom + '...';
+    }
+    $divImatges.append(
+        $('<div>').addClass('card border').attr('style','width: 12rem; height: 12rem;').append(
+            $img
+        ).append(
+            $('<input>').attr('type','number').attr('hidden',true).attr('name','imatgesOrdre[]').val(i)
+        ).append(
+            $('<div>').addClass('card-body').append(
+                $('<p>').addClass('card-text').html(nom).prepend(
+                    $('<b>').addClass('ml-1 mr-1 numero').html(i+1)
+                )
+            )
+        )
+    );
+    var reader = new FileReader();
+    reader.onload = function (e) {
+       
+        $img.attr('src', e.target.result);
+    }
+    reader.readAsDataURL($imatges[0].files[i]);
+}
 $( document ).ready(function(){
-
+    //objectes
     let $comprovar = $('#comprovar');
     let $error = $('#error');
     let $divExemple = $('#divExemple');
@@ -18,8 +45,10 @@ $( document ).ready(function(){
 
     let $olIndicadors =$('#olIndicadors');
     let $slidesDiv =$('#slidesDiv');
-    
 
+    let $instruccionsImatges = $('#instruccionsImatges');
+    
+    //listeners
     $comprovar.click(function(){
         if(!$titol.val() == '' && !$descripcio_breu.val() == '' && !$descripcio_detallada.val() == '' && !$categories.val() == '' && !$imatges.val() == ''){
             $tiolExemple.html($titol.val());
@@ -66,49 +95,19 @@ $( document ).ready(function(){
             $('html, body').animate({ scrollTop: 0 }, 'fast');
         }
     });
-    function afegirDivImatge(i){
-        var $img= $('<img>').attr('width',100).attr('height',100).addClass('imatge');
-        $divImatges.append($('<div>').addClass('container border row').append(
-            $('<input>').attr('type','number').attr('hidden',true).attr('name','imatgesOrdre[]').val(i)
-        ).append(
-            $('<div>').addClass('col-4').append($img)
-        ).append(
-            $('<div>').addClass('col-4').append($imatges[0].files[i].name)
-        ).append(
-            $('<div>').addClass('col-4').append($('<i>').addClass("far fa-hand-rock"))
-        ));
-        
-        var reader = new FileReader();
-        reader.onload = function (e) {
-           
-            $img.attr('src', e.target.result);
-        }
-        reader.readAsDataURL($imatges[0].files[i]);
-    }
-
-    for(let i = 0; i < $imatges[0].files.length; i++){
-        let $inputInvisible = $('<input>').attr('hidden',true).attr('type','file');
-        $inputInvisible[0].files[0] = $imatges[0].files[i];
-        console.log($imatges[0]);
-
-
-        //console.log($inputInvisible[0].files);
-
-        afegirDivImatge(i);
-    }
-
-
     $imatges.change(function(){
+        $instruccionsImatges.attr('hidden',false);
         $divImatges.empty();
         for(let i = 0; i < $imatges[0].files.length; i++){
-            afegirDivImatge(i);
+            afegirDivImatge(i,$imatges,$divImatges);
         }
     });
-
-    
-
-    
-
+    addEventListener('dragover',function(){
+        $numeros = $('.numero');
+        $numeros.each(function(e){
+            $(this).html(e+1);
+        });
+    });
     $('.eliminar').click(function(){
         $.ajaxSetup({
             headers: {
@@ -126,4 +125,14 @@ $( document ).ready(function(){
            $(this).parent().remove();
         });
     });
+    
+    //al carregar
+    for(let i = 0; i < $imatges[0].files.length; i++){
+        let $inputInvisible = $('<input>').attr('hidden',true).attr('type','file');
+        $inputInvisible[0].files[0] = $imatges[0].files[i];
+        afegirDivImatge(i,$imatges,$divImatges);
+    }
+    if($divImatges.children().length > 0){
+        $instruccionsImatges.attr('hidden',false);
+    }  
 });
