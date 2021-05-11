@@ -81,10 +81,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-25">
-                <span> Ordena les imatges:</span>
+            <div class="col-12">
+                <span hidden id="instruccionsImatges"> Ordena les imatges <b>arrosegan-les</b> fins la posició desitjada:</span>
             </div>
-            <div class="col-75 divSortable" id="divImatges">
+            <div class="col-12 divSortable row mt-3" id="divImatges">
+                
             </div>
         </div>
         <div class="row">

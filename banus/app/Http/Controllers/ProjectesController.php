@@ -68,7 +68,10 @@ class ProjectesController extends Controller
             'zip_cp' => 'nullable',
             'imatgesOrdre' => 'required',
         ]);
-        
+        $imatgesOrdenades = [];
+        foreach($data['imatgesOrdre'] as $ordre){
+            dd($data['imatges'][$ordre]);
+        }
         $projecte = Projecte::create([
             'titol' => ucfirst($data['titol']),
             'descripcio_breu' => ucfirst($data['descripcio_breu']),
@@ -81,14 +84,7 @@ class ProjectesController extends Controller
             ]);
         }
 
-        $imatgesOrdenades = [];
-        foreach($data['imatgesOrdre'] as $ordre){
-            for($y = 0; $y < $data['imatges']; $y++){
-                if($ordre == $y){
-
-                }
-            }
-        }
+        
         
         
 
