@@ -44,9 +44,9 @@
             </li>
 	        </ul>
 	      </div>
-		  <div class="col-1 d-none d-lg-block">
+		  <div class="col-1 d-none d-lg-block" style="font-size: 23px;">
 			  @forelse ($xarxes as $xarxa)
-				  <a href="{{$xarxa->enllac}}"><i class="fab fa-instagram"></i></a>
+				  <a href="{{$xarxa->enllac}}" ><i  class="{{$xarxa->icona}}"></i></a>
 			  @empty
 				  <p></p>
 			  @endforelse
@@ -93,8 +93,14 @@
   
 			<div class="col-md-4 col-sm-6 col-xs-12">
 			  <ul class="social-icons">
-				<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-				<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>  
+			  @forelse ($xarxes as $xarxa)
+			  	<li>
+				  <a href="{{$xarxa->enllac}}"><i class="{{$xarxa->icona}"></i></a>
+				</li>
+			  @empty
+				  <p></p>
+			  @endforelse
+		  	</div>
 			  </ul>
 			</div>
 		  </div>

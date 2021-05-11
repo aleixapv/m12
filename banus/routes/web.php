@@ -24,6 +24,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+//contacte
+Route::get('/contacte/route', [backEndController::class, 'getLatLong'])->name('contacte.route');
+
 
 //frontend
 Route::get('/', [frontEndController::class, 'index'])->name('f.index');
