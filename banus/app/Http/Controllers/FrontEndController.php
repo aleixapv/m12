@@ -53,6 +53,8 @@ class frontEndController extends Controller
             $data['data'] = $projecte->created_at;
             $data['descripcio_breu'] = $projecte->descripcio_breu;
             $data['descripcio_detallada'] = $projecte->descripcio_detallada;
+            $data['ciutat'] = $projecte->ciutat;
+            $data['provincia'] = $projecte->provincia;
             foreach($projecte_categories as $projecte_categoria){
                 $categoria = Categoria::find($projecte_categoria->categoria_id);
                 $data['categories'][] = $categoria->name;

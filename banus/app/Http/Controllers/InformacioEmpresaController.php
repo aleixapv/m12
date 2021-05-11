@@ -50,7 +50,7 @@ class InformacioEmpresaController extends Controller
             'adreca_2'=> 'nullable|string|max:50',
             'ciutat'=> 'required|string|max:50',
             'provincia'=> 'required|string|max:50',
-            'zip_cp' => 'required|digits:5|numeric',
+            'zip_cp' => 'required|digits_between:4,5|numeric',
             'alt_logo'=> 'required',
             'imatge'=> 'required|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -112,7 +112,7 @@ class InformacioEmpresaController extends Controller
             'adreca_2'=> 'nullable|string|max:50',
             'ciutat'=> 'required|string|max:50',
             'provincia'=> 'required|string|max:50',
-            'zip_cp' => 'required|string|max:5',
+            'zip_cp' => 'required|digits_between:4,5|numeric',
             'alt_logo'=> 'required',
             'imatge'=> 'nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);

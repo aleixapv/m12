@@ -17,4 +17,7 @@ class Projecte extends Model
         'ciutat',
         'zip_cp',
     ];
+    public static function GetPathImg(){
+        return 'public/imatgesProjectes';
+    } 
 }

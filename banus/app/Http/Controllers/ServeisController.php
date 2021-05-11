@@ -56,7 +56,7 @@ class ServeisController extends Controller
             'descripcio' => ucfirst($data['descripcio']),
             'imatge' => $urlImgArxiu,
         ]);
-        return redirect()->route('serveis.index');
+        return redirect()->route('serveis.index')->with('status', 'Servei desat correctament.');
     }
 
     /**
@@ -116,7 +116,7 @@ class ServeisController extends Controller
                 'descripcio' => $data['descripcio'],
             ]);
         }
-        return redirect()->route('serveis.index');
+        return redirect()->route('serveis.index')->with('status', 'Servei desat correctament.');
     }
 
     /**
@@ -130,5 +130,6 @@ class ServeisController extends Controller
         //
         $servei = Servei::find($id);
         $servei->delete();
+        return redirect()->route('serveis.index')->with('status', 'Servei eliminat correctament.');
     }
 }

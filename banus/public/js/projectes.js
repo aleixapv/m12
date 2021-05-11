@@ -55,7 +55,7 @@ $( document ).ready(function(){
             $breuExemple.html($descripcio_breu.val());
             $detalladaExemple.html($descripcio_detallada.val());
             if(!$( "#selecProvincia option:selected" ).text() == '' && !$( "#selecPoblacio option:selected" ).text() == '' && !$( "#selecCp option:selected" ).text() == ''){
-                $localitzacioExemple.html($( "#selecProvincia option:selected" ).text()+$( "#selecPoblacio option:selected" ).text()+$( "#selecCp option:selected" ).text());
+                $localitzacioExemple.html($( "#selecPoblacio option:selected" ).text()+', '+$( "#selecProvincia option:selected" ).text());
             }
             $slidesDiv.empty();
             $olIndicadors.empty();

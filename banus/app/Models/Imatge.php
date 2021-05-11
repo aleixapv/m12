@@ -13,5 +13,6 @@ class Imatge extends Model
         'url',
         'nom',
         'alt',
+        'posicio',
     ];
 }

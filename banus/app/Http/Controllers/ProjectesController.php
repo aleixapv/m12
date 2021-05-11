@@ -54,7 +54,6 @@ class ProjectesController extends Controller
     public function store(Request $request)
     {
         //
-        
         $data = $request->validate([
             'titol' => 'required|string|min:3|max:50|unique:projectes',
             'descripcio_breu' => 'required|string|min:3|max:50',
@@ -63,20 +62,41 @@ class ProjectesController extends Controller
             'imatges.*' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
             'categories' => 'required',
             'categories.*' => 'exists:categories,id',
-            'provincia' => 'nullable',
-            'ciutat' =>'nullable',
-            'zip_cp' => 'nullable',
+            'ciutat'=> 'nullable|string|max:50',
+            'provincia'=> 'nullable|string|max:50',
+            'zip_cp' => 'nullable|digits_between:4,5|numeric',
             'imatgesOrdre' => 'required',
         ]);
+        
+        if(!Storage::exists( Projecte::GetPathImg() )){
+            dd('no existe');
+            //Storage::makeDirectory('/path/to/create/your/directory', 0775, true); 
+        
+        }
         $imatgesOrdenades = [];
         foreach($data['imatgesOrdre'] as $ordre){
-            dd($data['imatges'][$ordre]);
+            $imatgesOrdenades[$ordre] = $data['imatges'][$ordre];
         }
+
+        if(isset($data['provincia']) && isset($data['ciutat']) && isset($data['zip_cp'])){
+            $provincia = ucfirst($data['provincia']);
+            $ciutat = ucfirst($data['ciutat']);
+            $zip_cp = ucfirst($data['zip_cp']);
+        }else{
+            $provincia = null;
+            $ciutat = null;
+            $zip_cp = null;
+        }
+
         $projecte = Projecte::create([
             'titol' => ucfirst($data['titol']),
             'descripcio_breu' => ucfirst($data['descripcio_breu']),
             'descripcio_detallada' => ucfirst($data['descripcio_detallada']),
+            'provincia' => $provincia,
+            'ciutat' => $ciutat,
+            'zip_cp'=> $zip_cp,
         ]);
+
         foreach($data['categories'] as $categoriaId){
             $projecte_categoria = Projecte_Categoria::create([
                 'projecte_id' => $projecte->id,
@@ -84,28 +104,26 @@ class ProjectesController extends Controller
             ]);
         }
 
-        
-        
-        
-
-
         $imatges_db = [];
-        foreach($data['imatges'] as $imatge){
-            $imgArxiu = $imatge->store('public');
+        for($i = 0; $i < count($imatgesOrdenades); $i++) {
+            $imgArxiu = $imatgesOrdenades[$i]->store('public');
             $urlImgArxiu = Storage::url($imgArxiu);
             $imatge_db =  Imatge::create([
                 'url' => $urlImgArxiu,
-                'nom' => $imatge->getClientOriginalName(),
+                'nom' => $imatgesOrdenades[$i]->getClientOriginalName(),
+                'posicio' => $i,
             ]);
             array_push($imatges_db,$imatge_db);
         }
+        
+
         foreach($imatges_db as $imatge_db){
             $projecte_imatge = Projecte_Imatge::create([
                 'projecte_id' => $projecte->id,
                 'imatge_id' => $imatge_db->id,
             ]);
         }
-        return redirect()->route('projectes.index');
+        return redirect()->route('projectes.index')->with('status', 'Projecte desat correctament.');
     }
 
     /**
@@ -228,8 +246,9 @@ class ProjectesController extends Controller
         //
         $projecte = Projecte::find($id);
         $projecte->delete();
-        return redirect()->route('projectes.index');
+        return redirect()->route('projectes.index')->with('status', 'Projecte eliminat correctament.');
     }
+
     /**
      * Remove the specified resource from storage.
      *
