@@ -1,0 +1,8 @@
+#map { 
+    width: 800px;
+    height: 250px;
+    box-shadow: 5px 5px 5px grey;
+ }
+ #form_contacte{
+     box-shadow: inset 5px 5px 5px grey;
+ }

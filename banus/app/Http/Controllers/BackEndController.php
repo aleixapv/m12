@@ -86,4 +86,16 @@ class BackEndController extends Controller
     {
         //
     }
+    public function getLatLong(){
+       $informacio = InformacioEmpresa::all()->first();
+        $address = $informacio->adreca_1 . ',' . $informacio->ciutat;
+        //Send request and receive json data by address
+        $prepAddr = str_replace(' ','+',$address);
+        $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+        $output= json_decode($geocode);
+        $latitude = $output->results[0]->geometry->location->lat;
+        $longitude = $output->results[0]->geometry->location->lng;
+        return $data;
+    }
+
 }
