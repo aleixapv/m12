@@ -102,8 +102,8 @@ class ServeisController extends Controller
         ]);
         $servei = Servei::find($id);
         if(isset($data['imatge'])){
-            Storage::delete( public_path($servei->imatge));
-            $imgArxiu = $data['imatge']->store('public');
+            Storage::delete( $servei->imatge);
+            $imgArxiu = $data['imatge']->store(Servei::GetPathImg());
             $urlImgArxiu = Storage::url($imgArxiu);
             $servei->update([
                 'nom' => ucfirst($data['nom']),
@@ -129,6 +129,7 @@ class ServeisController extends Controller
     {
         //
         $servei = Servei::find($id);
+        Storage::delete( $servei->imatge);
         $servei->delete();
         return redirect()->route('serveis.index')->with('status', 'Servei eliminat correctament.');
     }

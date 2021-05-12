@@ -6,7 +6,7 @@ function afegirDivImatge(i,$imatges,$divImatges){
         nom = nom + '...';
     }
     $divImatges.append(
-        $('<div>').addClass('card border').attr('style','width: 12rem; height: 12rem;').append(
+        $('<div>').addClass('card border noOriginal').attr('style','width: 12rem; height: 12rem;').append(
             $img
         ).append(
             $('<input>').attr('type','number').attr('hidden',true).attr('name','imatgesOrdre[]').val(i)
@@ -50,7 +50,7 @@ $( document ).ready(function(){
     
     //listeners
     $comprovar.click(function(){
-        if(!$titol.val() == '' && !$descripcio_breu.val() == '' && !$descripcio_detallada.val() == '' && !$categories.val() == '' && !$imatges.val() == ''){
+        if(!$titol.val() == '' && !$descripcio_breu.val() == '' && !$descripcio_detallada.val() == '' && !$categories.val() == '' ){
             $tiolExemple.html($titol.val());
             $breuExemple.html($descripcio_breu.val());
             $detalladaExemple.html($descripcio_detallada.val());
@@ -97,7 +97,7 @@ $( document ).ready(function(){
     });
     $imatges.change(function(){
         $instruccionsImatges.attr('hidden',false);
-        $divImatges.empty();
+        $('.noOriginal').remove();
         for(let i = 0; i < $imatges[0].files.length; i++){
             afegirDivImatge(i,$imatges,$divImatges);
         }
@@ -109,24 +109,31 @@ $( document ).ready(function(){
         });
     });
     $('.eliminar').click(function(){
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: "destroy/imatge",
-            method: "DELETE",
-            data: {
-                "id": $(this).attr('idImatge'),
-            }
-        }).done(function(request) {
-           console.log(request['resposta']);
-           $(this).parent().remove();
-        });
+        if(confirm('Estas segur?')){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "destroy/imatge",
+                method: "DELETE",
+                data: {
+                    "idImatge": $(this).attr('idImatge'),
+                    "idProjecte": $(this).attr('idProjecte'),
+                }
+            }).done(function(request) {
+                console.log(request);
+                if(request == 0){
+                    alert('No pots deixar sense imatges un projecte.');
+                }
+               
+            });
+        }  
     });
     
     //al carregar
+
     for(let i = 0; i < $imatges[0].files.length; i++){
         let $inputInvisible = $('<input>').attr('hidden',true).attr('type','file');
         $inputInvisible[0].files[0] = $imatges[0].files[i];
@@ -135,4 +142,8 @@ $( document ).ready(function(){
     if($divImatges.children().length > 0){
         $instruccionsImatges.attr('hidden',false);
     }  
+    $numeros = $('.numero');
+        $numeros.each(function(e){
+            $(this).html(e+1);
+        });
 });

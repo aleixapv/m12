@@ -22,12 +22,14 @@ class Projecte extends Model
         'ciutat',
         'zip_cp',
     ];
+    
     public static function GetPathImg(){
         if(!Storage::exists('public/imatgesProjectes' )){
             Storage::makeDirectory('public/imatgesProjectes', 0775, true); 
         }
         return 'public/imatgesProjectes';
     } 
+
     public function GetProjecte(){
         $data = [];
         $projecte_categories = Projecte_Categoria::where('projecte_id', '=', $this->id)->get();

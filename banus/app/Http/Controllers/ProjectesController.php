@@ -165,7 +165,7 @@ class ProjectesController extends Controller
             'titol' => 'required|string|min:3|max:50|unique:projectes,titol,'.$id,
             'descripcio_breu' => 'required|string|min:3|max:50',
             'descripcio_detallada' => 'required|string|min:3|max:1000',
-            'imatges' => 'required',
+            'imatges' => 'nullable',
             'imatges.*' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
             'categories' => 'required',
             'categories.*' => 'exists:categories,id',
@@ -188,7 +188,8 @@ class ProjectesController extends Controller
                 array_push($imatgesOrdenades,$data['imatges'][$ordre]);
             }
         }
-        dd($imatgesOrdenades);
+
+       
 
         if(isset($data['provincia']) && isset($data['ciutat']) && isset($data['zip_cp'])){
             $provincia = ucfirst($data['provincia']);
@@ -209,7 +210,6 @@ class ProjectesController extends Controller
             'zip_cp'=> $zip_cp,
         ]);
 
-        //per aqui
         $projecte_categorias = Projecte_Categoria::where('projecte_id','=', $projecte->id)->get();
         foreach($projecte_categorias as $projecte_categoria){
             $projecte_categoria->delete();
@@ -220,16 +220,24 @@ class ProjectesController extends Controller
                 'categoria_id'=> $categoriaId,
             ]); 
         }
-        if(isset($data['imatges'])){
+
+        if(isset($imatgesOrdenades)){
             $imatges_db = [];
-            foreach($data['imatges'] as $imatge){
-                $imgArxiu = $imatge->store('public');
-                $urlImgArxiu = Storage::url($imgArxiu);
-                $imatge_db =  Imatge::create([
-                    'url' => $urlImgArxiu,
-                    'nom' => $imatge->getClientOriginalName(),
-                ]);
-                array_push($imatges_db,$imatge_db);
+            for($i = 0; $i < count($imatgesOrdenades); $i++ ){
+                if(isset($imatgesOrdenades[$i]->id)){
+                    $imatgesOrdenades[$i]->update([
+                        'posicio' => $i,
+                    ]);
+                }else{
+                    $imgArxiu = $imatgesOrdenades[$i]->store(Projecte::GetPathImg());
+                    $urlImgArxiu = Storage::url($imgArxiu);
+                    $imatge_db =  Imatge::create([
+                        'url' => $urlImgArxiu,
+                        'nom' => $imatgesOrdenades[$i]->getClientOriginalName(),
+                        'posicio' => $i,
+                    ]);
+                    array_push($imatges_db,$imatge_db);
+                }
             }
             foreach($imatges_db as $imatge_db){
                 $projecte_imatge = Projecte_Imatge::create([
@@ -238,7 +246,9 @@ class ProjectesController extends Controller
                 ]);
             }
         }
-        return redirect()->route('projectes.index');
+
+       
+        return redirect()->route('projectes.index')->with('status', 'Projecte desat correctament.');
     }
 
     /**
@@ -251,6 +261,19 @@ class ProjectesController extends Controller
     {
         //
         $projecte = Projecte::find($id);
+        $projecte_categorias = Projecte_Categoria::where('projecte_id','=', $projecte->id)->get();
+        $projecte_imatges = Projecte_Imatge::where('projecte_id', '=', $projecte->id)->get();
+        foreach($projecte_imatges as $projecte_imatge){
+            $imatge = Imatge::find($projecte_imatge->imatge_id);
+            Storage::delete($imatge->url);
+            $imatge->delete();
+        }
+        foreach($projecte_imatges as $projecte_imatge){
+            $projecte_imatge->delete();
+        }
+        foreach($projecte_categorias as $projecte_categoria){
+            $projecte_categoria->delete();
+        }
         $projecte->delete();
         return redirect()->route('projectes.index')->with('status', 'Projecte eliminat correctament.');
     }
@@ -264,10 +287,18 @@ class ProjectesController extends Controller
     public function destroyImatge(Request $request)
     {
         //
-        $id = $request['id'];
-        $imatge = Imatge::find($id);
-        $imatge->delete();
-        $resposta = ['resposta'=>'tot be'];
-        return($resposta);        
+        $idImatge = $request['idImatge'];
+        $idProjecte = $request['idProjecte'];
+
+        $imatge = Imatge::find($idImatge);
+        $projecte = Projecte::find($idProjecte);
+        $projecte_imatges = Projecte_Imatge::where('projecte_id', '=', $projecte->id)->get();
+        
+        if(count($projecte_imatges) == 1){
+            return 0;
+        }else{
+            $imatge->delete();
+            return 1;
+        }      
     }
 }

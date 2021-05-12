@@ -54,7 +54,13 @@
             <div class="col-75">
                 <select name="categories[]" multiple id="categories">
                     @forelse ($categories as $categoria)
-                        <option value="{{$categoria->id}}">{{$categoria->name}}</option>
+                        @foreach ($projecte['categories'] as $item)
+                            @if($categoria->name == $item)
+                                <option value="{{$categoria->id}}" selected>{{$categoria->name}}</option>
+                            @else
+                                <option value="{{$categoria->id}}">{{$categoria->name}}</option>
+                            @endif
+                        @endforeach
                     @empty
                         <p>No hi han categories</p>
                     @endforelse
@@ -85,16 +91,16 @@
             </div>
             <div class="col-12 divSortable row mt-3" id="divImatges">
                 @forelse ($projecte['imatges'] as $imatge)
-                <div class="card border border-primary sortable-chosen" style="width: 12rem; height: 12rem;" draggable="true">
+                <div class="card border bg-light sortable-chosen" style="width: 12rem; height: 12rem;" draggable="true">
                     <img class="imatge card-img-top" style="width: 12rem; height: 8rem;" src="{{url($imatge['url'])}}" alt="{{$imatge['alt']}}" draggable="false">
                     <input type="number" name="imatgesOrdre[][original{{$imatge['id']}}]" hidden="hidden" value="{{$imatge['id']}}">
                     <div class="card-body">
                         <p class="card-text">
-                            <b class="ml-1 mr-1 numero">1</b>
+                            <b class="ml-1 mr-1 numero"></b>
                             índesx.jpeg
-                            
+                            <i class="fas fa-trash-alt text-danger eliminar" idImatge="{{$imatge['id']}}" idProjecte="{{ $projecte['id'] }}"></i>
                         </p>
-                        <button class="eliminar" idImatge="">Eliminar</button>
+                        
                     </div>
                 </div>
                 @empty
