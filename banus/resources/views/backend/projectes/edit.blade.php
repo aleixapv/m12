@@ -8,7 +8,7 @@
     <div class="alert alert-danger" id="error" hidden>
         Omple els camps requerits <i class="req">*</i>.
     </div>
-    <form action="{{route('projectes.update',['id' => $projecte->id])}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('projectes.update',['id' => $projecte['id']])}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row">
@@ -25,7 +25,7 @@
                 <label for="titol">Titol del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input type="text" name="titol" value="{{ $projecte->titol }}" id="titol">
+                <input type="text" name="titol" value="{{ $projecte['titol'] }}" id="titol">
             </div>
         </div>
 
@@ -34,7 +34,7 @@
                 <label for="descripcio_breu">Descripció breu del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <textarea name="descripcio_breu" rows="3" id="descripcio_breu">{{ $projecte->descripcio_breu }}</textarea>
+                <textarea name="descripcio_breu" rows="3" id="descripcio_breu">{{ $projecte['descripcio_breu'] }}</textarea>
             </div>
         </div>
 
@@ -43,7 +43,7 @@
                 <label for="descripcio_detallada">Descripció detallada del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <textarea name="descripcio_detallada" rows="6" id="descripcio_detallada">{{ $projecte->descripcio_detallada }}</textarea>
+                <textarea name="descripcio_detallada" rows="6" id="descripcio_detallada">{{ $projecte['descripcio_detallada'] }}</textarea>
             </div>
         </div>
        
@@ -84,14 +84,22 @@
                 <span hidden id="instruccionsImatges"> Ordena les imatges <b>arrosegan-les</b> fins la posició desitjada:</span>
             </div>
             <div class="col-12 divSortable row mt-3" id="divImatges">
-                @forelse ($imatges as $imatge)
-        <div>
-            <img src="{{url($imatge->url)}}" alt="{{$imatge->alt}}">
-            <button class="eliminar" idImatge="{{$imatge->id}}">Eliminar</button>
-        </div><br>
-    @empty
-        <p>No hi han imatges</p>
-    @endforelse
+                @forelse ($projecte['imatges'] as $imatge)
+                <div class="card border border-primary sortable-chosen" style="width: 12rem; height: 12rem;" draggable="true">
+                    <img class="imatge card-img-top" style="width: 12rem; height: 8rem;" src="{{url($imatge['url'])}}" alt="{{$imatge['alt']}}" draggable="false">
+                    <input type="number" name="imatgesOrdre[][original{{$imatge['id']}}]" hidden="hidden" value="{{$imatge['id']}}">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b class="ml-1 mr-1 numero">1</b>
+                            índesx.jpeg
+                            
+                        </p>
+                        <button class="eliminar" idImatge="">Eliminar</button>
+                    </div>
+                </div>
+                @empty
+                    <p>No hi han imatges</p>
+                @endforelse
             </div>
         </div>
         <div class="row">
@@ -148,15 +156,9 @@
             <h3>Previsualització:</h3>
             <div class="row col-12">
                 <div class="col-6">
-                    <h6>Comprova si el resultat es el que vols dins del recuadre.</h6>
+                    <h6>Comprova si el resultat es el que vols a continuació.</h6>
                 </div>
-                <div class="col-6 container">
-                    <div>
-                        <h6 id="nomExemple"></h6>
-                        <h6 id="descripcioExemple"></h6>
-                        <img src="" alt="" id="imatgeExemple">
-                    </div>
-                </div>
+                @include('frontend/projecte')
             </div>
             <br>
             <div class="row">
