@@ -50,7 +50,7 @@
             <h6>Whatsapp de contacte:</h6>
         </div>
         <div class="col-75">
-            <h6>{{$informacio->tel2}}</h6>
+            <h6>{{$informacio->whatsapp}}</h6>
         </div>
     </div>
     <div class="row">
@@ -58,7 +58,7 @@
             <h6>Correu electrònic de contacte:</h6>
         </div>
         <div class="col-75">
-            <h6>{{$informacio->whatsapp}}</h6>
+            <h6>{{$informacio->correu}}</h6>
         </div>
     </div>
     <div class="row">

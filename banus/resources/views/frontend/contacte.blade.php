@@ -10,13 +10,16 @@
 
         </div>
         </div>
-        <div class="row col 12 mt-4" id="contacte">
-            <div class="col-4" id="contacte_p1">
+        <div class="row mt-4" id="contacte">
+            <div class="col-xl-4 col-md-10" id="contacte_p1">
                 <h1>Contacta amb nosaltres</h1>
                 <li class="ml-4"><b>Telefon:</b> {{$informacio->tel}}</li>
+                @if (isset($informacio->tel2))
+                <li class="ml-4"><b>Segon telefon:</b> {{$informacio->tel2}}</li>
+                @endif
                 <li class="ml-4"><b>Correu electronic:</b> <a href="mailto:{{$informacio->correu}}"> {{$informacio->correu}} </a></li>
             </div>
-            <div class="col-4" id="contacte_p2">
+            <div class="col-xl-4 col-md-10" id="contacte_p2">
                 <br>
                 <br>
                 <li class="ml-4"><b>Seu:</b> <a target=”_blank” href="https://www.google.es/maps/place/Fusteria+Ban%C3%BAs/@41.3502168,1.7077639,17z/data=!3m2!4b1!5s0x12a47a2988ea0e57:0xcba54c259367194!4m5!3m4!1s0x12a479e8c654d949:0xbc67939504c48504!8m2!3d41.3502168!4d1.7099526"> {{$informacio->adreca_1}}, {{$informacio->zip_cp}} {{$informacio->ciutat}}, {{$informacio->provincia}} </a></li>

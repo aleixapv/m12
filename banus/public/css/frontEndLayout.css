@@ -8382,10 +8382,6 @@
     margin-top:5px;
     letter-spacing:2px
   }
-  .site-footer a
-  {
-    color:#737373;
-  }
   .site-footer a:hover
   {
     color:#3366cc;
@@ -8530,4 +8526,12 @@
   z-index: 999999;
   position: sticky;
   top: 0;
+}
+#whatsapp{
+  position: sticky !important;
+  right: 2;
+  bottom: 0;
+  z-index: 999999999999999999999999999999999999;
+  color:green;
+  
 }
