@@ -35,7 +35,7 @@
                 <label for="descripcio_breu">Descripció breu del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <textarea name="descripcio_breu" id="descripcio_breu">{{ old('descripcio_breu') }}</textarea>
+                <textarea name="descripcio_breu" rows="3" id="descripcio_breu">{{ old('descripcio_breu') }}</textarea>
             </div>
         </div>
 
@@ -44,7 +44,7 @@
                 <label for="descripcio_detallada">Descripció detallada del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <textarea name="descripcio_detallada" id="descripcio_detallada">{{ old('descripcio_detallada') }}</textarea>
+                <textarea name="descripcio_detallada" rows="6" id="descripcio_detallada">{{ old('descripcio_detallada') }}</textarea>
             </div>
         </div>
        
@@ -142,64 +142,7 @@
                 <div class="col-6">
                     <h6>Comprova si el resultat es el que vols a continuació.</h6>
                 </div>
-               <!--projecte-->
-                <div class="col-12">
-                    <div class="row" id="containerprojecte">
-                      <!--Carousel Wrapper-->
-                      <div id="carousel-example-1z" class="carousel slide carousel-fade mt-5 col-xl-7 col-md-12 " data-ride="carousel">
-                        <!--Indicators-->
-                        <ol class="carousel-indicators" id="olIndicadors">
-                           <!--<li data-target="#carousel-example-1z" data-slide-to="0"   class="active"></li>-->
-                        </ol>
-                        <!--/.Indicators-->
-                        <!--Slides-->
-                        <div class="carousel-inner" role="listbox" id="slidesDiv">
-                           <!-- <div class="carousel-item  active ">
-                              <img class="d-block img-fluid" width="900" height="450" src=""
-                                alt="">
-                            </div>-->
-                        </div>
-                        <!--/.Slides-->
-                        <!--Controls-->
-                        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                        <!--/.Controls-->
-                      </div>
-                      <!--/.Carousel Wrapper-->
-                      <div class="col-xl-4 col-md-12 mt-5" id="text_projecte">
-                        <div>
-                            <p class="text-center">
-                              <strong>
-                                <a href="#" class="text-dark" id="text_titulo"></a>
-                              </strong>
-                            </p>
-                            <p class="text-center text-justify" id="localitzacioExemple">
-                            </p>
-                            
-                            <p class="text-center text-justify d-block d-lg-none" id="breuExemple">descipcio breu
-                            </p>
-                            <p class="text-center text-justify d-none d-lg-block detalladaExemple" id="detalladaExemple">descripcio detallada
-                            </p>
-                            <div id="detallada_boto1"  class=" ver_mas text-center text-justify d-block d-lg-none">
-                              <p class="text-primary"">Click per veure més.</p>
-                              <p id="detallada_boto1" class="text-center text-justify detalladaExemple" hidden="true">descipcio detallada
-                              </p>
-                            </div>
-                            <br>
-                            
-                            <!--<button class="boto_informacio">Mes Informacio</button>-->
-                          </div>
-                      </div>
-                      <div class="col-5 mb-5"></div>
-                    </div>
-                  </div>
-                  <!--/projecte-->
+                @include('frontend/projecte')
             </div>
             <br>
             <div class="row">

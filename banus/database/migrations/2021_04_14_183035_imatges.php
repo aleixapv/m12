@@ -18,6 +18,7 @@ class Imatges extends Migration
             $table->string('url');
             $table->string('nom');
             $table->string('alt')->nullable();
+            $table->unsignedBigInteger('posicio');
             $table->timestamps();
         });
     }

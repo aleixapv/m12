@@ -25,4 +25,5 @@ class InformacioEmpresa extends Model
         'alt_logo',
         'url_logo',
     ];
+    
 }

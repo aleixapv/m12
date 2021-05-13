@@ -21,6 +21,11 @@
                     </td>
                     <td>
                         <div>
+                            <a href="{{route('projectes.show',['id' => $projecte->id])}}"> Veure</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
                             <form action="{{route('projectes.destroy',['id' => $projecte->id])}}" method="POST">
                                 @csrf
                                 @method('DELETE')

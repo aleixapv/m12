@@ -115,6 +115,6 @@ class XarxesSocialsController extends Controller
         //
         $xarxa = XarxaSocial::find($id);
         $xarxa->delete();
-        return redirect()->route('xarxes.index');
+        return redirect()->route('xarxes.index')->with('status', 'Xarxa social eliminada correctament.');
     }
 }

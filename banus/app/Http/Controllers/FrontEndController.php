@@ -11,8 +11,14 @@ use App\Models\Projecte_Imatge;
 use App\Models\InformacioEmpresa;
 use App\Models\XarxaSocial;
 
+
 class frontEndController extends Controller
 {
+    //const Categories = Categoria::all();
+    const $Categories = Categoria::all();
+    //const Informacio = InformacioEmpresa::all()->first();
+    //const Xarxes = XarxaSocial::all();
+
     /**
      * Display a listing of the resource.
      *
@@ -21,10 +27,8 @@ class frontEndController extends Controller
     public function index()
     {
         //
-        $categories = Categoria::all();
-        $informacio = InformacioEmpresa::all()->first();
-        $xarxes = XarxaSocial::all();
-        return view('frontend.index',compact(['categories','informacio','xarxes']));
+        
+        return view('frontend.index',compact(['Categories','Informacio','Xarxes']));
     }
     public function showprojecte(){
         return view('frontend.projecte');
@@ -38,33 +42,19 @@ class frontEndController extends Controller
     }
 
     public function showprojectes(){
-        $informacio = InformacioEmpresa::all()->first();
+        
         $projectesObj = [];
-        $projectes = Projecte::all();
+        
         $categories = Categoria::all();
-        $imatges = Imatge::all();
-        $projectes_imatges = Projecte_imatge::all();
+        $informacio = InformacioEmpresa::all()->first();
         $xarxes = XarxaSocial::all();
+
+        $projectes = Projecte::all();
         foreach($projectes as $projecte){
-            $data = [];
-            $projecte_categories = Projecte_Categoria::where('projecte_id', '=', $projecte->id)->get();
-            $projecte_imatges = Projecte_Imatge::where('projecte_id', '=', $projecte->id)->get();
-            $data['titol'] = $projecte->titol;
-            $data['data'] = $projecte->created_at;
-            $data['descripcio_breu'] = $projecte->descripcio_breu;
-            $data['descripcio_detallada'] = $projecte->descripcio_detallada;
-            foreach($projecte_categories as $projecte_categoria){
-                $categoria = Categoria::find($projecte_categoria->categoria_id);
-                $data['categories'][] = $categoria->name;
-            }
-            foreach($projecte_imatges as $projecte_imatge){
-                $imatge = Imatge::find($projecte_imatge->imatge_id);
-                $data['imatges'][$imatge->id]['url'] = $imatge->url;
-                $data['imatges'][$imatge->id]['alt'] = $imatge->alt;
-            }
+            $data = $projecte->GetProjecte();
             array_push($projectesObj,$data);
         }
-        //dd($projectesObj);
+        
         return view('frontend.projectes',compact(['projectesObj','categories','informacio','xarxes']));
     }
 
