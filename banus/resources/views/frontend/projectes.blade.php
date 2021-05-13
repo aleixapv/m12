@@ -5,8 +5,27 @@
   @endphp
   <div id="projectes_body">
     <br>
+    <div class="dropdown show  d-block d-lg-none mt-5 ml-2">
+      <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       Categories
+      </a>
+
+      <div class="dropdown-menu" id="menu_categories" aria-labelledby="dropdownMenuLink">
+        <div class="work">
+          <div class="category-buttons">
+            <a href="#" class="active all " data-group="all">Tot</a>
+            @forelse ($categories as $categoria)
+              <a href="#" class="" data-group="{{$categoria->name}}">{{$categoria->name}}</a>
+            @empty
+              <a class="dropdown-item" href="#">Sense categories</a>
+            @endforelse
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div class="work">
-      <div class="category-buttons">
+      <div class="category-buttons d-none d-lg-block">
         <a href="#" class="active all" data-group="all">Tot</a>
         @forelse ($categories as $categoria)
           <a href="#" data-group="{{$categoria->name}}">{{$categoria->name}}</a>
@@ -15,7 +34,7 @@
         @endforelse
       </div>
     
-      <div id="grid" class="grid">
+      <div id="grid"" class="grid">
         @forelse ($projectesObj as $projecte)
           @include('frontend/projecte')
           <br>

@@ -21,6 +21,6 @@ L.marker([41.66, -4.71],{draggable: false}).addTo(map);
     }).done(function(request) {
     
     }).fail( function( jqXHR, textStatus, errorThrown ) {
-        alert( 'Error!!' );
+        
     });
 });

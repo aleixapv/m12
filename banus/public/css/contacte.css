@@ -125,6 +125,12 @@
 }
 @media (max-width: 800px) {
     #map{
-        
+      margin-top: 100px;
+      height: 100px;
+      width: 300px;
+      margin-left: 5%;
+    }
+    #boto_contacte{
+      margin-left: 25%;
     }
   }
