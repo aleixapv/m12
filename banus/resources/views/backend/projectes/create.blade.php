@@ -142,7 +142,10 @@
                 <div class="col-6">
                     <h6>Comprova si el resultat es el que vols a continuació.</h6>
                 </div>
-                @include('frontend/projecte')
+                <div class="col-6">
+                    @include('frontend/projecte')
+                    @include('frontend/modalProjecte')
+                </div>
             </div>
             <br>
             <div class="row">

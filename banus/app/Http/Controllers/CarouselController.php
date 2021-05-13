@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Carousel;
+use Illuminate\Support\Facades\Storage; 
 
 class CarouselController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +20,8 @@ class CarouselController extends Controller
     public function index()
     {
         //
+        $carousel = Carousel::all();
+        return view('backend.carousel.index',compact('carousel'));
     }
 
     /**
@@ -54,9 +62,11 @@ class CarouselController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
+        $carousel = Carousel::all();
+        return view('backend.carousel.edit',compact('carousel'));
     }
 
     /**

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Carousel extends Model
 {
     use HasFactory;
+    protected $table = 'imatges_carrousel';
+    protected $fillable = [
+        'url',
+        'alt',
+        'titol',
+        'descripcio',
+    ];
 }

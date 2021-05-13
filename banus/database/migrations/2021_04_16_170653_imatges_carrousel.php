@@ -17,8 +17,10 @@ class ImatgesCarrousel extends Migration
         Schema::create('imatges_carrousel', function (Blueprint $table) {
             $table->id();
             $table->string('url');
-            $table->string('nom');
             $table->string('alt');
+            $table->string('titol');
+            $table->string('descripcio');
+            $table->unsignedBigInteger('posicio');
             $table->timestamps();
         });
     }
