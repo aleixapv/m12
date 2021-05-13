@@ -45,7 +45,7 @@
       </div>
       <br>
       <div class="row" id="card_index" style="display: none;">
-        @forelse ($collection as $item)
+        @forelse ($serveis as $servei)
           @include('frontend/servei')
         @empty
             

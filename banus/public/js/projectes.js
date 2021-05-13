@@ -38,10 +38,11 @@ $( document ).ready(function(){
     let $imatges = $('#imatges');
     let $divImatges = $('#divImatges');
 
-    let $tiolExemple = $('#text_titulo');
+    let $tiolExemple = $('.text_titulo');
     let $localitzacioExemple = $('#localitzacioExemple');
     let $breuExemple = $('#breuExemple');
     let $detalladaExemple = $('.detalladaExemple');
+    let $primeraImg = $('.primeraImg');
 
     let $olIndicadors =$('#olIndicadors');
     let $slidesDiv =$('#slidesDiv');
@@ -63,6 +64,7 @@ $( document ).ready(function(){
                 console.log($(this));
                 
                 if(e == 0){
+                    $primeraImg.attr('src',$(this).attr('src'));
                     $slidesDiv.append(
                         $('<div>').addClass('carousel-item active').append(
                             $('<img>').attr('src',$(this).attr('src')).addClass('d-block img-fluid').attr('width',900).attr('height',450)

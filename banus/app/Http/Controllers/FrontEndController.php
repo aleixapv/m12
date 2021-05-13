@@ -10,12 +10,13 @@ use App\Models\Imatge;
 use App\Models\Projecte_Imatge;
 use App\Models\InformacioEmpresa;
 use App\Models\XarxaSocial;
+use App\Models\Servei;
 
 
 class frontEndController extends Controller
 {
     //const Categories = Categoria::all();
-    const $Categories = Categoria::all();
+    //const Categories = Categoria::all();
     //const Informacio = InformacioEmpresa::all()->first();
     //const Xarxes = XarxaSocial::all();
 
@@ -27,8 +28,12 @@ class frontEndController extends Controller
     public function index()
     {
         //
-        
-        return view('frontend.index',compact(['Categories','Informacio','Xarxes']));
+        $categories = Categoria::all();
+        $informacio = InformacioEmpresa::all()->first();
+        $xarxes = XarxaSocial::all();
+
+        $serveis = Servei::all();
+        return view('frontend.index',compact(['categories','informacio','xarxes','serveis']));
     }
     public function showprojecte(){
         return view('frontend.projecte');
