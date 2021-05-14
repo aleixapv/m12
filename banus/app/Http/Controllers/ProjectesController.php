@@ -54,6 +54,7 @@ class ProjectesController extends Controller
     public function store(Request $request)
     {
         //
+        
         $data = $request->validate([
             'titol' => 'required|string|min:3|max:50|unique:projectes',
             'descripcio_breu' => 'required|string|min:3|max:50',
@@ -67,6 +68,8 @@ class ProjectesController extends Controller
             'zip_cp' => 'nullable|digits_between:4,5|numeric',
             'imatgesOrdre' => 'required',
         ]);
+
+        dd($data['descripcio_detallada']);
         
         $imatgesOrdenades = [];
         foreach($data['imatgesOrdre'] as $ordre){

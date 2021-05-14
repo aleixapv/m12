@@ -31,14 +31,32 @@ function enumerarImatges($numeros){
     });
 }
 $( document ).ready(function(){
+    CKEDITOR.replace( 'descripcio_detallada');
+
+
+    nanospell.ckeditor('descripcio_detallada',{
+        dictionary : "ca",  // 24 free international dictionaries  
+        server : "php"      // can be php, asp, asp.net or java
+    }); 
+
+    CKEDITOR.replace( 'descripcio_breu');
+
+
+    nanospell.ckeditor('descripcio_breu',{
+        dictionary : "ca",  // 24 free international dictionaries  
+        server : "php"      // can be php, asp, asp.net or java
+    });
+
+
+
     //objectes
     let $comprovar = $('#comprovar');
     let $error = $('#error');
     let $divExemple = $('#divExemple');
 
     let $titol = $('#titol');
-    let $descripcio_breu = $('#descripcio_breu');
-    let $descripcio_detallada = $('#descripcio_detallada');
+    let $descripcio_breu = CKEDITOR.instances.descripcio_breu.getData();
+    let $descripcio_detallada = CKEDITOR.instances.descripcio_detallada.getData(); //$('#descripcio_detallada');
     let $categories = $('#categories');
     let $imatges = $('#imatges');
     let $divImatges = $('#divImatges');
@@ -57,11 +75,13 @@ $( document ).ready(function(){
     
     //listeners
     $comprovar.click(function(){
-        console.log($descripcio_detallada.html());
-        if(!$titol.val() == '' && !$descripcio_breu.val() == '' && !$descripcio_detallada.val() == '' && !$categories.val() == '' ){
+        $descripcio_breu = CKEDITOR.instances.descripcio_breu.getData();
+        $descripcio_detallada = CKEDITOR.instances.descripcio_detallada.getData(); //$('#descripcio_detallada');
+        console.log($descripcio_detallada);
+        if(!$titol.val() == '' &&  !$categories.val() == '' && !$descripcio_detallada == '' && !$descripcio_breu == ''){
             $tiolExemple.html($titol.val());
-            $breuExemple.html($descripcio_breu.val());
-            $detalladaExemple.html($descripcio_detallada.val());
+            $breuExemple.html($descripcio_breu);
+            $detalladaExemple.html($descripcio_detallada);
             if(!$( "#selecProvincia option:selected" ).text() == '' && !$( "#selecPoblacio option:selected" ).text() == '' && !$( "#selecCp option:selected" ).text() == ''){
                 $localitzacioExemple.html($( "#selecPoblacio option:selected" ).text()+', '+$( "#selecProvincia option:selected" ).text());
             }
