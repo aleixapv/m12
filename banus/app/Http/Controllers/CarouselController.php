@@ -43,6 +43,22 @@ class CarouselController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->validate([
+            'imatge' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'alt' => 'nullable',
+            'titol' => 'nullable',
+            'descripcio' => 'nullable',
+        ]);
+        if(!isset($data['alt'])){
+            $data['alt'] = null;
+        }
+
+        $carousel = Carousel::create([
+            'url' => ,
+            'alt' => ,
+            'titol' => ,
+            'descripcio' => ,
+        ]);
     }
 
     /**

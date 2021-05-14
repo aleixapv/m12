@@ -20,6 +20,14 @@ function readURL(input,exemple){
     }
 }
 $( document ).ready(function() {
+    CKEDITOR.replace( 'descripcio');
+
+
+    nanospell.ckeditor('descripcio',{
+        dictionary : "ca",  // 24 free international dictionaries  
+        server : "php"      // can be php, asp, asp.net or java
+    }); 
+
     $error = $('#error');
     $nom = $('#nom');
     $descripcio = $('#descripcio');
@@ -31,6 +39,7 @@ $( document ).ready(function() {
     $imatgeExemple = $('#imatgeExemple');
 
     $comprovar.click(function(){
+        $descripcio.val(CKEDITOR.instances.descripcio.getData());
         if(!$nom.val() == '' && !$descripcio.val() == '' && !$imatge == ''){
             $error.attr('hidden',true);
             $nomExemple.html(capitalizeFirstLetter($nom.val()));

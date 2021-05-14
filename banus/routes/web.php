@@ -79,9 +79,14 @@ Route::put('/admin/informacio-empresa/update', [InformacioEmpresaController::cla
 
 //carousel
 Route::get('/admin/carousel', [CarouselController::class, 'index'])->name('carousel.index');
+Route::get('/admin/carousel/edit', [CarouselController::class, 'edit'])->name('carousel.edit');
+Route::post('/admin/carousel/edit/novadiapositiva', [CarouselController::class, 'store']);
+
+
+
 Route::get('/admin/carousel/create', [CarouselController::class, 'create'])->name('carousel.create');
 Route::post('/admin/carousel/store', [CarouselController::class, 'store'])->name('carousel.store');
-Route::get('/admin/carousel/edit', [CarouselController::class, 'edit'])->name('carousel.edit');
+
 Route::get('/admin/carousel/edit/diapositiva/{id}', [CarouselController::class, 'editDiapositiva'])->name('carousel.diapositiva.edit');
 Route::put('/admin/carousel/update', [CarouselController::class, 'update'])->name('carousel.update');
 Route::delete('/admin/carousel/destroy/{id}', [CarouselController::class, 'destroy'])->name('carousel.destroy');

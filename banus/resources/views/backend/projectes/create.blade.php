@@ -9,9 +9,6 @@
     <div class="alert alert-danger" id="error" hidden>
         Omple els camps requerits <i class="req">*</i>.
     </div>
-    //////////
-
-    
     <form action="{{route('projectes.store')}}" method="POST" enctype="multipart/form-data" id="form">
         @csrf
 
@@ -165,11 +162,4 @@
     <script src="{{url('js/informacio.js')}}"></script>
     <script src="{{url('js/projectesfrontend.js')}}"></script>
     <script src="{{url('js/projectes.js')}}"></script>
-
-
-
-   
-    			
-    
-    /////////
 @endsection

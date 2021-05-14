@@ -7,7 +7,7 @@
     <div class="card-body">
       <h5 class="card-title">@if(isset($servei)) {{$servei->nom}} @endif</h5>
       <p class="card-text">
-        @if(isset($servei)) {{$servei->descripcio}} @endif
+        @if(isset($servei)) {!!$servei->descripcio!!} @endif
       </p>
     </div>
   </div>

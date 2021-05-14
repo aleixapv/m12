@@ -55,8 +55,8 @@ $( document ).ready(function(){
     let $divExemple = $('#divExemple');
 
     let $titol = $('#titol');
-    let $descripcio_breu = $('#descripcio_breu');CKEDITOR.instances.descripcio_breu.getData();
-    let $descripcio_detallada = $('#descripcio_detallada');CKEDITOR.instances.descripcio_detallada.getData(); //$('#descripcio_detallada');
+    let $descripcio_breu = $('#descripcio_breu');//CKEDITOR.instances.descripcio_breu.getData();
+    let $descripcio_detallada = $('#descripcio_detallada');//CKEDITOR.instances.descripcio_detallada.getData(); //$('#descripcio_detallada');
     let $categories = $('#categories');
     let $imatges = $('#imatges');
     let $divImatges = $('#divImatges');

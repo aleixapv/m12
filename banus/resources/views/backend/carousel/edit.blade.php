@@ -34,7 +34,7 @@
                             <label for="imatge">Imates de la diapositiva: <i class="req">*</i></label>
                         </div>
                         <div class="col-75">
-                            <input type="file" name="imatge" id="imatge"  value="">
+                            <input type="file" name="imatge" id="imatgeNovaDiapositiva"  value="">
                         </div>
                     </div>
                     <div class="row">
@@ -42,7 +42,7 @@
                             <label for="alt">Alt del la diapositiva: <i class="req">*</i></label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="alt" value="" id="alt">
+                            <input type="text" name="alt" value="" id="altNovaDiapositiva">
                         </div>
                     </div>
             
@@ -51,20 +51,20 @@
                             <label for="titol">Titol de la diapositiva: <i class="req">*</i></label>
                         </div>
                         <div class="col-75">
-                            <input type="text" name="titol" value="" id="titol">
+                            <input type="text" name="titol" value="" id="titolNovaDiapositiva">
                         </div>
                     </div>
-            
+                    
                     <div class="row">
                         <div class="col-25">
                             <label for="descripcio">Descripció de la diapositiva: <i class="req">*</i></label>
                         </div>
                         <div class="col-75">
-                            <textarea name="descripcio" rows="3" id="descripcio"></textarea>
+                            <textarea name="descripcio" rows="3" id="descripcioNovaDiapositiva"></textarea>
                         </div>
                     </div>
                     <div class="row">
-                        <input type="button" class="comprovar" value="Crear">
+                        <input type="button" class="comprovar" value="Crear" id="crearNovaDiapositiva">
                     </div>
                 </div>
                
@@ -92,7 +92,8 @@
                 <input type="submit" value="Crear" >
             </div>
         </div>
-    
+    <script src="https://cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+    <script src="{{url('js/src/nanospell/autoload.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
     <script src="{{url('js/sortable.js')}}"></script>
     <script src="{{url('js/src/jquery.min.js')}}"></script>

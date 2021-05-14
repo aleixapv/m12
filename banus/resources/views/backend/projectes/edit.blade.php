@@ -182,6 +182,8 @@
             </div>
         </div>
     </form>
+    <script src="https://cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+    <script src="{{url('js/src/nanospell/autoload.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
     <link rel="stylesheet" href="{{url('css/projectes.css')}}">
     <script src="{{url('js/src/jquery.min.js')}}"></script>
