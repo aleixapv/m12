@@ -13,7 +13,7 @@ $( document ).ready(function() {
   var filteredProjects = [];
   var selection = "all";
   var running = false;
-  window.setTimeout(function() {
+  window.setTimeout(function() {  
     $('.all').trigger('click');
   }, 150);
 

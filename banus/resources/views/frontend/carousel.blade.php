@@ -1,5 +1,5 @@
 <!--Carousel Wrapper-->
-<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="carousel-example-1z" class="carousel slide carousel-fade carousel_index" data-ride="carousel">
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
       <!--First slide-->
