@@ -53,9 +53,11 @@ $( document ).ready(function(){
     let $slidesDiv =$('#slidesDiv');
 
     let $instruccionsImatges = $('#instruccionsImatges');
+
     
     //listeners
     $comprovar.click(function(){
+        console.log($descripcio_detallada.html());
         if(!$titol.val() == '' && !$descripcio_breu.val() == '' && !$descripcio_detallada.val() == '' && !$categories.val() == '' ){
             $tiolExemple.html($titol.val());
             $breuExemple.html($descripcio_breu.val());

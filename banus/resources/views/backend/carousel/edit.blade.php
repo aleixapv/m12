@@ -10,62 +10,71 @@
         Omple els camps requerits <i class="req">*</i>.
     </div>
     <div class="row">
-        <input type="button" class="comprovar" id="novaDiapositiva" value="Nova diapositiva">
-        <input type="button" class="comprovar" id="novaDiapositivaCancellar" value="cancel·lar" hidden>
+        <input type="button" class="comprovar" id="novaDiapositiva" value="Nova diapositiva" data-toggle="modal" data-target="#modal_nova_diapositiva">
+        
     </div>
-    <form action="{{route('projectes.store')}}" method="POST" enctype="multipart/form-data" id="formCrearDiapositiva" hidden>
-        @csrf
-
-        <div class="row">
-            <div class="col-25">
-                <h3>Nova diapositiva:</h3>
-            </div>
-            <div class="col-75">
+   
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="form" id="modal_nova_diapositiva" >
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content col-12">
+                
+                <div class="modal-header">
+                    
+                    <h4 class="modal-title"><p class="text-center">
+                        <strong>
+                          <a href="#" class="text-dark text_titulo">Nova diapositiva: </a>
+                        </strong>
+                      </p></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="m-1">
+            
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="imatge">Imates de la diapositiva: <i class="req">*</i></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="file" name="imatge" id="imatge"  value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="alt">Alt del la diapositiva: <i class="req">*</i></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="alt" value="" id="alt">
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="titol">Titol de la diapositiva: <i class="req">*</i></label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="titol" value="" id="titol">
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="descripcio">Descripció de la diapositiva: <i class="req">*</i></label>
+                        </div>
+                        <div class="col-75">
+                            <textarea name="descripcio" rows="3" id="descripcio"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type="button" class="comprovar" value="Crear">
+                    </div>
+                </div>
+               
                 
             </div>
-        </div> 
-
-        <div class="row">
-            <div class="col-25">
-                <label for="imatge">Imates de la diapositiva: <i class="req">*</i></label>
-            </div>
-            <div class="col-75">
-                <input type="file" name="imatge" id="imatge"  value="{{ old('imatge') }}">
-            </div>
         </div>
-        <div class="col-12 divSortable row mt-3" id="divImatges">
-            
-        </div>
-        <div class="row">
-            <div class="col-25">
-                <label for="alt">Alt del la diapositiva: <i class="req">*</i></label>
-            </div>
-            <div class="col-75">
-                <input type="text" name="alt" value="{{ old('alt') }}" id="alt">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-25">
-                <label for="titol">Titol de la diapositiva: <i class="req">*</i></label>
-            </div>
-            <div class="col-75">
-                <input type="text" name="titol" value="{{ old('titol') }}" id="titol">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-25">
-                <label for="descripcio">Descripció de la diapositiva: <i class="req">*</i></label>
-            </div>
-            <div class="col-75">
-                <textarea name="descripcio" rows="3" id="descripcio">{{ old('descripcio') }}</textarea>
-            </div>
-        </div>
-        <div class="row">
-            <input type="button" class="comprovar" value="Crear">
-        </div>
-    </form>
+      
+    </div>
+    
+    
     
         <div id="divExemple" hidden>
             <br>
