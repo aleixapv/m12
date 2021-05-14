@@ -24,7 +24,7 @@
 
 
 
-
+        
         
         <script src="{{url('js/src/jquery.min.js')}}"></script>
         <script src="{{url('js/src/popper.js')}}"></script>

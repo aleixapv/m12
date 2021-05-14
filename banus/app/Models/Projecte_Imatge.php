@@ -12,5 +12,8 @@ class Projecte_Imatge extends Model
     protected $fillable = [
         'projecte_id',
         'imatge_id',
+        'titol',
+        'descripcio',
+        'pocicio',
     ];
 }

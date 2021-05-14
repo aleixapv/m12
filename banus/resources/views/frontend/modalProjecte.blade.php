@@ -1,4 +1,4 @@
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="modal_{{$projecte['id']}}" >
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" @if(isset($projecte))id="modal_{{$projecte['id']}}" @else id="modal_" @endif>
     <div class="modal-dialog modal-lg">
         <div class="modal-content col-12">
             

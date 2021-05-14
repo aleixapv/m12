@@ -8,6 +8,7 @@ use App\Http\Controllers\ProjectesController;
 use App\Http\Controllers\ServeisController;
 use App\Http\Controllers\XarxesSocialsController;
 use App\Http\Controllers\InformacioEmpresaController;
+use App\Http\Controllers\CarouselController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,5 +76,15 @@ Route::post('/admin/informacio-empresa/store', [InformacioEmpresaController::cla
 Route::get('/admin/informacio-empresa/edit', [InformacioEmpresaController::class, 'edit'])->name('informacio.empresa.edit');
 Route::put('/admin/informacio-empresa/update', [InformacioEmpresaController::class, 'update'])->name('informacio.empresa.update');
 
+
+//carousel
+Route::get('/admin/carousel', [CarouselController::class, 'index'])->name('carousel.index');
+Route::get('/admin/carousel/create', [CarouselController::class, 'create'])->name('carousel.create');
+Route::post('/admin/carousel/store', [CarouselController::class, 'store'])->name('carousel.store');
+Route::get('/admin/carousel/edit', [CarouselController::class, 'edit'])->name('carousel.edit');
+Route::get('/admin/carousel/edit/diapositiva/{id}', [CarouselController::class, 'editDiapositiva'])->name('carousel.diapositiva.edit');
+Route::put('/admin/carousel/update', [CarouselController::class, 'update'])->name('carousel.update');
+Route::delete('/admin/carousel/destroy/{id}', [CarouselController::class, 'destroy'])->name('carousel.destroy');
+Route::delete('/admin/carousel/edit/destroy/imatge', [CarouselController::class, 'destroyImatge'])->name('carousel.imatge.destroy');
 
 require __DIR__.'/auth.php';

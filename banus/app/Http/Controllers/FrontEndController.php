@@ -28,6 +28,8 @@ class frontEndController extends Controller
     public function index()
     {
         //
+        
+
         $categories = Categoria::all();
         $informacio = InformacioEmpresa::all()->first();
         $xarxes = XarxaSocial::all();
@@ -127,5 +129,13 @@ class frontEndController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getInfoXarxexCategories()
+    {
+        $categories = Categoria::all();
+        $informacio = InformacioEmpresa::all()->first();
+        $xarxes = XarxaSocial::all();
+        return($categories);
     }
 }

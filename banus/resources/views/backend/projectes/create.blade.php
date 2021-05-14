@@ -9,6 +9,9 @@
     <div class="alert alert-danger" id="error" hidden>
         Omple els camps requerits <i class="req">*</i>.
     </div>
+    //////////
+
+    
     <form action="{{route('projectes.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
@@ -142,7 +145,10 @@
                 <div class="col-6">
                     <h6>Comprova si el resultat es el que vols a continuació.</h6>
                 </div>
-                @include('frontend/projecte')
+                <div class="col-6">
+                    @include('frontend/projecte')
+                    @include('frontend/modalProjecte')
+                </div>
             </div>
             <br>
             <div class="row">
@@ -157,4 +163,19 @@
     <script src="{{url('js/informacio.js')}}"></script>
     <script src="{{url('js/projectesfrontend.js')}}"></script>
     <script src="{{url('js/projectes.js')}}"></script>
+
+
+
+    <script src="https://cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+    <script src="{{url('js/src/nanospell/autoload.js')}}"></script>
+    			
+    <script>CKEDITOR.replace( 'descripcio_detallada');</script>
+
+    <script>
+    nanospell.ckeditor('descripcio_detallada',{
+        dictionary : "ca",  // 24 free international dictionaries  
+        server : "php"      // can be php, asp, asp.net or java
+    }); 
+    </script>
+    /////////
 @endsection

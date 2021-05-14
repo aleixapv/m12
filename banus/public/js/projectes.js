@@ -25,6 +25,11 @@ function afegirDivImatge(i,$imatges,$divImatges){
     }
     reader.readAsDataURL($imatges[0].files[i]);
 }
+function enumerarImatges($numeros){
+    $numeros.each(function(e){
+        $(this).html(e+1);
+    });
+}
 $( document ).ready(function(){
     //objectes
     let $comprovar = $('#comprovar');
@@ -48,9 +53,11 @@ $( document ).ready(function(){
     let $slidesDiv =$('#slidesDiv');
 
     let $instruccionsImatges = $('#instruccionsImatges');
+
     
     //listeners
     $comprovar.click(function(){
+        console.log($descripcio_detallada.html());
         if(!$titol.val() == '' && !$descripcio_breu.val() == '' && !$descripcio_detallada.val() == '' && !$categories.val() == '' ){
             $tiolExemple.html($titol.val());
             $breuExemple.html($descripcio_breu.val());
@@ -105,12 +112,10 @@ $( document ).ready(function(){
         }
     });
     addEventListener('dragover',function(){
-        $numeros = $('.numero');
-        $numeros.each(function(e){
-            $(this).html(e+1);
-        });
+        enumerarImatges($('.numero'));
     });
     $('.eliminar').click(function(){
+        $eliminar = $(this);
         if(confirm('Estas segur?')){
             $.ajaxSetup({
                 headers: {
@@ -125,9 +130,11 @@ $( document ).ready(function(){
                     "idProjecte": $(this).attr('idProjecte'),
                 }
             }).done(function(request) {
-                console.log(request);
                 if(request == 0){
                     alert('No pots deixar sense imatges un projecte.');
+                }else{
+                    $eliminar.parent().parent().parent().remove();
+                    enumerarImatges($('.numero'));
                 }
                
             });
@@ -144,8 +151,7 @@ $( document ).ready(function(){
     if($divImatges.children().length > 0){
         $instruccionsImatges.attr('hidden',false);
     }  
-    $numeros = $('.numero');
-        $numeros.each(function(e){
-            $(this).html(e+1);
-        });
+    
+
+    enumerarImatges($('.numero'));
 });
