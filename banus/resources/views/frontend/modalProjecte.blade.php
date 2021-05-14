@@ -66,8 +66,10 @@
                     <p class=" d-none d-lg-block detalladaExemple" >@if(isset($projecte)) {!!$projecte['descripcio_detallada']!!} @endif</p>
                     <div id="detallada_boto{{$contador}}"  class=" ver_mas  d-block d-lg-none">
                       <p class="text-primary"">Click per veure més</p>
-                      <p id="detallada_boto{{$contador}}" class=" detalladaExemple" hidden="true" >@if(isset($projecte)) {!!$projecte['descripcio_detallada']!!} @endif
-                      </p>
+                        <div hidden="true">
+                            <p id="detallada_boto{{$contador}}" class=" detalladaExemple" hidden="true" >@if(isset($projecte)) {!!$projecte['descripcio_detallada']!!} @endif
+                            </p>
+                        </div>
                     </div>
                     <br>
                     <p class="text-center text-justify" id="" >@if(isset($projecte)) Data de publicació: {{$projecte['data']}} @endif
