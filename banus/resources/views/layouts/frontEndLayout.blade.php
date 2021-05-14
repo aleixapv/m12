@@ -106,7 +106,7 @@
 		</div>
   </footer>
  	 @if (isset($informacio->whatsapp))
-  		<a href="https://api.whatsapp.com/send?phone={{$informacio->whatsapp}}" target="_blank"><span class="fab fa-whatsapp-square fa-8x border" id="whatsapp"></span></a>
+  		<a href="https://api.whatsapp.com/send?phone={{$informacio->whatsapp}}" target="_blank" ><img src="{{url('img/img_whatsapp.png')}}" id="whatsapp"></a>
 	@endif
   
 
