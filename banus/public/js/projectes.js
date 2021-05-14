@@ -55,8 +55,8 @@ $( document ).ready(function(){
     let $divExemple = $('#divExemple');
 
     let $titol = $('#titol');
-    let $descripcio_breu = CKEDITOR.instances.descripcio_breu.getData();
-    let $descripcio_detallada = CKEDITOR.instances.descripcio_detallada.getData(); //$('#descripcio_detallada');
+    let $descripcio_breu = $('#descripcio_breu');CKEDITOR.instances.descripcio_breu.getData();
+    let $descripcio_detallada = $('#descripcio_detallada');CKEDITOR.instances.descripcio_detallada.getData(); //$('#descripcio_detallada');
     let $categories = $('#categories');
     let $imatges = $('#imatges');
     let $divImatges = $('#divImatges');
@@ -75,13 +75,13 @@ $( document ).ready(function(){
     
     //listeners
     $comprovar.click(function(){
-        $descripcio_breu = CKEDITOR.instances.descripcio_breu.getData();
-        $descripcio_detallada = CKEDITOR.instances.descripcio_detallada.getData(); //$('#descripcio_detallada');
-        console.log($descripcio_detallada);
+        $descripcio_breu.val(CKEDITOR.instances.descripcio_breu.getData()); 
+        $descripcio_detallada.val(CKEDITOR.instances.descripcio_detallada.getData()); //$('#descripcio_detallada');
+        console.log(CKEDITOR.instances.descripcio_detallada.getData());
         if(!$titol.val() == '' &&  !$categories.val() == '' && !$descripcio_detallada == '' && !$descripcio_breu == ''){
             $tiolExemple.html($titol.val());
-            $breuExemple.html($descripcio_breu);
-            $detalladaExemple.html($descripcio_detallada);
+            $breuExemple.html(CKEDITOR.instances.descripcio_breu.getData());
+            $detalladaExemple.html(CKEDITOR.instances.descripcio_detallada.getData());
             if(!$( "#selecProvincia option:selected" ).text() == '' && !$( "#selecPoblacio option:selected" ).text() == '' && !$( "#selecCp option:selected" ).text() == ''){
                 $localitzacioExemple.html($( "#selecPoblacio option:selected" ).text()+', '+$( "#selecProvincia option:selected" ).text());
             }
@@ -133,6 +133,11 @@ $( document ).ready(function(){
     });
     addEventListener('dragover',function(){
         enumerarImatges($('.numero'));
+    });
+    $("#form" + " *").keypress(function() {
+        console.log('entro');
+        $breuExemple.html(CKEDITOR.instances.descripcio_breu.getData());
+        $detalladaExemple.html(CKEDITOR.instances.descripcio_detallada.getData());
     });
     $('.eliminar').click(function(){
         $eliminar = $(this);
