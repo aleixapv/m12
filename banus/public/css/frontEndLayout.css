@@ -172,11 +172,12 @@
     overflow: hidden;
     vertical-align: middle; }
   
-  table {
-    border-collapse: collapse;
-    border-color: black;
+   td{
+    border: 1px solid black;
    }
-  
+   tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
   caption {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
@@ -8558,4 +8559,7 @@
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+.detalladaExemple li{
+  list-style-type: circle !important;
 }
