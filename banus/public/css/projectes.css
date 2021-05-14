@@ -74,8 +74,16 @@ input[type=checkbox]:checked:after {
 #text_titulo:hover{
         color: #40bfc1 !important;
     }
+    .modal_projectes img{
+      width: 307.2px !important;
+    }
+        
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
+      .modal_projectes img{
+        width: 375px !important;
+        height: 200px;
+      }
       #menu_categories{
         width: 100%;
       }
@@ -246,5 +254,3 @@ input[type=checkbox]:checked:after {
         width: 100%;
       }
     }
-
-    
