@@ -12,7 +12,7 @@
     //////////
 
     
-    <form action="{{route('projectes.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('projectes.store')}}" method="POST" enctype="multipart/form-data" id="form">
         @csrf
 
         <div class="row">

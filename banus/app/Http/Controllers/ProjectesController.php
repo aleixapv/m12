@@ -69,7 +69,7 @@ class ProjectesController extends Controller
             'imatgesOrdre' => 'required',
         ]);
 
-        dd($data['descripcio_detallada']);
+        
         
         $imatgesOrdenades = [];
         foreach($data['imatgesOrdre'] as $ordre){
