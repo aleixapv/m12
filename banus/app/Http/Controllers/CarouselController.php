@@ -43,22 +43,36 @@ class CarouselController extends Controller
     public function store(Request $request)
     {
         //
+        
         $data = $request->validate([
             'imatge' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'alt' => 'nullable',
             'titol' => 'nullable',
             'descripcio' => 'nullable',
         ]);
+        
         if(!isset($data['alt'])){
             $data['alt'] = null;
         }
+        if(!isset($data['titol'])){
+            $data['titol'] = null;
+        }
+        if(!isset($data['descripcio'])){
+            $data['descripcio'] = null;
+        }
+        
+        $imgArxiu = $data['imatge']->store(Carousel::GetPathImg());
+        $urlImgArxiu = Storage::url($imgArxiu);
 
+      
         $carousel = Carousel::create([
-            'url' => ,
-            'alt' => ,
-            'titol' => ,
-            'descripcio' => ,
+            'url' => $urlImgArxiu,
+            'alt' => $data['alt'],
+            'titol' => $data['titol'],
+            'descripcio' => $data['descripcio'],
+            'posicio' => Carousel::all()->count() + 1 ,
         ]);
+        return $carousel;
     }
 
     /**

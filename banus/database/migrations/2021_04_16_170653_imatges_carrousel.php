@@ -17,9 +17,9 @@ class ImatgesCarrousel extends Migration
         Schema::create('imatges_carrousel', function (Blueprint $table) {
             $table->id();
             $table->string('url');
-            $table->string('alt');
-            $table->string('titol');
-            $table->string('descripcio');
+            $table->string('alt')->nullable();
+            $table->string('titol')->nullable();
+            $table->string('descripcio')->nullable();
             $table->unsignedBigInteger('posicio');
             $table->timestamps();
         });

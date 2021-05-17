@@ -1,4 +1,10 @@
 $( document ).ready(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     CKEDITOR.replace( 'descripcioNovaDiapositiva');
 
     nanospell.ckeditor('descripcioNovaDiapositiva',{
@@ -12,32 +18,44 @@ $( document ).ready(function() {
     $titolNovaDiapositiva = $('#titolNovaDiapositiva');
     $crearNovaDiapositiva = $('#crearNovaDiapositiva');
 
-    $crearNovaDiapositiva.click(function(){
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+    $novaDiapositivaForm = $('#novaDiapositivaForm');
+
+    $("form[name='uploader']").on("submit", function(ev){
+        ev.preventDefault();
+        let formData = new FormData(this);
         $.ajax({
-            url: "novadiapositiva",
+            url: "edit/novadiapositiva",
             method: "POST",
-            data: {
-                "idImatge": $(this).attr('idImatge'),
-                "idProjecte": $(this).attr('idProjecte'),
-            }
+            
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
         }).done(function(request) {
-            if(request == 0){
-                alert('No pots deixar sense imatges un projecte.');
-            }else{
-                $eliminar.parent().parent().parent().remove();
-                enumerarImatges($('.numero'));
-            }
+            console.log(request);
            
         });
-    });
+    })
+
+    /*$crearNovaDiapositiva.click(function(){
+        
+        $.ajax({
+            url: "edit/novadiapositiva",
+            method: "POST",
+            data: {
+                'imatge': $imatgeNovaDiapositiva[0].files[0],
+                'alt': $altNovaDiapositiva.val(),
+                'titol': $titolNovaDiapositiva.val(),
+                'descripcio': CKEDITOR.instances.descripcioNovaDiapositiva.getData(),
+            }
+        }).done(function(request) {
+            console.log(request);
+           
+        });
+    });*/
 
 
-    console.log(CKEDITOR.instances.descripcioNovaDiapositiva.getData());
+    
   
 
 });

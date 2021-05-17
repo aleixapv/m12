@@ -28,44 +28,46 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="m-1">
+                    <form id="novaDiapositivaForm" name='uploader'>
             
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="imatge">Imates de la diapositiva: <i class="req">*</i></label>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="imatge">Imates de la diapositiva: <i class="req">*</i></label>
+                            </div>
+                            <div class="col-75">
+                                <input type="file" name="imatge" id="imatgeNovaDiapositiva"  value="">
+                            </div>
                         </div>
-                        <div class="col-75">
-                            <input type="file" name="imatge" id="imatgeNovaDiapositiva"  value="">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="alt">Alt del la diapositiva: <i class="req">*</i></label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="alt" value="" id="altNovaDiapositiva">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="alt">Alt del la diapositiva: <i class="req">*</i></label>
+                
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="titol">Titol de la diapositiva: <i class="req">*</i></label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="titol" value="" id="titolNovaDiapositiva">
+                            </div>
                         </div>
-                        <div class="col-75">
-                            <input type="text" name="alt" value="" id="altNovaDiapositiva">
+                        
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="descripcio">Descripció de la diapositiva: <i class="req">*</i></label>
+                            </div>
+                            <div class="col-75">
+                                <textarea name="descripcio" rows="3" id="descripcioNovaDiapositiva"></textarea>
+                            </div>
                         </div>
-                    </div>
-            
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="titol">Titol de la diapositiva: <i class="req">*</i></label>
+                        <div class="row">
+                            <input type="submit" class="comprovar" value="Crear" id="crearNovaDiapositiva">
                         </div>
-                        <div class="col-75">
-                            <input type="text" name="titol" value="" id="titolNovaDiapositiva">
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="descripcio">Descripció de la diapositiva: <i class="req">*</i></label>
-                        </div>
-                        <div class="col-75">
-                            <textarea name="descripcio" rows="3" id="descripcioNovaDiapositiva"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <input type="button" class="comprovar" value="Crear" id="crearNovaDiapositiva">
-                    </div>
+                    </form>
                 </div>
                
                 
