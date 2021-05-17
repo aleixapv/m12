@@ -254,3 +254,10 @@ input[type=checkbox]:checked:after {
         width: 100%;
       }
     }
+    .shrink{
+      transition: all 700ms ease;
+    }
+    
+    .shrink:hover {
+      transform: scale(1.2);
+    }

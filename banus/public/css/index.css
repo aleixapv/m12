@@ -58,7 +58,7 @@
 #carousel1 img{
   width: 100%;
 }
-.card
+.service_card
 {
     display:inline-block;
     position: relative;
@@ -72,7 +72,7 @@
     transform: scale(1);   
 
 }
-.card:hover
+.service_card:hover
 {
     box-shadow: 0px 0px 50px #000000;
     z-index: 2;
