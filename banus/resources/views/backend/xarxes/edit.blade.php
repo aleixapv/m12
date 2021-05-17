@@ -8,7 +8,7 @@
     <div class="alert alert-danger" id="error" hidden>
         Omple els camps requerits <i class="req">*</i>.
     </div>
-    <form action="{{route('xarxes.update',['id' => $xarxa->id])}}" method="POST" id="formXarxa">
+    <form action="{{route('xarxes.update',['id' => $xarxa->id])}}" method="POST" id="formXarxa" >
         @csrf
         @method('PUT')
         <div class="row">
