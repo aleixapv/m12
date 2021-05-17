@@ -123,14 +123,28 @@
 #formulari_contacte{
     z-index: 999999999999999999;
 }
-@media (max-width: 800px) {
-    #map{
-      margin-top: 100px;
-      height: 100px;
-      width: 300px;
-      margin-left: 5%;
-    }
-    #boto_contacte{
-      margin-left: 25%;
-    }
+
+  @media (max-width:1024px)
+{
+  #map{
+    margin-top: 100px;
+    height: 200px;
+    width: 100%;
+    margin-left: 2%;;
   }
+  #boto_contacte{
+    margin-left: 25%
+  }
+}
+@media (max-width: 700px) {
+    
+  #boto_contacte{
+    margin-left: 5%;
+  }
+  .boton_modal{
+    width: 300px;
+  }
+  #contacte{
+    width: 330px;
+  }
+}

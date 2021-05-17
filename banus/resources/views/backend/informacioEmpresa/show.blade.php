@@ -8,8 +8,8 @@
             <h1>Informació de la empresa</h1>
             
         </div>
-        <div class="col-25">
-            <a href="{{route('informacio.empresa.edit')}}">Editar</a>
+        <div class="col-1 boto_editar">
+            <a href="{{route('informacio.empresa.edit')}}" class="float-rigth btn btn-success">Editar</a>
         </div>
     </div>
    

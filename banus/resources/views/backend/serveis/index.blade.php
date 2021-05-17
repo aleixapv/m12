@@ -1,6 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <a href="{{route('serveis.create')}}">Nou Servei</a>
+    <a href="{{route('serveis.create')}}" class="btn btn-success">Nou Servei</a>
     <table class="table table-striped">
         @php
             $numero = 1;
@@ -16,7 +16,7 @@
                     </td>
                     <td>
                         <div>
-                            <a href="{{route('serveis.edit',['id' => $servei->id])}}"> Editar</a>
+                            <a href="{{route('serveis.edit',['id' => $servei->id])}}" class="btn btn-success"> Editar</a>
                         </div>
                     </td>
                     <td>
@@ -24,7 +24,7 @@
                             <form action="{{route('serveis.destroy',['id' => $servei->id])}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Estas segur?')">Eliminar</button>
+                                <button type="submit" onclick="return confirm('Estas segur?')" class="btn btn-danger">Eliminar</button>
                             </form>
                         </div>
                     </td>

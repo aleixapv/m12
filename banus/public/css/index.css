@@ -74,7 +74,7 @@
 }
 .service_card:hover
 {
-    box-shadow: 0px 0px 50px #000000;
+    box-shadow: 0px 0px 10px #000000;
     z-index: 2;
     -webkit-transition: all 200ms ease-in;
     -webkit-transform: scale(1.1);
@@ -88,4 +88,14 @@
 #card_index{
   margin-left: 0px !important;
   margin-right: 0px !important;
+}
+@media (max-width: 700px) {
+    
+  #carousel-example-1z .carousel-item {
+    height: unset;
+}
+#card_index {
+   margin-left: unset; 
+   margin-right: unset; 
+}
 }

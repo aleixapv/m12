@@ -30,16 +30,15 @@
 	        <ul class="navbar-nav m-auto">
 	        	<li class="nav-item active"><a href="{{route('f.index')}}" class="nav-link">Inici</a></li>
 				<li class="nav-item"><a href="{{route('contacte.view')}}" class="nav-link">Contacte</a></li>
-	        	<li class="nav-item"><a href="#" class="nav-link">Nosaltres</a></li>
 				<li class="nav-item"><a href="{{route('projectes.view')}}" class="nav-link">Projectes</a></li>
 	        	<li class="nav-item dropdown">
               
             </li>
 	        </ul>
 	      </div>
-		  <div class="col-1 d-none d-lg-block" style="font-size: 23px;">
+		  <div class="col-1 d-none d-lg-block" style="font-size: 23px; ">
 			  @forelse ($xarxes as $xarxa)
-				  <a href="{{$xarxa->enllac}}" ><i  class="{{$xarxa->icona}}"></i></a>
+				  <a href="{{$xarxa->enllac}}" ><i  class="{{$xarxa->icona}} xarxes_navbar"></i></a>
 			  @empty
 				  <p></p>
 			  @endforelse
@@ -62,16 +61,19 @@
                 	<br>SEGON TELEFON: {{$informacio->tel2}}
               	  @endif
 				  <br> DIRECCIÓ: <a class="link-primary" target=”_blank” href="https://www.google.es/maps/place/Fusteria+Ban%C3%BAs/@41.3502168,1.7077639,17z/data=!3m2!4b1!5s0x12a47a2988ea0e57:0xcba54c259367194!4m5!3m4!1s0x12a479e8c654d949:0xbc67939504c48504!8m2!3d41.3502168!4d1.7099526"> {{$informacio->adreca_1}}, {{$informacio->zip_cp}} {{$informacio->ciutat}}, {{$informacio->provincia}} </a>
+				  @if (isset($informacio->adreca_2))
+                	<br>SEGONA ADREÇA: {{$informacio->adreca_2}}
+              	  @endif
 			  </p>
 			</div>
   
 			<div class="col-xs-6 col-md-3">
 			  <h6>Categories</h6>
 			  <ul class="footer-links">
-				<li><a href="#">Projectes</a></li>
-				<li><a href="#">Qui Som</a></li>
+				<li><a href="{{route('projectes.view')}}">Projectes</a></li>
+				<li><a href="{{route('contacte.view')}}">Contacte</a></li>
 				
-				<li><a href="#">Inici</a></li>
+				<li><a href="{{route('f.index')}}">Inici</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#modal_politica">Politica de Privacitat</a>
 				@include('frontend/politica')
 				</li>
@@ -104,10 +106,12 @@
 			</div>
 		  </div>
 		</div>
+		
   </footer>
- 	 @if (isset($informacio->whatsapp))
+  @if (isset($informacio->whatsapp))
   		<a href="https://api.whatsapp.com/send?phone={{$informacio->whatsapp}}" target="_blank" ><img src="{{url('img/img_whatsapp.png')}}" class="mb-3 mr-3" id="whatsapp"></a>
-	@endif
+		@endif
+ 	 
   
 
 	
