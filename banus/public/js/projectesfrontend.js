@@ -1,6 +1,7 @@
 $( document ).ready(function() {
     $(".ver_mas").click(function(){
         if($(this).children().eq(1).is(":hidden")){
+          console.log("entra al 1")
             $(this).children().eq(1).attr("hidden", false);
             $(this).children().first().text("Click para veure menys");
         }else   {

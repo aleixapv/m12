@@ -1,6 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <a href="{{route('projectes.create')}}">Nou Projecte</a>
+    <a href="{{route('projectes.create')}}" class="btn btn-success">Nou Projecte</a>
     <table class="table table-striped">
         @php
             $numero = 1;
@@ -16,12 +16,12 @@
                     </td>
                     <td>
                         <div>
-                            <a href="{{route('projectes.edit',['id' => $projecte->id])}}"> Editar</a>
+                            <a href="{{route('projectes.edit',['id' => $projecte->id])}}" class="btn btn-success"> Editar</a>
                         </div>
                     </td>
                     <td>
                         <div>
-                            <a href="{{route('projectes.show',['id' => $projecte->id])}}"> Veure</a>
+                            <a href="{{route('projectes.show',['id' => $projecte->id])}}"  class="btn btn-primary"> Veure</a>
                         </div>
                     </td>
                     <td>
@@ -29,7 +29,7 @@
                             <form action="{{route('projectes.destroy',['id' => $projecte->id])}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Estas segur?')">Eliminar</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Estas segur?')">Eliminar</button>
                             </form>
                         </div>
                     </td>

@@ -67,7 +67,7 @@
                     <div id="detallada_boto{{$contador}}"  class=" ver_mas  d-block d-lg-none">
                       <p class="text-primary"">Click per veure més</p>
                         <div hidden="true">
-                            <p id="detallada_boto{{$contador}}" class=" detalladaExemple" hidden="true" >@if(isset($projecte)) {!!$projecte['descripcio_detallada']!!} @endif
+                            <p id="detallada_boto{{$contador}}" class=" detalladaExemple" >@if(isset($projecte)) {!!$projecte['descripcio_detallada']!!} @endif
                             </p>
                         </div>
                     </div>

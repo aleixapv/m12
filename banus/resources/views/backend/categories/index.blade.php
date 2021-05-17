@@ -1,6 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <a href="{{route('categories.create')}}">Nova Categoria</a>
+    <a href="{{route('categories.create')}}" class="btn btn-success">Nova Categoria</a>
     <table class="table table-striped">
         @php
             $numero = 1;
@@ -16,7 +16,7 @@
                     </td>
                     <td>
                         <div>
-                            <a href="{{route('categories.edit',['id' => $categoria->id])}}"> Editar</a>
+                            <a class="btn btn-success" href="{{route('categories.edit',['id' => $categoria->id])}}"> Editar</a>
                         </div>
                     </td>
                     <td>
@@ -24,7 +24,7 @@
                             <form action="{{route('categories.destroy',['id' => $categoria->id])}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Estas segur?')">Eliminar</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Estas segur?')">Eliminar</button>
                             </form>
                         </div>
                     </td>

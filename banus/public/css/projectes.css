@@ -19,6 +19,7 @@ input[type=checkbox]:before {
   left: 0;
   background-color:#e9e9e9;
 }
+
 input[type=checkbox]:checked:before {
   content: "";
   display: block;
@@ -254,10 +255,17 @@ input[type=checkbox]:checked:after {
         width: 100%;
       }
     }
-    .shrink{
-      transition: all 700ms ease;
+    .hvr-shrink {
+      vertical-align: middle;
+      -webkit-transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-property: transform;
+      transition-property: transform;
     }
-    
-    .shrink:hover {
-      transform: scale(1.2);
+    .hvr-shrink:hover, .hvr-shrink:focus, .hvr-shrink:active {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
     }
