@@ -53,8 +53,8 @@ class Projecte extends Model
             $data['imatges'][$imatge->posicio]['url'] = $imatge->url;
             $data['imatges'][$imatge->posicio]['alt'] = $imatge->alt;
             $data['imatges'][$imatge->posicio]['id'] = $imatge->id;
-            ksort($data['imatges'][$imatge->posicio]);
         }
+        ksort($data['imatges']);
         return $data;
     }
 }

@@ -6,7 +6,7 @@
       @forelse ($carousel as $diapositiva)
         <div class="carousel-item @if($loop->first) active @endif">
           <img class="d-block  w-100" src="{{url($diapositiva->url)}}" alt="First slide">
-            <div class="carousel-caption" id="frase_index" style="display: none; ">
+            <div class="carousel-caption" id="frase_index" style=" @if($loop->first) display: none; @endif">
               @if ($diapositiva->titol != null)
                 <h3>{{$diapositiva->titol}}</h3>
               @endif

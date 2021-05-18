@@ -191,7 +191,7 @@ class ProjectesController extends Controller
                 array_push($imatgesOrdenades,$data['imatges'][$ordre]);
             }
         }
-
+        
        
 
         if(isset($data['provincia']) && isset($data['ciutat']) && isset($data['zip_cp'])){

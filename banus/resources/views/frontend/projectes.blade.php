@@ -53,8 +53,14 @@
         <div class="guide"></div>
       </div>
     </div>
+    @php
+      $contador = 1;
+    @endphp
     @forelse ($projectesObj as $projecte)
       @include('frontend/modalProjecte')
+      @php
+        $contador ++;
+      @endphp
     @empty
       <h1>No hi han projectes en aquest moment</h1>
     @endforelse
