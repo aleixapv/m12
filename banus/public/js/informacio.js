@@ -65,6 +65,8 @@ async function Postal(tipus,idPoblacio,select,input){
     }
 }
 $( document ).ready(function() {
+    
+    let $adreca = $("#adrecaInput");
     let $selectProvincia = $('#selecProvincia');
     let $provinciaInput = $('#provinciaInput');
 
@@ -89,5 +91,28 @@ $( document ).ready(function() {
     $selectCp.change(function(){
         $cpInput.val($( "#selecCp option:selected" ).text());
     });
+    
+    function Geocode(){
+        // import
 
+        // setup
+        const provider = new GeoSearch.OpenStreetMapProvider();
+        const input = ($adreca.val() + ", " + $cpInput.val() + ", " +  $poblacioInput.val() + ", " +  $provinciaInput.val());
+        console.log(input);
+
+        // search
+        const results = provider.search({ query: input }).then(function (result) {
+            console.log(result[0]["x"]);
+            console.log(result[0]["y"]);
+            $("#x").val(result[0]["x"])
+            $("#y").val(result[0]["y"])
+        });
+    }
+    $adreca.change(function() {
+        Geocode();
+      });
+    $selectCp.change(function() {
+        Geocode();
+    });
+    
 });
