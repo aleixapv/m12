@@ -125,7 +125,7 @@
                 <label for="adreca_1">Adreça de contacte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input type="text" name="adreca_1" value="{{ $informacio->adreca_1 }}">
+                <input id="adrecaInput" type="text" name="adreca_1" value="{{ $informacio->adreca_1 }}">
             </div>
         </div>
         
@@ -176,7 +176,8 @@
                 <input type="text" id="cpInput" name="zip_cp" value="{{ $informacio->zip_cp }}" hidden>
             </div>
         </div>
-        
+        <input type="text" hidden="true" id="x" name="x" value="{{ $informacio->x }}">
+        <input type="text" hidden="true" id="y" name="y" value="{{ $informacio->y }}">
         
 
         <div class="row">
@@ -184,6 +185,12 @@
         </div>
         
     </form>
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"
+/>
+<script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geosearch/3.3.1/geosearch.js" integrity="sha512-4R7TaNSnotKoNx/u9WF10J/n1mUifo6M1fik+BfiZgP00O9aE4eXDYMvTl/hug3m5gw1GJNwVBepkvdCBGV3Rw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
     <script src="{{url('js/src/jquery.min.js')}}"></script>
     <script src="{{url('js/informacio.js')}}"></script>
 @endsection

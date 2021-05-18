@@ -115,7 +115,7 @@
                 <label for="adreca_1">Adreça de contacte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input type="text" name="adreca_1" value="{{ old('adreca_1') }}">
+                <input id="adrecaInput" type="text" name="adreca_1" value="{{ old('adreca_1') }}">
             </div>
         </div>
         
@@ -173,6 +173,8 @@
             <input type="submit" value="Crear">
         </div>
     </form>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geosearch/3.3.1/geosearch.js" integrity="sha512-4R7TaNSnotKoNx/u9WF10J/n1mUifo6M1fik+BfiZgP00O9aE4eXDYMvTl/hug3m5gw1GJNwVBepkvdCBGV3Rw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{url('js/src/jquery.min.js')}}"></script>
     <script src="{{url('js/informacio.js')}}"></script>
 @endsection

@@ -11,6 +11,7 @@ class InformacioEmpresa extends Model
     protected $table = 'informacio_empresa';
     protected $fillable = [
         'nom_empresa',
+        'nif',
         'eslogan',
         'tel',
         'tel2',
@@ -24,6 +25,8 @@ class InformacioEmpresa extends Model
         'nom_logo',
         'alt_logo',
         'url_logo',
+        'x',
+        'y',
     ];
     
 }
