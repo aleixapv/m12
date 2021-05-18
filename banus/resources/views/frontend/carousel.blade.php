@@ -3,27 +3,24 @@
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
       <!--First slide-->
-      <div class="carousel-item active">
-        <img class="d-block  w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
-          alt="First slide">
-          <div class="carousel-caption" id="frase_index" style="display: none; ">
-            <h3>Fusteria Banús</h3>
-            <p>La millor Fusteria</p>
+      @forelse ($carousel as $diapositiva)
+        <div class="carousel-item @if($loop->first) active @endif">
+          <img class="d-block  w-100" src="{{url($diapositiva->url)}}" alt="First slide">
+            <div class="carousel-caption" id="frase_index" style="display: none; ">
+              @if ($diapositiva->titol != null)
+                <h3>{{$diapositiva->titol}}</h3>
+              @endif
+              @if ($diapositiva->descripcio != null)
+                  {!!$diapositiva->descripcio!!}
+              @endif
+          </div>
         </div>
-      </div>
+      @empty
+          
+      @endforelse
+      
       <!--/First slide-->
-      <!--Second slide-->
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
-          alt="Second slide">
-      </div>
-      <!--/Second slide-->
-      <!--Third slide-->
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-          alt="Third slide">
-      </div>
-      <!--/Third slide-->
+      
     </div>
     <!--/.Slides-->
     <!--Controls-->

@@ -11,6 +11,7 @@ use App\Models\Projecte_Imatge;
 use App\Models\InformacioEmpresa;
 use App\Models\XarxaSocial;
 use App\Models\Servei;
+use App\Models\Carousel;
 
 
 class frontEndController extends Controller
@@ -33,9 +34,10 @@ class frontEndController extends Controller
         $categories = Categoria::all();
         $informacio = InformacioEmpresa::all()->first();
         $xarxes = XarxaSocial::all();
+        $carousel = Carousel::all()->sortBy("posicio");
 
         $serveis = Servei::all();
-        return view('frontend.index',compact(['categories','informacio','xarxes','serveis']));
+        return view('frontend.index',compact(['categories','informacio','xarxes','serveis','carousel']));
     }
     public function showprojecte(){
         return view('frontend.projecte');

@@ -20,7 +20,7 @@ class CarouselController extends Controller
     public function index()
     {
         //
-        $carousel = Carousel::all();
+        $carousel = Carousel::all()->sortBy("posicio");
         return view('backend.carousel.index',compact('carousel'));
     }
 
