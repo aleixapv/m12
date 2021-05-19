@@ -12,6 +12,8 @@ use App\Models\InformacioEmpresa;
 use App\Models\XarxaSocial;
 use App\Models\Servei;
 use App\Models\Carousel;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MailController;
 
 
 class frontEndController extends Controller
@@ -39,9 +41,7 @@ class frontEndController extends Controller
         $serveis = Servei::all();
         return view('frontend.index',compact(['categories','informacio','xarxes','serveis','carousel']));
     }
-    public function showprojecte(){
-        return view('frontend.projecte');
-    }
+   
     public function showcontacte(){
         //
         $categories = Categoria::all();
@@ -65,6 +65,12 @@ class frontEndController extends Controller
         }
         
         return view('frontend.projectes',compact(['projectesObj','categories','informacio','xarxes']));
+    }
+
+    public function mail(){
+        $name = 'Cloudways';     
+        Mail::to('aleixaleixaleixaleix@gmail.com')->send(new MailController($name));
+        //return view('mail' , compact('name'));
     }
 
     /**
@@ -133,11 +139,5 @@ class frontEndController extends Controller
         //
     }
 
-    public function getInfoXarxexCategories()
-    {
-        $categories = Categoria::all();
-        $informacio = InformacioEmpresa::all()->first();
-        $xarxes = XarxaSocial::all();
-        return($categories);
-    }
+    
 }
