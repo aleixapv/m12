@@ -33,7 +33,7 @@ Route::get('/contacte/route', [backEndController::class, 'getLatLong'])->name('c
 Route::get('/', [frontEndController::class, 'index'])->name('f.index');
 Route::get('/projectes', [frontEndController::class, 'showprojectes'])->name('projectes.view');
 Route::get('/contacte', [frontEndController::class, 'showcontacte'])->name('contacte.view');
-Route::get('/contacte/e', [frontEndController::class, 'mail'])->name('contacte.mail');
+Route::post('/contacte/mail', [frontEndController::class, 'mail'])->name('contacte.mail');
 
 //categories
 Route::get('/admin/categories', [CategoriesController::class, 'index'])->name('categories.index');

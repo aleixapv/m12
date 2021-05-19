@@ -25,9 +25,14 @@
                 <li class="ml-4"><b>Seu:</b> <a target=”_blank” href="https://www.google.es/maps/place/Fusteria+Ban%C3%BAs/@41.3502168,1.7077639,17z/data=!3m2!4b1!5s0x12a47a2988ea0e57:0xcba54c259367194!4m5!3m4!1s0x12a479e8c654d949:0xbc67939504c48504!8m2!3d41.3502168!4d1.7099526"> {{$informacio->adreca_1}}, {{$informacio->zip_cp}} {{$informacio->ciutat}}, {{$informacio->provincia}} </a></li>
             </div>
             <div class="fill col-6 mt-5" id="boto_contacte" data-toggle="modal" data-target="#formulari_contacte_modal">
-            <button class="button type3 boton_modal">
-                Click per demanar una visita
-            </button>
+                @if($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">{{ $error }}</div>
+                    @endforeach
+                @endif
+                <button class="button type3 boton_modal">
+                    Click per demanar una visita
+                </button>
             </div>
         </div>
         <div class="modal fade" id="formulari_contacte_modal" role="form">
@@ -42,16 +47,22 @@
                 </div>
                 <div class="modal-body">
                 <div id="formulari_contacte">
-                <form action="/action_page.php">
+                <form action="{{route('contacte.mail')}}" method="POST">
+                    @csrf
                     <div  id="form_contacte" class="">
                         <div class="form-group ">
-                        <label >Nom:</label>
+                        <label >Nom cognoms:</label>
                         <input type="text" class="form-control" id="nom_contacte" placeholder="Escriu el teu nom" name="nom_contacte">
                         </div>
             
                         <div class="form-group ">
-                        <label for="pwd">Correo Electronic:</label>
+                        <label for="pwd">Correu electrònic:</label>
                         <input type="email" class="form-control" id="email_contacte" placeholder="Escriu el teu correu electronic" name="email_contacte">
+                        </div>
+
+                        <div class="form-group ">
+                        <label for="pwd">telèfon de contacte:</label>
+                        <input type="tel" class="form-control" id="email_contacte" placeholder="Escriu el teu telèfon" name="tel_contacte">
                         </div>
                         
                         <div class="form-group">

@@ -10,17 +10,19 @@ use Illuminate\Queue\SerializesModels;
 class MailController extends Mailable
 {
     use Queueable, SerializesModels;
-    public $name;
+    public $correu;
+    public $informacio;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($correu,$informacio)
     {
         //
-        $this->$name=$name;
+        $this->correu = $correu;
+        $this->informacio = $informacio;
     }
 
     /**
@@ -30,7 +32,11 @@ class MailController extends Mailable
      */
     public function build()
     {
-        $sal = "hola";
-        return $this->view('mail',compact('sal'));
+        $correu = $this->correu;
+        $path =  $this->informacio->url_logo;
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        return $this->view('mail',compact(['correu','base64']));
     }
 }

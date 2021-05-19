@@ -67,10 +67,21 @@ class frontEndController extends Controller
         return view('frontend.projectes',compact(['projectesObj','categories','informacio','xarxes']));
     }
 
-    public function mail(){
-        $name = 'Cloudways';     
-        Mail::to('aleixaleixaleixaleix@gmail.com')->send(new MailController($name));
-        //return view('mail' , compact('name'));
+    public function mail(Request $request){
+        $data = $request->validate([
+            'nom_contacte' => 'required|string',
+            'email_contacte' => 'required|email',
+            'tel_contacte' => 'required|digits_between:9,11|numeric',
+            'missatge_contacte' => 'required|string',
+        ]);
+        $correu = new \stdClass();
+        $correu->nom_contacte = $data['nom_contacte'];
+        $correu->email_contacte = $data['email_contacte'];
+        $correu->tel_contacte = $data['tel_contacte'];
+        $correu->missatge_contacte = $data['missatge_contacte'];   
+        $informacio = InformacioEmpresa::all()->first();
+        Mail::to('aleixaleixaleixaleix@gmail.com')->send(new MailController($correu,$informacio));
+        return redirect()->route('contacte.view');//->with('status', 'Projecte desat correctament.');
     }
 
     /**
