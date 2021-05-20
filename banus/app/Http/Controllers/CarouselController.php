@@ -48,7 +48,7 @@ class CarouselController extends Controller
             'imatge' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'alt' => 'nullable',
             'titol' => 'nullable',
-            'descripcio' => 'nullable',
+            'descripcio' => 'nullable|not_regex:/^(<script>)$/i',
         ]);
         
         if(!isset($data['alt'])){
@@ -123,7 +123,7 @@ class CarouselController extends Controller
             'imatge' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'alt' => 'nullable',
             'titol' => 'nullable',
-            'descripcio' => 'nullable',
+            'descripcio' => 'nullable|not_regex:/^(<script>)$/i',
         ]);
         $diapositiva = Carousel::find($id);
         if(!isset($data['alt'])){
