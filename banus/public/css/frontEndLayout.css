@@ -8331,7 +8331,7 @@
         display: none; } }
   
   .form-control {
-    height: 46px !important;
+    /*height: 46px !important;*/
     background: #fff !important;
     color: #000 !important;
     font-size: 14px;
