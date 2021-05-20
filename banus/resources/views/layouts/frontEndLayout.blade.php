@@ -60,15 +60,12 @@
 				  @if (isset($informacio->tel2))
                 	<br>SEGON TELEFON: {{$informacio->tel2}}
               	  @endif
-				  <br> DIRECCIÓ: <a class="link-primary" target=”_blank” href="https://www.google.es/maps/place/Fusteria+Ban%C3%BAs/@41.3502168,1.7077639,17z/data=!3m2!4b1!5s0x12a47a2988ea0e57:0xcba54c259367194!4m5!3m4!1s0x12a479e8c654d949:0xbc67939504c48504!8m2!3d41.3502168!4d1.7099526"> {{$informacio->adreca_1}}, {{$informacio->zip_cp}} {{$informacio->ciutat}}, {{$informacio->provincia}} </a>
-				  @if (isset($informacio->adreca_2))
-                	<br>SEGONA ADREÇA: {{$informacio->adreca_2}}
-              	  @endif
+				  <br> DIRECCIÓ: <a class="link-primary" target=”_blank” href="https://www.google.es/maps/place/{{$informacio->adreca_1}},+{{$informacio->zip_cp}}+{{$informacio->ciutat}},+{{$informacio->provincia}}/"> {{$informacio->adreca_1}}, {{$informacio->zip_cp}} {{$informacio->ciutat}}, {{$informacio->provincia}} </a>
 			  </p>
 			</div>
   
 			<div class="col-xs-6 col-md-3">
-			  <h6>Categories</h6>
+			  <h6>Pagines d'interes</h6>
 			  <ul class="footer-links">
 				<li><a href="{{route('projectes.view')}}">Projectes</a></li>
 				<li><a href="{{route('contacte.view')}}">Contacte</a></li>

@@ -24,6 +24,14 @@
                 <input type="text" name="nom_empresa" value="{{ old('nom_empresa') }}">
             </div>
         </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="nom_empresa">NIF de la empresa: <i class="req">*</i></label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="cif" value="{{ old('cif') }}">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-25">
@@ -111,6 +119,14 @@
             </div>
         </div> 
         <div class="row">
+            <div class="col-12 alert alert-success" id="ubicacioConfirmada" hidden>
+               Ubicació confirmada.
+            </div>
+            <div class="col-12 alert alert-danger" id="ubicacioError" hidden>
+               Ubicació no trobada, revisa la adreça.
+            </div>
+        </div> 
+        <div class="row">
             <div class="col-25">
                 <label for="adreca_1">Adreça de contacte: <i class="req">*</i></label>
             </div>
@@ -166,6 +182,8 @@
                 </select>
                 <input type="text" id="cpInput" name="zip_cp" value="" hidden>
             </div>
+            <input type="text" hidden id="x" name="x" value="">
+            <input type="text" hidden id="y" name="y" value="">
         </div>
         
 

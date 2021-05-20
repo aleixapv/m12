@@ -17,7 +17,7 @@ class InformacioEmpresa extends Migration
         Schema::create('informacio_empresa', function (Blueprint $table) {
             $table->id();
             $table->string('nom_empresa');
-            $table->string('nif');
+            $table->string('cif');
             $table->string('eslogan')->nullable();
             $table->string('tel');
             $table->string('tel2')->nullable();

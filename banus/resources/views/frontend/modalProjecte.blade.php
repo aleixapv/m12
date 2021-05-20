@@ -57,7 +57,7 @@
              <!--/.Controls-->
            </div>
            <!--/.Carousel Wrapper-->
-           <div class="col-12 mt-5" id="text_projecte">
+           <div class="col-12 mt-5" id="text_projecte" >
            
                 <div class="col-12">
                     <p class="text-center text-justify" id="localitzacioExemple" >@if(isset($projecte['provincia'])) Ubicació: {{$projecte['ciutat']}}, {{$projecte['provincia']}} @endif</p>

@@ -41,6 +41,7 @@ class InformacioEmpresaController extends Controller
         //
         $data = $request->validate([
             'nom_empresa' => 'required|string|min:3|max:50',
+            'cif' => 'required|regex:/^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/',
             'eslogan' => 'nullable|string|min:3|max:50',
             'tel'=> 'required|digits:9|numeric',
             'tel2'=> 'nullable|digits:9|numeric',
@@ -51,6 +52,8 @@ class InformacioEmpresaController extends Controller
             'ciutat'=> 'required|string|max:50',
             'provincia'=> 'required|string|max:50',
             'zip_cp' => 'required|digits_between:4,5|numeric',
+            'x' => 'required',
+            'Y' => 'required',
             'alt_logo'=> 'required',
             'imatge'=> 'required|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -58,6 +61,7 @@ class InformacioEmpresaController extends Controller
         $urlImgArxiu = Storage::url($imgArxiu);
         $informacio = InformacioEmpresa::create([
             'nom_empresa' => strtoupper($data['nom_empresa']),
+            'cif' => $data['cif'],
             'eslogan' => ucfirst($data['eslogan']),
             'tel'=> $data['tel'],
             'tel2'=> $data['tel2'],
@@ -69,6 +73,8 @@ class InformacioEmpresaController extends Controller
             'ciutat'=> ucfirst($data['ciutat']),
             'provincia'=> ucfirst($data['provincia']),
             'zip_cp'=> $data['zip_cp'],
+            'x' => $data['x'],
+            'y' => $data['y'],
             'nom_logo'=>$data['imatge']->getClientOriginalName(),
             'alt_logo'=>$data['alt_logo'],
             'url_logo'=>$urlImgArxiu,
@@ -103,6 +109,7 @@ class InformacioEmpresaController extends Controller
         $informacio =InformacioEmpresa::all()->first();
         $data = $request->validate([
             'nom_empresa' => 'required|string|min:3|max:50',
+            'cif' => 'required|regex:/^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/',
             'eslogan' => 'nullable|string|min:3|max:50',
             'tel'=> 'required|digits:9|numeric',
             'tel2'=> 'nullable|digits:9|numeric',
@@ -113,6 +120,8 @@ class InformacioEmpresaController extends Controller
             'ciutat'=> 'required|string|max:50',
             'provincia'=> 'required|string|max:50',
             'zip_cp' => 'required|digits_between:4,5|numeric',
+            'x' => 'required',
+            'y' => 'required',
             'alt_logo'=> 'required',
             'imatge'=> 'nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -120,12 +129,14 @@ class InformacioEmpresaController extends Controller
             $nomImatge = $informacio->nom_logo;
             $urlImgArxiu = $informacio->url_logo;
         }else{
+            Storage::delete($informacio->url_logo);
             $nomImatge = $data['imatge']->getClientOriginalName();
             $imgArxiu = $imatge->store('public');
             $urlImgArxiu = Storage::url($imgArxiu);
         }
         $informacio->update([
             'nom_empresa' => strtoupper($data['nom_empresa']),
+            'cif' => $data['cif'],
             'eslogan' => ucfirst($data['eslogan']),
             'tel'=> $data['tel'],
             'tel2'=> $data['tel2'],
@@ -137,6 +148,8 @@ class InformacioEmpresaController extends Controller
             'ciutat'=> ucfirst($data['ciutat']),
             'provincia'=> ucfirst($data['provincia']),
             'zip_cp'=> $data['zip_cp'],
+            'x' => $data['x'],
+            'y' => $data['y'],
             'nom_logo'=> $nomImatge,
             'alt_logo'=>$data['nom_empresa'],
             'url_logo'=>$urlImgArxiu,

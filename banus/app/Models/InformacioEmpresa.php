@@ -11,7 +11,7 @@ class InformacioEmpresa extends Model
     protected $table = 'informacio_empresa';
     protected $fillable = [
         'nom_empresa',
-        'nif',
+        'cif',
         'eslogan',
         'tel',
         'tel2',

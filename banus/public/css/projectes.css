@@ -103,6 +103,9 @@ input[type=checkbox]:checked:after {
         font-size: 24px;
         margin-left: 0%;
     }
+    #text_projecte{
+      overflow-x:auto;
+    }
     #containerprojecte{
       margin-right: 10px;
     }

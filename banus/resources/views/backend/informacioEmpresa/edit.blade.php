@@ -24,6 +24,15 @@
                 <input type="text" name="nom_empresa" value="{{ $informacio->nom_empresa }}">
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="nom_empresa">NIF de la empresa: <i class="req">*</i></label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="cif" value="{{ $informacio->cif }}">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-25">
@@ -121,11 +130,19 @@
             </div>
         </div> 
         <div class="row">
+            <div class="col-12 alert alert-success" id="ubicacioConfirmada" hidden>
+               Ubicació confirmada.
+            </div>
+            <div class="col-12 alert alert-danger" id="ubicacioError" hidden>
+               Ubicació no trobada, revisa la adreça.
+            </div>
+        </div> 
+        <div class="row">
             <div class="col-25">
                 <label for="adreca_1">Adreça de contacte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input id="adrecaInput" type="text" name="adreca_1" value="{{ $informacio->adreca_1 }}">
+                <input id="adrecaInput" type="text" name="adreca_1" class="ubicacio" value="{{ $informacio->adreca_1 }}">
             </div>
         </div>
         
@@ -145,7 +162,7 @@
                 <label for="provincia">Provincia: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <select id="selecProvincia">
+                <select id="selecProvincia" class="ubicacio">
                     <option value="{{ $informacio->provincia }}">{{ $informacio->provincia }}</option>
                 </select>
                 <input type="text" id="provinciaInput" name="provincia" value="{{ $informacio->provincia }}" hidden>
@@ -157,7 +174,7 @@
                 <label for="ciutat">Poblacio: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <select name="" id="selecPoblacio">
+                <select name="" id="selecPoblacio" class="ubicacio">
                     <option value="{{ $informacio->ciutat }}">{{ $informacio->ciutat }}</option>
                 </select>
                 <input type="text" id="poblacioInput" name="ciutat" value="{{ $informacio->ciutat }}" hidden>
@@ -170,14 +187,14 @@
                 <label for="zip_cp">Codi postal: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <select name="" id="selecCp">
+                <select name="" id="selecCp" class="ubicacio">
                     <option value="{{ $informacio->zip_cp }}">{{ $informacio->zip_cp }}</option>
                 </select>
                 <input type="text" id="cpInput" name="zip_cp" value="{{ $informacio->zip_cp }}" hidden>
             </div>
         </div>
-        <input type="text" hidden="true" id="x" name="x" value="{{ $informacio->x }}">
-        <input type="text" hidden="true" id="y" name="y" value="{{ $informacio->y }}">
+        <input type="text" hidden id="x" name="x" value="{{ $informacio->x }}">
+        <input type="text" hidden id="y" name="y" value="{{ $informacio->y }}">
         
 
         <div class="row">

@@ -64,9 +64,36 @@ async function Postal(tipus,idPoblacio,select,input){
         Manual();
     }
 }
+function Geocode(adreca,cp,poblacio,provincia,$x,$y){
+    // import$provinciaInput.val()
+
+    // setup
+    const provider = new GeoSearch.OpenStreetMapProvider();
+    const input = (adreca + ", " + cp + ", " +  poblacio + ", " +  provincia);
+    
+
+    // search
+    const results = provider.search({ query: input }).then(function (result) {
+        if(result.length == 0){
+            console.log('sense resultats');
+            $x.val('');
+            $y.val('');
+            if(adreca != '' && cp != '' && poblacio != '' && provincia != ''){
+                $('#ubicacioConfirmada').attr('hidden',true);
+                $('#ubicacioError').attr('hidden',false);
+            }
+        }else{
+            $('#ubicacioError').attr('hidden',true);
+            $x.val(result[0]["x"]);
+            $y.val(result[0]["y"]);
+            $('#ubicacioConfirmada').attr('hidden',false);
+        }
+    });
+}
 $( document ).ready(function() {
     
     let $adreca = $("#adrecaInput");
+    let $ubicacio = $('.ubicacio');
     let $selectProvincia = $('#selecProvincia');
     let $provinciaInput = $('#provinciaInput');
 
@@ -91,28 +118,9 @@ $( document ).ready(function() {
     $selectCp.change(function(){
         $cpInput.val($( "#selecCp option:selected" ).text());
     });
-    
-    function Geocode(){
-        // import
-
-        // setup
-        const provider = new GeoSearch.OpenStreetMapProvider();
-        const input = ($adreca.val() + ", " + $cpInput.val() + ", " +  $poblacioInput.val() + ", " +  $provinciaInput.val());
-        console.log(input);
-
-        // search
-        const results = provider.search({ query: input }).then(function (result) {
-            console.log(result[0]["x"]);
-            console.log(result[0]["y"]);
-            $("#x").val(result[0]["x"])
-            $("#y").val(result[0]["y"])
-        });
-    }
-    $adreca.change(function() {
-        Geocode();
-      });
-    $selectCp.change(function() {
-        Geocode();
+    Geocode($adreca.val(),$( "#selecCp option:selected" ).text(),$( "#selecPoblacio option:selected" ).text(),$( "#selecProvincia option:selected" ).text(),$('#x'),$('#y'));
+    $ubicacio.change(function(){
+        Geocode($adreca.val(),$( "#selecCp option:selected" ).text(),$( "#selecPoblacio option:selected" ).text(),$( "#selecProvincia option:selected" ).text(),$('#x'),$('#y'));
     });
     
 });

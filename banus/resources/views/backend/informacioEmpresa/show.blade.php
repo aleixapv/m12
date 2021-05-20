@@ -23,6 +23,14 @@
     </div>
     <div class="row">
         <div class="col-25">
+            <h6>Cif:</h6>
+        </div>
+        <div class="col-75">
+            <h6>{{$informacio->cif}}</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
             <h6>Eslogan:</h6>
         </div>
         <div class="col-75">
