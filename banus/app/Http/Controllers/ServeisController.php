@@ -46,7 +46,7 @@ class ServeisController extends Controller
         //
         $data = $request->validate([
             'nom' => 'required|string|min:3|max:50|unique:serveis',
-            'descripcio' => 'required|string|min:3|max:200',
+            'descripcio' => 'required|string|min:3|max:2000',
             'imatge' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
         ]);
         $imgArxiu = $data['imatge']->store('public');
