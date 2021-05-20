@@ -45,7 +45,7 @@
 		  </div>
 	    </div>
 	  </nav>
-	  <!--<a href="https://api.whatsapp.com/send?phone={{$informacio->whatsapp}}" target="_blank">whatsap</a>-->
+	  
 	  @yield('content')
 	</section>
 	
