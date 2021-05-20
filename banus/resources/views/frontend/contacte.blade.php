@@ -103,7 +103,7 @@
             </div>
           
         </div>
-        <div class="d-flex justify-content-center col-12 ">
+        <div class="justify-content-center col-12 ">
             <div class="float-left mt-5 " id="map" x="{{$informacio->x}}" y="{{$informacio->y}}">
 
             </div>
