@@ -1,5 +1,5 @@
 @if(isset($projecte))
-    <a class="card mb-2 modal_projectes" id="modalprojectes" data-groups="@foreach($projecte['categories'] as $categoria){{$categoria}},@endforeach" data-toggle="modal" data-target="#modal_{{$projecte['id']}}">
+    <a class="cardProjecte card mb-2 modal_projectes" id="modalprojectes" data-groups="@foreach($projecte['categories'] as $categoria){{$categoria}},@endforeach" data-toggle="modal" data-target="#modal_{{$projecte['id']}}">
       @foreach ($projecte['imatges'] as $item)
         @if($loop->first) <img class="primeraImg hvr-shrink" src="{{url($item['url'])}}" /> @endif
       @endforeach

@@ -203,7 +203,7 @@ input[type=checkbox]:checked:after {
       transform: scale(1);
       opacity: 1;
     }
-    .work .card {
+    .work .cardProjecte {
       background: #fff;
       display: block;
       text-decoration: none;
@@ -222,22 +222,22 @@ input[type=checkbox]:checked:after {
       opacity: 0;
     }
     @media (max-width: 700px) {
-      .work .card {
+      .work .cardProjecte {
         width: 49.25%;
       }
     }
     @media (max-width: 480px) {
-      .work .card {
+      .work .cardProjecte {
         width: 100%;
       }
     }
-    .work .card img {
+    .work .cardProjecte img {
       display: block;
       width: 100%;
       width: 300px;
       height: 200;
     }
-    .work .card .title {
+    .work .cardProjecte .title {
       padding: 10px;
       color: #2b2b2b;
     }

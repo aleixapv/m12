@@ -10,7 +10,7 @@ $( document ).ready(function() {
         }
 
     });
-    var projects = $('.card');
+  var projects = $('.cardProjecte');
   var filteredProjects = [];
   var selection = "all";
   var running = false;
