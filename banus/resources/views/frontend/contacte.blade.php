@@ -69,12 +69,13 @@
               <ul class="social-media-list">
                 @if (isset($informacio->whatsapp))
                   <li>
-                      <a href="https://api.whatsapp.com/send?phone={{$informacio->whatsapp}}" target="_blank" class="contact-icon"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                  <i class="fa fa-whatsapp" aria-hidden="true"><a href="https://api.whatsapp.com/send?phone={{$informacio->whatsapp}}" target="_blank" class="contact-icon"></a></i>
                   </li>
                 @endif
                 @forelse ($xarxes as $xarxa)
-                  <li><a href="{{$xarxa->enllac}}" target="_blank" class="contact-icon">
-                      <i class="{{$xarxa->icona}}" aria-hidden="true"></i></a>
+                  <li>
+                    <i class="{{$xarxa->icona}}" aria-hidden="true"><a href="{{$xarxa->enllac}}" target="_blank" class="contact-icon">
+                      </a></i>
                   </li>
                 @empty
                     

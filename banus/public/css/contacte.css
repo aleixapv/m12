@@ -157,7 +157,6 @@ body {
 
 #contact {
   
-  height: 100vh;
   /*background-color: #000;*/
   overflow: hidden;
   /*padding-bottom: 200px;*/
@@ -185,7 +184,7 @@ body {
 .form-horizontal {
   float: left;
   max-width: 400px;
-  font-family: 'Lato';
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 400;
 }
 #containerprojecte{
@@ -264,13 +263,14 @@ body {
 }
 
 .contact-text a {
-  color: #bbb;
+  color: #40bfc1
+  font-family: "Poppins", Arial, sans-serif;
   text-decoration: none;
   transition-duration: 0.2s;
 }
 
 .contact-text a:hover {
-  color: #fff;
+  color: #0056b3;
   text-decoration: none;
 }
 

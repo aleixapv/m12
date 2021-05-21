@@ -272,3 +272,11 @@ input[type=checkbox]:checked:after {
       -webkit-transform: scale(0.9);
       transform: scale(0.9);
     }
+    @media (max-width: 800px){
+      .work .card img {
+        display: block;
+        width: 100%;
+        width: 225px !important;
+        height: 150px !important;
+      }
+    }
