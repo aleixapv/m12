@@ -16,7 +16,7 @@
                 <label for="nom">Nom del servei: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input type="text" name="nom" value="{{ old('nom') }}" id="nom">
+                <input type="text" name="nom" value="{{ $servei->nom }}" id="nom">
             </div>
         </div>
 
@@ -25,7 +25,7 @@
                 <label for="descripcio">Descripció del servei: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <textarea name="descripcio" id="descripcio">{{ old('descripcio') }}</textarea>
+                <textarea name="descripcio" id="descripcio">{{ $servei->descripcio }}</textarea>
             </div>
         </div>
         
@@ -34,7 +34,7 @@
                 <label for="imatge">Imatge del nou servei: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input type="file" name="imatge"  value="{{ old('imatge') }}" id="imatge">
+                <input type="file" name="imatge"  value="" id="imatge">
             </div>
         </div>
         <div class="row">

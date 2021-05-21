@@ -32,6 +32,7 @@ class ServeisController extends Controller
     public function create()
     {
         //
+        $serveis = Servei::all();
         return view('backend.serveis.create');
     }
 
@@ -46,8 +47,8 @@ class ServeisController extends Controller
         //
         $data = $request->validate([
             'nom' => 'required|string|min:3|max:50|unique:serveis',
-            'descripcio' => 'required|string|min:3|max:200|not_regex:/^(<script>)$/i',
-            'imatge' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
+            'descripcio' => 'required|string|min:3|max:1000|not_regex:/^(<script>)$/i',
+            'imatge' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
         ]);
         $imgArxiu = $data['imatge']->store('public');
         $urlImgArxiu = Storage::url($imgArxiu);
@@ -97,7 +98,7 @@ class ServeisController extends Controller
         //
         $data = $request->validate([
             'nom' => 'required|string|min:3|max:50|unique:serveis,nom,'.$id,
-            'descripcio' => 'required|string|min:3|max:200|not_regex:/^(<script>)$/i',
+            'descripcio' => 'required|string|min:3|max:1000|not_regex:/^(<script>)$/i',
             'imatge' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
         ]);
         $servei = Servei::find($id);

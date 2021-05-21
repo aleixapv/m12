@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>{{$informacio->nom_empresa}}</title>
+  	@if (isset($informacio))
+	  <title>{{$informacio->nom_empresa}}</title>
+	@endif
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -21,8 +23,8 @@
 	<section class="ftco-section">
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light sticky-top" id="ftco-navbar">
 	    <div class="container sticky-top" id="navbar_banus">
-				<img src="{{url($informacio->url_logo)}}" alt="{{$informacio->alt_logo}}" id="logo_navbar" width="50px" height="50px">
-				<a class="navbar-brand d-none d-lg-block" id="title_navbar" href="index.html">{{$informacio->nom_empresa}}</a>
+				@if (isset($informacio))<img src="{{url($informacio->url_logo)}}" alt="{{$informacio->alt_logo}}" id="logo_navbar" width="50px" height="50px">
+				<a class="navbar-brand d-none d-lg-block" id="title_navbar" href="index.html">{{$informacio->nom_empresa}}</a>@endif
 	      <button class="navbar-toggler" id="boton_menu" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="fa fa-bars"></span>
 	      </button>
@@ -54,14 +56,16 @@
 		<div class="container">
 		  <div class="row">
 			<div class="col-sm-12 col-md-6">
-			  <h6>contacte</h6>
-			  <p class="text-justify">EMAIL: <a class="link-primary" href="mailto:{{$informacio->correu}}"> {{$informacio->correu}} </a>
-				  <br> TELEFON: {{$informacio->tel}}
-				  @if (isset($informacio->tel2))
-                	<br>SEGON TELEFON: {{$informacio->tel2}}
-              	  @endif
-				  <br> DIRECCIÓ: <a class="link-primary" target=”_blank” href="https://www.google.es/maps/place/{{$informacio->adreca_1}},+{{$informacio->zip_cp}}+{{$informacio->ciutat}},+{{$informacio->provincia}}/"> {{$informacio->adreca_1}}, {{$informacio->zip_cp}} {{$informacio->ciutat}}, {{$informacio->provincia}} </a>
-			  </p>
+				@if (isset($informacio))
+					<h6>contacte</h6>
+					<p class="text-justify">EMAIL: <a class="link-primary" href="mailto:{{$informacio->correu}}"> {{$informacio->correu}} </a>
+						<br> TELEFON: {{$informacio->tel}}
+						@if (isset($informacio->tel2))
+						<br>SEGON TELEFON: {{$informacio->tel2}}
+						@endif
+						<br> DIRECCIÓ: <a class="link-primary" target=”_blank” href="https://www.google.es/maps/place/{{$informacio->adreca_1}},+{{$informacio->zip_cp}}+{{$informacio->ciutat}},+{{$informacio->provincia}}/"> {{$informacio->adreca_1}}, {{$informacio->zip_cp}} {{$informacio->ciutat}}, {{$informacio->provincia}} </a>
+					</p>
+				@endif
 			</div>
   
 			<div class="col-xs-6 col-md-3">
@@ -84,9 +88,11 @@
 		<div class="container mt-3 border-top border-dark">
 		  <div class="row mt-2">
 			<div class="col-md-8 col-sm-6 col-xs-12">
-			  <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by 
-		   		{{$informacio->nom_empresa}}.
-			  </p>
+				@if (isset($informacio))
+					<p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by 
+					{{$informacio->nom_empresa}}.
+					</p>
+				@endif
 			</div>
   
 			<div class="col-md-4 col-sm-6 col-xs-12">

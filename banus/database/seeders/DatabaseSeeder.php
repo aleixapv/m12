@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             InformacioEmpresaSeeder::class,
             XarxesSeeder::class,
             ProjectesSeeder::class,
-            
+            serveisSeeder::class,
         ]);
     }
 }

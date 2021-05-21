@@ -50,9 +50,9 @@
     background-color: white;
     border: 2px solid white;
     box-shadow: 5px 5px 5px grey;
-    margin-left: 12%;
+    /*margin-left: 12%;*/
     justify-content: center;
-    width: 300px;
+    /*width: 300px;*/
   }
 }
 #carousel1 img{
@@ -77,13 +77,13 @@
     box-shadow: 0px 0px 10px #000000;
     z-index: 2;
     -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(1.1);
+    -webkit-transform: scale(1.02);
     -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.1);   
+    -ms-transform: scale(1.02);   
     -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.1);
+    -moz-transform: scale(1.02);
     transition: all 200ms ease-in;
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 #card_index{
   margin-left: 0px !important;

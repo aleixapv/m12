@@ -18,7 +18,7 @@ class Serveis extends Migration
             $table->id();
             $table->string('nom')->unique();
             $table->text('descripcio');
-            $table->string('imatge');
+            $table->string('imatge')->nullable();
             $table->timestamps();
             
         });
