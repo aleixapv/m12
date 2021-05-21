@@ -69,4 +69,3 @@
     <link rel="stylesheet" href="{{url('css/projectes.css')}}">
     <script src="{{url('js/projectesfrontend.js')}}"></script>
 @endsection
-</div>

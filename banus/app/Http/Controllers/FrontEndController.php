@@ -37,10 +37,15 @@ class frontEndController extends Controller
         $informacio = InformacioEmpresa::all()->first();
         $xarxes = XarxaSocial::all();
         $carousel = Carousel::all()->sortBy("posicio");
-        //$projectes = Projecte::orderBy('id', 'DESC')->take(3)->get();
-        $projecte Projecte::
+        $projectesObj = [];
+        $projectes = Projecte::orderBy('id', 'DESC')->take(3)->get();
+        foreach($projectes as $projecte){
+            $data = $projecte->GetProjecte();
+            array_push($projectesObj,$data);
+        }
         $serveis = Servei::all();
-        return view('frontend.index',compact(['categories','informacio','xarxes','serveis','carousel','projectes']));
+        //dd($projectesObj);
+        return view('frontend.index',compact(['categories','informacio','xarxes','serveis','carousel','projectesObj']));
     }
    
     public function showcontacte(){
