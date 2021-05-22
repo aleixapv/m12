@@ -4,12 +4,11 @@
     $contador = 1;
   @endphp
   <div id="projectes_body">
-    <br>
+
     <div class="dropdown show  d-block d-lg-none mt-5 ml-2">
       <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        Categories
       </a>
-
       <div class="dropdown-menu" id="menu_categories" aria-labelledby="dropdownMenuLink">
         <div class="work">
           <div class="category-buttons">
@@ -65,7 +64,7 @@
       <h1>No hi han projectes en aquest moment</h1>
     @endforelse
    
-  
-    <link rel="stylesheet" href="{{url('css/projectes.css')}}">
-    <script src="{{url('js/projectesfrontend.js')}}"></script>
+  </div>
+  <link rel="stylesheet" href="{{url('css/projectes.css')}}">
+  <script src="{{url('js/projectesfrontend.js')}}"></script>
 @endsection

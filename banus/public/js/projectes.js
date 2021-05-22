@@ -39,13 +39,13 @@ $( document ).ready(function(){
         server : "php"      // can be php, asp, asp.net or java
     }); 
 
-    CKEDITOR.replace( 'descripcio_breu');
+    /*CKEDITOR.replace( 'descripcio_breu');
 
 
     nanospell.ckeditor('descripcio_breu',{
-        dictionary : "ca",  // 24 free international dictionaries  
-        server : "php"      // can be php, asp, asp.net or java
-    });
+        dictionary : "ca",  
+        server : "php"      
+    });*/
 
 
 
@@ -55,15 +55,15 @@ $( document ).ready(function(){
     let $divExemple = $('#divExemple');
 
     let $titol = $('#titol');
-    let $descripcio_breu = $('#descripcio_breu');//CKEDITOR.instances.descripcio_breu.getData();
+    //let $descripcio_breu = $('#descripcio_breu');//CKEDITOR.instances.descripcio_breu.getData();
     let $descripcio_detallada = $('#descripcio_detallada');//CKEDITOR.instances.descripcio_detallada.getData(); //$('#descripcio_detallada');
-    let $categories = $('#categories');
+    let $categories = $('.categories');
     let $imatges = $('#imatges');
     let $divImatges = $('#divImatges');
 
     let $tiolExemple = $('.text_titulo');
     let $localitzacioExemple = $('#localitzacioExemple');
-    let $breuExemple = $('#breuExemple');
+    //let $breuExemple = $('#breuExemple');
     let $detalladaExemple = $('.detalladaExemple');
     let $primeraImg = $('.primeraImg');
 
@@ -75,12 +75,12 @@ $( document ).ready(function(){
     
     //listeners
     $comprovar.click(function(){
-        $descripcio_breu.val(CKEDITOR.instances.descripcio_breu.getData()); 
+        //$descripcio_breu.val(CKEDITOR.instances.descripcio_breu.getData()); 
         $descripcio_detallada.val(CKEDITOR.instances.descripcio_detallada.getData()); //$('#descripcio_detallada');
         console.log(CKEDITOR.instances.descripcio_detallada.getData());
-        if(!$titol.val() == '' &&  !$categories.val() == '' && !$descripcio_detallada == '' && !$descripcio_breu == ''){
+        if(!$titol.val() == '' &&  !$categories.val() == '' && !$descripcio_detallada == '' /*&& !$descripcio_breu == ''*/){
             $tiolExemple.html($titol.val());
-            $breuExemple.html(CKEDITOR.instances.descripcio_breu.getData());
+            //$breuExemple.html(CKEDITOR.instances.descripcio_breu.getData());
             $detalladaExemple.html(CKEDITOR.instances.descripcio_detallada.getData());
             if(!$( "#selecProvincia option:selected" ).text() == '' && !$( "#selecPoblacio option:selected" ).text() == '' && !$( "#selecCp option:selected" ).text() == ''){
                 $localitzacioExemple.html($( "#selecPoblacio option:selected" ).text()+', '+$( "#selecProvincia option:selected" ).text());
@@ -136,7 +136,7 @@ $( document ).ready(function(){
     });
     $("#form" + " *").keypress(function() {
         console.log('entro');
-        $breuExemple.html(CKEDITOR.instances.descripcio_breu.getData());
+        //$breuExemple.html(CKEDITOR.instances.descripcio_breu.getData());
         $detalladaExemple.html(CKEDITOR.instances.descripcio_detallada.getData());
     });
     $('.eliminar').click(function(){

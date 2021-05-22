@@ -1,6 +1,13 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <a href="{{route('serveis.create')}}" class="btn btn-success">Nou Servei</a>
+    @if (count($serveis) < 3)
+        <a href="{{route('serveis.create')}}" class="btn btn-success mb-2">Nou Servei</a>
+    @else
+        <div class="alert alert-warning" role="alert">
+            Només pots tenir-ne tres service cards.
+        </div>
+    @endif
+    
     <table class="table table-striped">
         @php
             $numero = 1;
@@ -17,6 +24,11 @@
                     <td>
                         <div>
                             <a href="{{route('serveis.edit',['id' => $servei->id])}}" class="btn btn-success"> Editar</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <a href="{{route('serveis.show',['id' => $servei->id])}}" class="btn btn-primary"> Veure</a>
                         </div>
                     </td>
                     <td>

@@ -1,6 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    
+    <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">Enrrere</a>
     @if($errors->any())
         @foreach ($errors->all() as $error)
         <div class="alert alert-danger">{{ $error }}</div>
@@ -52,7 +52,7 @@
         </div>
         
         
-        
+       
         <div class="row">
             <div class="col-25">
                 <label for="alt_logo">Alt logo: <i class="req">*</i></label>
@@ -61,7 +61,7 @@
                 <input type="text" name="alt_logo" value="logo ">
             </div>
         </div>
-        
+        <hr>
         <div class="row">
             <div class="col-25">
                 <h3>Informació de contacte:</h3>
@@ -109,7 +109,7 @@
             </div>
         </div>
         
-        
+        <hr>
         <div class="row">
             <div class="col-25">
                 <h3>Ubicació:</h3>
@@ -131,7 +131,7 @@
                 <label for="adreca_1">Adreça de contacte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <input id="adrecaInput" type="text" name="adreca_1" value="{{ old('adreca_1') }}">
+                <input id="adrecaInput" type="text" name="adreca_1" value="{{ old('adreca_1') }}" class="ubicacio">
             </div>
         </div>
         
@@ -153,9 +153,9 @@
                 <label for="provincia">Provincia: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <select id="selecProvincia">
+                <select id="selecProvincia" class="ubicacio">
                 </select>
-                <input type="text" id="provinciaInput" name="provincia" value="" hidden>
+                <input type="text" id="provinciaInput" name="provincia" value="" hidden class="ubicacio">
             </div>
         </div>
         
@@ -164,10 +164,10 @@
                 <label for="ciutat">Poblacio: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <select name="" id="selecPoblacio">
+                <select name="" id="selecPoblacio" class="ubicacio">
                     
                 </select>
-                <input type="text" id="poblacioInput" name="ciutat" value="" hidden>
+                <input type="text" id="poblacioInput" name="ciutat" value="" hidden class="ubicacio">
             </div>
         </div>
         
@@ -177,10 +177,10 @@
                 <label for="zip_cp">Codi postal: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <select name="" id="selecCp">
+                <select name="" id="selecCp" class="ubicacio">
                     
                 </select>
-                <input type="text" id="cpInput" name="zip_cp" value="" hidden>
+                <input type="text" id="cpInput" name="zip_cp" value="" hidden class="ubicacio">
             </div>
             <input type="text" hidden id="x" name="x" value="">
             <input type="text" hidden id="y" name="y" value="">
@@ -192,7 +192,13 @@
         </div>
     </form>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geosearch/3.3.1/geosearch.js" integrity="sha512-4R7TaNSnotKoNx/u9WF10J/n1mUifo6M1fik+BfiZgP00O9aE4eXDYMvTl/hug3m5gw1GJNwVBepkvdCBGV3Rw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="{{url('js/src/jquery.min.js')}}"></script>
-    <script src="{{url('js/informacio.js')}}"></script>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"
+  />
+  <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
+      <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geosearch/3.3.1/geosearch.js" integrity="sha512-4R7TaNSnotKoNx/u9WF10J/n1mUifo6M1fik+BfiZgP00O9aE4eXDYMvTl/hug3m5gw1GJNwVBepkvdCBGV3Rw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+      <script src="{{url('js/src/jquery.min.js')}}"></script>
+      <script src="{{url('js/informacio.js')}}"></script>
+      <script src="{{url('js/geocoding.js')}}"></script>
 @endsection

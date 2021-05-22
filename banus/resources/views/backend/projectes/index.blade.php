@@ -1,6 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <a href="{{route('projectes.create')}}" class="btn btn-success">Nou Projecte</a>
+    <a href="{{route('projectes.create')}}" class="btn btn-success mb-2">Nou Projecte</a>
     <table class="table table-striped">
         @php
             $numero = 1;

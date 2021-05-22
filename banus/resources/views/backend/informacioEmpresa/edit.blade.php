@@ -1,5 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
+    <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">Enrrere</a>
     @if($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
@@ -71,7 +72,7 @@
                 <input type="text" name="alt_logo" value="{{ $informacio->alt_logo }}">
             </div>
         </div>
-        
+        <hr>
         
         <div class="row">
             <div class="col-25">
@@ -120,7 +121,7 @@
             </div>
         </div>
         
-        
+        <hr>
         <div class="row">
             <div class="col-25">
                 <h3>Ubicació:</h3>
@@ -165,7 +166,7 @@
                 <select id="selecProvincia" class="ubicacio">
                     <option value="{{ $informacio->provincia }}">{{ $informacio->provincia }}</option>
                 </select>
-                <input type="text" id="provinciaInput" name="provincia" value="{{ $informacio->provincia }}" hidden>
+                <input type="text" id="provinciaInput" name="provincia" value="{{ $informacio->provincia }}" hidden class="ubicacio">
             </div>
         </div>
         
@@ -177,7 +178,7 @@
                 <select name="" id="selecPoblacio" class="ubicacio">
                     <option value="{{ $informacio->ciutat }}">{{ $informacio->ciutat }}</option>
                 </select>
-                <input type="text" id="poblacioInput" name="ciutat" value="{{ $informacio->ciutat }}" hidden>
+                <input type="text" id="poblacioInput" name="ciutat" value="{{ $informacio->ciutat }}" hidden class="ubicacio">
             </div>
         </div>
         
@@ -190,7 +191,7 @@
                 <select name="" id="selecCp" class="ubicacio">
                     <option value="{{ $informacio->zip_cp }}">{{ $informacio->zip_cp }}</option>
                 </select>
-                <input type="text" id="cpInput" name="zip_cp" value="{{ $informacio->zip_cp }}" hidden>
+                <input type="text" id="cpInput" name="zip_cp" value="{{ $informacio->zip_cp }}" hidden class="ubicacio">
             </div>
         </div>
         <input type="text" hidden id="x" name="x" value="{{ $informacio->x }}">
@@ -210,4 +211,5 @@
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geosearch/3.3.1/geosearch.js" integrity="sha512-4R7TaNSnotKoNx/u9WF10J/n1mUifo6M1fik+BfiZgP00O9aE4eXDYMvTl/hug3m5gw1GJNwVBepkvdCBGV3Rw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
     <script src="{{url('js/src/jquery.min.js')}}"></script>
     <script src="{{url('js/informacio.js')}}"></script>
+    <script src="{{url('js/geocoding.js')}}"></script>
 @endsection

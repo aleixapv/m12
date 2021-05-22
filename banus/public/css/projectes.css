@@ -58,11 +58,11 @@ input[type=checkbox]:checked:after {
     margin-left: 35%;
   }
 #containerprojecte{
-  margin-left: 20px;
-  background-color: white;
+  /*margin-left: 20px;*/
+  /*background-color: white;*/
   border: 2px solid white;
-  box-shadow: 5px 5px 5px grey;
-  margin-right: 20;
+  /*box-shadow: 5px 5px 5px grey;*/
+  /*margin-right: 20;*/
 }
 #filtrador{
   background-color: white;
@@ -123,7 +123,8 @@ input[type=checkbox]:checked:after {
 
     .work {
       padding-bottom: 40px;
-      margin-top: 60px;
+      /*margin-top: 60px;*/
+      padding-top: 40px;
     }
     .work * {
       box-sizing: border-box;

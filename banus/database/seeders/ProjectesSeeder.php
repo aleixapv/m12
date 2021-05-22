@@ -33,7 +33,7 @@ class ProjectesSeeder extends Seeder
 
         $projecte1 = Projecte::create([
             'titol' => 'Cuina panelada',
-            'descripcio_breu' => '<p>Cuina oberta en xapa de roure vintage.</p>',
+            //'descripcio_breu' => '<p>Cuina oberta en xapa de roure vintage.</p>',
             'descripcio_detallada' => '<p>Cuina oberta en xapa de roure vintage amb armaris hidrof&ograve;bics blancs i revestiment de xapa de roure de la ventilaci&oacute;, projecte realitzat per Totconsa.</p>
 
             <table align="left" border="1" cellpadding="1" cellspacing="1" style="width:500px">
@@ -89,7 +89,7 @@ class ProjectesSeeder extends Seeder
 
         $projecte2 = Projecte::create([
             'titol' => 'Moble de menjador',
-            'descripcio_breu' => '<p>Moble de menjador amb escriptori integrat.</p>',
+            //'descripcio_breu' => '<p>Moble de menjador amb escriptori integrat.</p>',
             'descripcio_detallada' => '<p>Moble de menjador amb escriptori integrat.</p>
 
             <p>El moble te un estil modern i minimalista amb una gran capacitat de emmagatzematge i organitzaci&oacute;.</p>
@@ -126,7 +126,7 @@ class ProjectesSeeder extends Seeder
 
         $projecte3 = Projecte::create([
             'titol' => 'Panelat per aquari',
-            'descripcio_breu' => '<p>Panelat lacat per un aquari en un mejador.</p>',
+            //'descripcio_breu' => '<p>Panelat lacat per un aquari en un mejador.</p>',
             'descripcio_detallada' => '<p>Panelat lacat per un aquari en un mejador.</p>
 
             <p>Tots els accessos son personalitzat i amb les indicacions del particular,</p>

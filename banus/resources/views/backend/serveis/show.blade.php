@@ -1,10 +1,11 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <h1>nom: {{$servei->nom}}</h1><br>
-    <h1>descripcio:</h1><br>
-    <p>{{$servei->descripcio}}</p><br>
-    <h1>imatge:</h1>
-    <img src="{{url($servei->imatge)}}" alt="">
-
-    </ul>
+    <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">Enrrere</a>
+    <div class="" id="containerprojecte">
+        <div class="row d-flex justify-content-center" id="card_index"  style="display: none;" >
+            @include('frontend/servei')
+          </div>
+    </div>
+    <link rel="stylesheet" href="{{url('css/index.css')}}">
+    <script src="{{url('js/indexfrontend.js')}}"></script>
 @endsection

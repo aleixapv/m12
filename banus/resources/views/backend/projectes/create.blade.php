@@ -1,5 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
+    <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">Enrrere</a>
     @if($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
@@ -30,14 +31,14 @@
             </div>
         </div>
 
-        <div class="row">
+        {{--<div class="row">
             <div class="col-25">
                 <label for="descripcio_breu">Descripció breu del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
                 <textarea name="descripcio_breu" rows="3" id="descripcio_breu">{{ old('descripcio_breu') }}</textarea>
             </div>
-        </div>
+        </div>--}}
 
         <div class="row">
             <div class="col-25">
@@ -53,16 +54,28 @@
                 <label for="categories">Categorias del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
-                <select name="categories[]" multiple id="categories">
+                <div class="d-flex justify-content-start">
+                    @forelse ($categories as $categoria)
+                        <div class="form-check mr-2 mb-2">
+                            <input class="form-check-input categories" type="checkbox" value="{{$categoria->id}}" name="categories[]" >
+                            <label class="form-check-label ml-2" for="defaultCheck1">
+                                {{$categoria->name}}
+                            </label>
+                        </div>
+                    @empty
+                        <p>No hi han categories</p>
+                    @endforelse
+                </div>
+                {{--<select name="categories[]" multiple id="categories">
                     @forelse ($categories as $categoria)
                         <option value="{{$categoria->id}}">{{$categoria->name}}</option>
                     @empty
                         <p>No hi han categories</p>
                     @endforelse
-                </select>
+                </select>--}}
             </div>
         </div>
-
+        <hr>
         <div class="row">
             <div class="col-25">
                 <h3>Imatges:</h3>
@@ -88,6 +101,7 @@
                 
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col-25">
                 <h3>Ubicació:</h3>
@@ -143,8 +157,37 @@
                     <h6>Comprova si el resultat es el que vols a continuació.</h6>
                 </div>
                 <div class="col-6">
-                    @include('frontend/projecte')
+                    @php
+                        $contador = 1;
+                    @endphp
+                    <div class="work">
+                        <div class="category-buttons d-none d-lg-block">
+                            <a href="#" class="active all" data-group="all" hidden>Tot</a>
+                        </div>
+                    
+                        <div id="grid"" class="grid">
+                            @include('frontend/projecte')
+                            <br>
+                            @php
+                                $contador ++;
+                            @endphp
+                        
+                            <a class="card" href="#" data-groups="" hidden>
+                                <img src="" />
+                                <div class="title">Project Title</div>
+                            </a>
+                            
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                    @php
+                        $contador = 1;
+                    @endphp
+    
                     @include('frontend/modalProjecte')
+                    @php
+                        $contador ++;
+                    @endphp
                 </div>
             </div>
             <br>
@@ -156,10 +199,18 @@
     <script src="https://cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
     <script src="{{url('js/src/nanospell/autoload.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
-    <link rel="stylesheet" href="{{url('css/projectes.css')}}">
     <script src="{{url('js/src/jquery.min.js')}}"></script>
     <script src="{{url('js/sortable.js')}}"></script>
     <script src="{{url('js/informacio.js')}}"></script>
-    <script src="{{url('js/projectesfrontend.js')}}"></script>
     <script src="{{url('js/projectes.js')}}"></script>
+
+    <link rel="stylesheet" href="{{url('css/projectes.css')}}">
+    <script src="{{url('js/projectesfrontend.js')}}"></script>
+    
+
+
+
+    
+
+    
 @endsection

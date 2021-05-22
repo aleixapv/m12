@@ -1,5 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
+    <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">Enrrere</a>
     @if($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
@@ -29,30 +30,51 @@
             </div>
         </div>
 
-        <div class="row">
+        {{--<div class="row">
             <div class="col-25">
                 <label for="descripcio_breu">Descripció breu del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
                 <textarea name="descripcio_breu" rows="3" id="descripcio_breu">{{ $projecte['descripcio_breu'] }}</textarea>
             </div>
-        </div>
+        </div>--}}
 
         <div class="row">
             <div class="col-25">
-                <label for="descripcio_detallada">Descripció detallada del projecte: <i class="req">*</i></label>
+                <label for="descripcio_detallada">Descripció del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
                 <textarea name="descripcio_detallada" rows="6" id="descripcio_detallada">{{ $projecte['descripcio_detallada'] }}</textarea>
             </div>
         </div>
-       
+        <hr>
         <div class="row">
             <div class="col-25">
-                <label for="categories">Categorias del projecte: <i class="req">*</i></label>
+                <h3>Categories:</h3>
             </div>
             <div class="col-75">
-                <select name="categories[]" multiple id="categories">
+                
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-25">
+                <label for="categories">Categories del projecte: <i class="req">*</i></label>
+            </div>
+            <div class="col-75">
+                <div class="d-flex justify-content-start">
+                    @forelse ($categories as $categoria)
+                        <div class="form-check mr-2 mb-2">
+                            <input class="form-check-input categories" type="checkbox" value="{{$categoria->id}}" name="categories[]"  @if (in_array($categoria->name, $projecte['categories'])) checked @endif>
+                            <label class="form-check-label ml-2" for="defaultCheck1">
+                                {{$categoria->name}}
+                            </label>
+                        </div>
+                    @empty
+                        <p>No hi han categories</p>
+                    @endforelse
+                </div>
+                
+                {{--<select name="categories[]" multiple id="categories">
                     @forelse ($categories as $categoria)
                         @foreach ($projecte['categories'] as $item)
                             @if($categoria->name == $item)
@@ -64,10 +86,10 @@
                     @empty
                         <p>No hi han categories</p>
                     @endforelse
-                </select>
+                </select>--}}
             </div>
         </div>
-
+        <hr>
         <div class="row">
             <div class="col-25">
                 <h3>Imatges:</h3>
@@ -79,7 +101,7 @@
 
         <div class="row">
             <div class="col-25">
-                <label for="descripcio_detallada">Imates del projecte: <i class="req">*</i></label>
+                <label for="descripcio_detallada">Imatges del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
                 <input type="file" name="imatges[]" id="imatges" multiple value="{{ old('imatges') }}">
@@ -108,6 +130,7 @@
                 @endforelse
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col-25">
                 <h3>Ubicació:</h3>

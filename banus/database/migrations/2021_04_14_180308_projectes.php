@@ -17,7 +17,7 @@ class Projectes extends Migration
         Schema::create('projectes', function (Blueprint $table) {
             $table->id();
             $table->string('titol')->unique();
-            $table->text('descripcio_breu');
+            //$table->text('descripcio_breu');
             $table->text('descripcio_detallada');
             $table->string('provincia')->nullable();
             $table->string('ciutat')->nullable();

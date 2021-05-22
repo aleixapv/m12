@@ -92,8 +92,14 @@ class InformacioEmpresaController extends Controller
     public function edit()
     {
         //
-        $informacio =InformacioEmpresa::all()->first();
-        return view('backend.informacioEmpresa.edit',compact('informacio'));
+        $informacio = InformacioEmpresa::all();
+        if($informacio->isEmpty()){
+            return view('backend.informacioEmpresa.create');
+        }else{
+            $informacio = $informacio->first();
+            return view('backend.informacioEmpresa.edit',compact('informacio'));
+        }
+        
     }
 
     /**

@@ -57,7 +57,7 @@ class ProjectesController extends Controller
         
         $data = $request->validate([
             'titol' => 'required|string|min:3|max:50|unique:projectes',
-            'descripcio_breu' => 'required|string|min:3|max:50',
+            'descripcio_breu' => 'nullable|string|min:3|max:50',
             'descripcio_detallada' => 'required|string|min:3|max:1000|not_regex:/^(<script>)$/i',
             'imatges' => 'required',
             'imatges.*' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
@@ -88,7 +88,7 @@ class ProjectesController extends Controller
 
         $projecte = Projecte::create([
             'titol' => ucfirst($data['titol']),
-            'descripcio_breu' => ucfirst($data['descripcio_breu']),
+            //'descripcio_breu' => ucfirst($data['descripcio_breu']),
             'descripcio_detallada' => ucfirst($data['descripcio_detallada']),
             'provincia' => $provincia,
             'ciutat' => $ciutat,
@@ -166,7 +166,7 @@ class ProjectesController extends Controller
         
         $data = $request->validate([
             'titol' => 'required|string|min:3|max:50|unique:projectes,titol,'.$id,
-            'descripcio_breu' => 'required|string|min:3|max:50',
+            'descripcio_breu' => 'nullable|string|min:3|max:50',
             'descripcio_detallada' => 'required|string|min:3|max:1000|not_regex:/^(<script>)$/i',
             'imatges' => 'nullable',
             'imatges.*' => 'image|mimes:jpeg,png,jpg,gif,svg',//dimensions:min_width=300,min_height=300
@@ -206,7 +206,7 @@ class ProjectesController extends Controller
 
         $projecte->update([
             'titol' => ucfirst($data['titol']),
-            'descripcio_breu' => ucfirst($data['descripcio_breu']),
+            //'descripcio_breu' => ucfirst($data['descripcio_breu']),
             'descripcio_detallada' => ucfirst($data['descripcio_detallada']),
             'provincia' => $provincia,
             'ciutat' => $ciutat,
