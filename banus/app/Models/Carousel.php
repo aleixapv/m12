@@ -13,6 +13,7 @@ class Carousel extends Model
     protected $fillable = [
         'url',
         'alt',
+        'color',
         'titol',
         'descripcio',
         'posicio',

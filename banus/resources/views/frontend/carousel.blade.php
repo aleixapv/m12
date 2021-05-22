@@ -6,12 +6,12 @@
       @forelse ($carousel as $diapositiva)
         <div class="carousel-item @if($loop->first) active @endif">
           <img class="d-block  w-100" src="{{url($diapositiva->url)}}" alt="First slide">
-            <div class="carousel-caption" id="frase_index" style=" @if($loop->first) display: none; @endif">
+            <div class="carousel-caption d-flex flex-column justify-content-start " id="frase_index" style=" @if($loop->first) display: none; @endif">
               @if ($diapositiva->titol != null)
-                <h3>{{$diapositiva->titol}}</h3>
+                <h1 style="color: {{$diapositiva->color}};">{{$diapositiva->titol}}</h1>
               @endif
               @if ($diapositiva->descripcio != null)
-                  {!!$diapositiva->descripcio!!}
+                 <div style="color: {{$diapositiva->color}};">{!!$diapositiva->descripcio!!}</div> 
               @endif
           </div>
         </div>

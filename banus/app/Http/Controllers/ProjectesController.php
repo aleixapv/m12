@@ -268,7 +268,7 @@ class ProjectesController extends Controller
         $projecte_imatges = Projecte_Imatge::where('projecte_id', '=', $projecte->id)->get();
         foreach($projecte_imatges as $projecte_imatge){
             $imatge = Imatge::find($projecte_imatge->imatge_id);
-            Storage::delete($imatge->url);
+            unlink(public_path($imatge->url));
             $imatge->delete();
         }
         foreach($projecte_imatges as $projecte_imatge){
@@ -300,6 +300,7 @@ class ProjectesController extends Controller
         if(count($projecte_imatges) == 1){
             return 0;
         }else{
+            unlink(public_path($imatge->url));
             $imatge->delete();
             return 1;
         }      

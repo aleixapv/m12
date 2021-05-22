@@ -103,7 +103,7 @@ class ServeisController extends Controller
         ]);
         $servei = Servei::find($id);
         if(isset($data['imatge'])){
-            Storage::delete( $servei->imatge);
+            unlink(public_path($servei->imatge));
             $imgArxiu = $data['imatge']->store(Servei::GetPathImg());
             $urlImgArxiu = Storage::url($imgArxiu);
             $servei->update([
@@ -130,7 +130,7 @@ class ServeisController extends Controller
     {
         //
         $servei = Servei::find($id);
-        Storage::delete( $servei->imatge);
+        unlink(public_path($servei->imatge));
         $servei->delete();
         return redirect()->route('serveis.index')->with('status', 'Servei eliminat correctament.');
     }

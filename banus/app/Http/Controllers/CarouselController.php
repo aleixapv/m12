@@ -47,6 +47,7 @@ class CarouselController extends Controller
         $data = $request->validate([
             'imatge' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'alt' => 'nullable',
+            'color' => 'nullable',
             'titol' => 'nullable',
             'descripcio' => 'nullable|not_regex:/^(<script>)$/i',
         ]);
@@ -60,6 +61,9 @@ class CarouselController extends Controller
         if(!isset($data['descripcio'])){
             $data['descripcio'] = null;
         }
+        if(!isset($data['color'])){
+            $data['color'] = null;
+        }
         
         $imgArxiu = $data['imatge']->store(Carousel::GetPathImg());
         $urlImgArxiu = Storage::url($imgArxiu);
@@ -68,12 +72,13 @@ class CarouselController extends Controller
         $carousel = Carousel::create([
             'url' => $urlImgArxiu,
             'alt' => $data['alt'],
+            'color' =>$data['color'],
             'titol' => $data['titol'],
             'descripcio' => $data['descripcio'],
             'posicio' => Carousel::all()->count() + 1 ,
         ]);
         //return view('backend.carousel.edit',compact('carousel'))->with('status', 'Diapositiva desada correctament.');
-        return redirect()->route('carousel.edit');
+        return redirect()->route('carousel.edit')->with('status', 'Diapositiva desada correctament.');
     }
 
     /**
@@ -122,6 +127,7 @@ class CarouselController extends Controller
         $data = $request->validate([
             'imatge' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'alt' => 'nullable',
+            'color' => 'nullable',
             'titol' => 'nullable',
             'descripcio' => 'nullable|not_regex:/^(<script>)$/i',
         ]);
@@ -135,24 +141,34 @@ class CarouselController extends Controller
         if(!isset($data['descripcio'])){
             $data['descripcio'] = null;
         }
+        if(!isset($data['color'])){
+            $data['color'] = null;
+        }
         if(!isset($data['imatge'])){
             $diapositiva->update([
                 'alt' => $data['alt'],
+                'color' => $data['color'],
                 'titol' => $data['titol'],
                 'descripcio' => $data['descripcio'],
             ]);
         }else{
-            Storage::delete($diapositiva->url);
+            
+            //dd(Storage::delete(public_path()));
+            unlink(public_path($diapositiva->url));
+            //$deLocos = $diapositiva->url;
             $imgArxiu = $data['imatge']->store(Carousel::GetPathImg());
             $urlImgArxiu = Storage::url($imgArxiu);
+            //dd($urlImgArxiu,$diapositiva->url);
             $diapositiva->update([
-                'imatge' => $urlImgArxiu,
+                'url' => $urlImgArxiu,
                 'alt' => $data['alt'],
+                'color' => $data['color'],
                 'titol' => $data['titol'],
                 'descripcio' => $data['descripcio'],
             ]);
+            //dd($deLocos,$diapositiva->url,$urlImgArxiu);
         }
-        return redirect()->route('carousel.edit');
+        return redirect()->route('carousel.edit')->with('status', 'Diapositiva desada correctament.');
     }
 
     /**
@@ -165,7 +181,7 @@ class CarouselController extends Controller
     {
         //
         $diapositiva = Carousel::find($request['idImatge']);
-        Storage::delete($diapositiva->url);
+        unlink(public_path($diapositiva->url));
         $diapositiva->delete();
         
     }

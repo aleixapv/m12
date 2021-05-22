@@ -18,6 +18,7 @@ class ImatgesCarrousel extends Migration
             $table->id();
             $table->string('url');
             $table->string('alt')->nullable();
+            $table->string('color')->nullable();
             $table->string('titol')->nullable();
             $table->text('descripcio')->nullable();
             $table->unsignedBigInteger('posicio');

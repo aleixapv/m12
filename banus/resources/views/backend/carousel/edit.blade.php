@@ -29,7 +29,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class=" col-12">
-                    <form action="{{route('carousel.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('carousel.store')}}" method="POST" enctype="multipart/form-data" class="m-1">
                         @csrf
                         <div class="row">
                             <div class="col-25">
@@ -47,7 +47,14 @@
                                 <input type="text" name="alt" value="" id="altNovaDiapositiva">
                             </div>
                         </div>
-                
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="titol">Color del text: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="color" name="color" >
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-25">
                                 <label for="titol">Titol de la diapositiva: </label>
@@ -65,6 +72,8 @@
                                 <textarea name="descripcio" rows="3" id="descripcioNovaDiapositiva"></textarea>
                             </div>
                         </div>
+
+
                         <div class="row">
                             <input type="submit" class="comprovar" value="Crear" id="crearNovaDiapositiva">
                         </div>
@@ -133,7 +142,14 @@
                                             <input type="text" name="alt" value="{{$diapositiva->alt}}" >
                                         </div>
                                     </div>
-                            
+                                    <div class="row">
+                                        <div class="col-25">
+                                            <label for="titol">Color del text: </label>
+                                        </div>
+                                        <div class="col-75">
+                                            <input type="color" name="color" value="{{$diapositiva->color}}">
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-25">
                                             <label for="titol">Titol de la diapositiva: </label>
