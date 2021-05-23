@@ -75,9 +75,20 @@ input[type=checkbox]:checked:after {
 #text_titulo:hover{
         color: #40bfc1 !important;
     }
-    .modal_projectes img{
-      width: 307.2px !important;
-    }
+.modal_projectes img{
+  width: 307.2px !important;
+}
+.carousel-control-prev{
+  height: 450px;
+}
+.carousel-control-next{
+  height: 450px;
+}
+.detalladaExemple{
+  margin-left: 6%;
+  text-align: justify;
+  margin-right: 6%;
+}
         
 
     @media (max-width: 900px) {
@@ -236,7 +247,7 @@ input[type=checkbox]:checked:after {
       display: block;
       width: 100%;
       width: 300px;
-      height: 200;
+      height: 200px;
     }
     .work .cardProjecte .title {
       padding: 10px;
@@ -277,7 +288,21 @@ input[type=checkbox]:checked:after {
       .work .card img {
         display: block;
         width: 100%;
-        width: 225px !important;
+        width: 300px !important;
         height: 150px !important;
+      }
+      #modalprojectes{
+        width: 300px;
+        margin-left: 10%;
+      }
+      #dropdownMenuLink{
+        margin-top: 20%;
+        margin-left: 10%;
+      }
+      .carousel-control-prev{
+        height: 200px;
+      }
+      .carousel-control-next{
+        height: 200px;
       }
     }

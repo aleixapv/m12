@@ -40,7 +40,7 @@
 	      </div>
 		  <div class="col-1 d-none d-lg-block" style="font-size: 23px; ">
 			  @forelse ($xarxes as $xarxa)
-				  <a href="{{$xarxa->enllac}}" ><i  class="{{$xarxa->icona}} xarxes_navbar"></i></a>
+				  <a href="{{$xarxa->enllac}}" ><i  class="{{$xarxa->icona}} xarxes_navbar" id="rrss"></i></a>
 			  @empty
 				  <p></p>
 			  @endforelse
@@ -68,7 +68,7 @@
 				@endif
 			</div>
   
-			<div class="col-xs-6 col-md-3">
+			<div class="col-xs-6 col-md-5" id="interes_footer">
 			  <h6>Pagines d'interes</h6>
 			  <ul class="footer-links">
 				<li><a href="{{route('projectes.view')}}">Projectes</a></li>
@@ -94,8 +94,8 @@
 					</p>
 				@endif
 			</div>
-  
-			<div class="col-md-4 col-sm-6 col-xs-12">
+			<br>
+			<div class="col-12">
 			  <ul class="social-icons">
 			  @forelse ($xarxes as $xarxa)
 			  	<li>

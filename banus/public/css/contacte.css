@@ -251,15 +251,15 @@ body {
 }
 
 .place {
-  margin-left: 62px;
+  margin-left: 30px;
 }
 
 .phone {
-  margin-left: 56px;
+  margin-left: 30px;
 }
 
 .gmail {
-  margin-left: 53px;
+  margin-left: 30px;
 }
 
 .contact-text a {
@@ -321,6 +321,7 @@ body {
 
 .social-media-list li:hover {
   background-color: #fff; 
+  color: black;
 }
 
 .social-media-list li:hover:after {
@@ -345,6 +346,19 @@ hr {
 }
 
 /* Begin Media Queries*/
+@media screen and (max-width: 820px) {
+  #submit{
+    margin-left: 1%;
+  }
+  #map{
+    width: 330px;
+    height: 200px;
+  }
+  .contact-list{
+    margin-left: 1%;
+    width: 400px;
+  }
+}
 @media screen and (max-width: 760px) {
   .direct-contact-container, .form-horizontal {
     float: none;
@@ -383,7 +397,6 @@ hr {
   
   .direct-contact-container {
     margin-top: 60px;
-    max-width: 280px;
   }  
   .social-media-list {
     left: 0;

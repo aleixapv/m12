@@ -6,8 +6,7 @@
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
     <br class="d-block d-lg-none">
 <br class="d-block d-lg-none">
-<br class="d-block d-lg-none">
-<br class="d-block d-lg-none">
+
 <div id="containerprojecte" class="d-flex justify-content-center col-12">
 
 

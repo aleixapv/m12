@@ -695,6 +695,17 @@
   
   .offset-11 {
     margin-left: 91.66667%; }
+#rrss:hover{
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.1);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.1);
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+}
   
   @media (min-width: 576px) {
     .col-sm {
@@ -8347,6 +8358,8 @@
       left: 16px;
       top: 5px;
       margin: 2px;
+      width: 40px;
+      height: 40px;
   }
   #title_navbar {
     position: absolute;
@@ -8392,6 +8405,9 @@
     color:#3366cc;
     text-decoration:none;
   }
+  #interes_footer{
+    text-align: right;
+  }
   .footer-links
   {
     padding-left:0;
@@ -8416,7 +8432,7 @@
   }
   .site-footer .social-icons
   {
-    text-align:right
+    text-align:center
   }
   .site-footer .social-icons a
   {
@@ -8583,7 +8599,7 @@
  
   .carousel_index .carousel-caption{
     position: absolute;
-    right: 25%;
+    right: 15%;
     bottom: 20px;
     top: 70px;
     color: #fff;

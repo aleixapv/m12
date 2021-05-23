@@ -34,6 +34,12 @@
 #service_card{
   border-right: solid black 1px;
 }
+#containerprojecte .carousel-control-prev{
+  height: 300px;
+}
+#containerprojecte .carousel-control-next{
+  height: 300px;
+}
 .card{
   margin-top: 10px;
   background-color: white;
@@ -45,6 +51,14 @@
   background-color: whitesmoke;
 }
 @media (max-width: 800px) {
+  .carousel-caption h1 {
+    font-size: 22px;
+    font-weight: 600;
+    }
+    .carousel-caption p {
+      font-size: 14px;
+    font-weight: 500;
+      }
   .card{
     margin-top: 10px;
     background-color: white;
@@ -53,6 +67,23 @@
     /*margin-left: 12%;*/
     justify-content: center;
     /*width: 300px;*/
+  }
+  #containerprojecte .carousel-control-prev{
+    height: 150px;
+  }
+  #containerprojecte .carousel-control-next{
+    height: 150px;
+  }
+  #carousel1 img{
+    width: 100%;
+    height: 100%;
+  }
+  #carousel-example-1z{
+    margin-left: 1.5%;
+  }
+  #service{
+    margin-left: 3% !important;
+    
   }
 }
 #carousel1 img{
@@ -69,7 +100,8 @@
     -moz-transition: all 200ms ease-in;
     -moz-transform: scale(1);
     transition: all 200ms ease-in;
-    transform: scale(1);   
+    transform: scale(1); 
+    margin-top: 6% !important;
 
 }
 .service_card:hover
@@ -89,6 +121,7 @@
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
+
 @media (max-width: 700px) {
     
   #carousel-example-1z .carousel-item {
