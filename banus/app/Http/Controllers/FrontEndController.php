@@ -33,7 +33,7 @@ class frontEndController extends Controller
         //
         
 
-        $categories = Categoria::all();
+        
         $informacio = InformacioEmpresa::all()->first();
         $xarxes = XarxaSocial::all();
         $carousel = Carousel::all()->sortBy("posicio");
@@ -45,7 +45,7 @@ class frontEndController extends Controller
         }
         $serveis = Servei::all();
         //dd($projectesObj);
-        return view('frontend.index',compact(['categories','informacio','xarxes','serveis','carousel','projectesObj']));
+        return view('frontend.index',compact(['informacio','xarxes','serveis','carousel','projectesObj']));
     }
    
     public function showcontacte(){
@@ -75,6 +75,7 @@ class frontEndController extends Controller
 
     public function mail(Request $request){
         $data = $request->validate([
+            'privacitat' => 'required',
             'nom_contacte' => 'required|string',
             'email_contacte' => 'required|email',
             'tel_contacte' => 'required|digits_between:9,11|numeric',
@@ -87,7 +88,7 @@ class frontEndController extends Controller
         $correu->missatge_contacte = $data['missatge_contacte'];   
         $informacio = InformacioEmpresa::all()->first();
         Mail::to('aleixaleixaleixaleix@gmail.com')->send(new MailController($correu,$informacio));
-        return redirect()->route('contacte.view');//->with('status', 'Projecte desat correctament.');
+        return redirect()->route('contacte.view')->with('status', 'Correu enviat correctament.');//->with('status', 'Projecte desat correctament.');
     }
 
     /**

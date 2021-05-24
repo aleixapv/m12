@@ -15,6 +15,51 @@
       
     @endif
   </div>
+  @php
+    $contador = 1;
+  @endphp
+  <div id="projectes_body">
+
+    <h1 class="section-header">Últims projectes</h1>
+    
+    <div class="work">
+      <div class="category-buttons d-none d-lg-block" hidden>
+        <a href="#" class="active all" data-group="all" hidden>Tot</a>
+        
+      </div>
+    
+      <div id="grid"" class="grid">
+        @forelse ($projectesObj as $projecte)
+          @include('frontend/projecte')
+          <br>
+          @php
+            $contador ++;
+          @endphp
+        @empty
+            <h1>No hi han projectes en aquest moment</h1>
+        @endforelse
+  
+        <a class="card" href="#"  hidden>
+          <img src="" />
+          <div class="title">Project Title</div>
+        </a>
+        
+        <div class="guide"></div>
+      </div>
+    </div>
+    @php
+      $contador = 1;
+    @endphp
+    @forelse ($projectesObj as $projecte)
+      @include('frontend/modalProjecte')
+      @php
+        $contador ++;
+      @endphp
+    @empty
+      <h1>No hi han projectes en aquest moment</h1>
+    @endforelse
+   
+  </div>
   
   <link rel="stylesheet" href="{{url('css/index.css')}}">
   <script src="{{url('js/indexfrontend.js')}}"></script>

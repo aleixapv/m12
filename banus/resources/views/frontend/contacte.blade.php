@@ -15,7 +15,11 @@
       <h1 class="section-header">Contacta</h1>
         
       <div class="contact-wrapper col-12">
-       
+        @if(session('status'))
+          <div class="alert alert-success">
+              {{ session('status') }}
+          </div>
+        @endif
         @if($errors->any())
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger">{{ $error }}</div>
@@ -44,7 +48,13 @@
               </div>
     
               <textarea class="form-control" rows="10" placeholder="Escriu el teu correu" name="missatge_contacte" required>{{old('missatge_contacte')}}</textarea>
-              
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck" name="privacitat">
+                <label class="form-check-label" for="gridCheck">
+                  Acepto la <a href="#" data-toggle="modal" data-target="#modal_politica">Política de Privacitat</a>
+                  
+                </label>
+              </div>
               <button class="btn btn-primary send-button d-flex justify-content-center" id="submit" type="submit" value="Enviar">
                 <div class="button">
                   <i class="fa fa-paper-plane"></i><span class="send-text">Enviar</span>

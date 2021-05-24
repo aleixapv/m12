@@ -1,4 +1,4 @@
-#carousel-example-1z{
+#carousel-1z{
     width:100% !important;
     max-height: none !important;
     max-width: none !important;
@@ -7,7 +7,7 @@
     padding-left: 0px !important;
     padding-right: 0px !important;
     }
-    #carousel-example-1z .carousel-item {
+    #carousel-1z .carousel-item {
         height: 300px;
       }
 
@@ -78,7 +78,7 @@
     width: 100%;
     height: 100%;
   }
-  #carousel-example-1z{
+  #carousel-1z{
     margin-left: 1.5%;
   }
   #service{
@@ -124,7 +124,7 @@
 
 @media (max-width: 700px) {
     
-  #carousel-example-1z .carousel-item {
+  #carousel-1z .carousel-item {
     height: unset;
 }
 #card_index {

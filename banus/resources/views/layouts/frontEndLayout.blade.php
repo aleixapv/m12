@@ -75,7 +75,7 @@
 				<li><a href="{{route('contacte.view')}}">Contacte</a></li>
 				
 				<li><a href="{{route('f.index')}}">Inici</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#modal_politica">Politica de Privacitat</a>
+				<li><a href="#" data-toggle="modal" data-target="#modal_politica">Política de Privacitat</a>
 				@include('frontend/politica')
 				</li>
 			  </ul>
