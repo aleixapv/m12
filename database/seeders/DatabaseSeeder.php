@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             XarxesSeeder::class,
             ProjectesSeeder::class,
             serveisSeeder::class,
+            ImatgesCarouselSeeder::class,
         ]);
     }
 }
