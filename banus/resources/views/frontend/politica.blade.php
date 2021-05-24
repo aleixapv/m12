@@ -6,7 +6,7 @@
                 
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-left">
                 @if (isset($informacio))
                     <h1>1. Política de privacidad</h1>
                         <p class="ml-4">{{$informacio->nom_empresa}} informa a los usuarios del sitio web sobre su política respecto del tratamiento y

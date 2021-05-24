@@ -29,7 +29,7 @@
 	        <span class="fa fa-bars"></span>
 	      </button>
 	      <div class="collapse navbar-collapse justify-content-center col-11" id="ftco-nav">
-	        <ul class="navbar-nav m-auto">
+	        <ul class="navbar-nav m-auto" id="navbar_menu">
 	        	<li class="nav-item active"><a href="{{route('f.index')}}" class="nav-link">Inici</a></li>
 				<li class="nav-item"><a href="{{route('contacte.view')}}" class="nav-link">Contacte</a></li>
 				<li class="nav-item"><a href="{{route('projectes.view')}}" class="nav-link">Projectes</a></li>

@@ -1,4 +1,4 @@
-<div class="card col-xl-3 col-md-10 service_card m-1" >
+<div class="card col-xl-3 col-md-10 service_card m-1 ml-3" >
   <img
     @if(isset($servei)) src="{{$servei->imatge}}" @else src=" " @endif 
     class="card-img-top mt-3"

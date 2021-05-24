@@ -20,7 +20,7 @@
   @endphp
   <div id="projectes_body">
 
-    <h1 class="section-header">Últims projectes</h1>
+    <h1 class="section-header text-center" id="ultims_projectes">Últims projectes</h1>
     
     <div class="work">
       <div class="category-buttons d-none d-lg-block" hidden>
@@ -60,10 +60,9 @@
     @endforelse
    
   </div>
-  
+  <link rel="stylesheet" href="{{url('css/projectes.css')}}">
   <link rel="stylesheet" href="{{url('css/index.css')}}">
   <script src="{{url('js/indexfrontend.js')}}"></script>
-  <link rel="stylesheet" href="{{url('css/projectes.css')}}">
   <script src="{{url('js/projectesfrontend.js')}}"></script>
   
   

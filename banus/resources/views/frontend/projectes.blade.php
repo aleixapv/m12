@@ -32,8 +32,7 @@
           <a class="dropdown-item" href="#">Sense categories</a>
         @endforelse
       </div>
-    
-      <div id="grid"" class="grid">
+     <div id="grid" class="grid">
         @forelse ($projectesObj as $projecte)
           @include('frontend/projecte')
           <br>
@@ -52,6 +51,7 @@
         <div class="guide"></div>
       </div>
     </div>
+</div>
     @php
       $contador = 1;
     @endphp
