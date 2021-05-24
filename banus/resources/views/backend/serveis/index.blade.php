@@ -2,6 +2,9 @@
 @section('content')
     @if (count($serveis) < 3)
         <a href="{{route('serveis.create')}}" class="btn btn-success mb-2">Nou Servei</a>
+        <div class="alert alert-success" role="alert">
+            Pots tenir-ne {{ 3 - count($serveis)}} service cards més.
+        </div>
     @else
         <div class="alert alert-warning" role="alert">
             Només pots tenir-ne tres service cards.

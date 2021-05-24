@@ -42,6 +42,8 @@ class Projecte extends Model
         $data['descripcio_detallada'] = $this->descripcio_detallada;
         $data['ciutat'] = $this->ciutat;
         $data['provincia'] = $this->provincia;
+        $data['zip_cp'] = $this->zip_cp;
+       
 
         foreach($projecte_categories as $projecte_categoria){
             $categoria = Categoria::find($projecte_categoria->categoria_id);

@@ -82,8 +82,11 @@ $( document ).ready(function(){
             $tiolExemple.html($titol.val());
             //$breuExemple.html(CKEDITOR.instances.descripcio_breu.getData());
             $detalladaExemple.html(CKEDITOR.instances.descripcio_detallada.getData());
+            
             if(!$( "#selecProvincia option:selected" ).text() == '' && !$( "#selecPoblacio option:selected" ).text() == '' && !$( "#selecCp option:selected" ).text() == ''){
                 $localitzacioExemple.html($( "#selecPoblacio option:selected" ).text()+', '+$( "#selecProvincia option:selected" ).text());
+            }else{
+                $localitzacioExemple.empty();
             }
             $slidesDiv.empty();
             $olIndicadors.empty();

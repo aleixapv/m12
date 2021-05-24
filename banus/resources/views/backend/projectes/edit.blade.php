@@ -139,13 +139,16 @@
                 <option value=""></option>
             </div>
         </div> 
+        
         <div class="row">
             <div class="col-25">
                 <label for="provincia">Provincia: </label>
             </div>
             <div class="col-75">
                 <select id="selecProvincia">
-                    <option value="{{ $categoria->provincia }}">{{ $categoria->provincia }}</option>
+                    <option value="{{ $projecte['provincia'] }}" selected>{{ $projecte['provincia'] }}</option>
+                    <option value="null"></option>
+                    
                 </select>
                 <input type="text" id="provinciaInput" name="provincia" value="" hidden>
             </div>
@@ -157,7 +160,9 @@
             </div>
             <div class="col-75">
                 <select name="" id="selecPoblacio">
-                    <option value="{{ $categoria->ciutat }}">{{ $categoria->ciutat }}</option>
+                    <option value="{{ $projecte['ciutat'] }}" selected>{{ $projecte['ciutat'] }}</option>
+                    <option value="null"></option>
+                    
                 </select>
                 <input type="text" id="poblacioInput" name="ciutat" value="" hidden>
             </div>
@@ -170,7 +175,9 @@
             </div>
             <div class="col-75">
                 <select name="" id="selecCp">
-                    <option value="{{ $categoria->zip_cp }}">{{ $categoria->zip_cp }}</option>
+                    <option value="{{ $projecte['zip_cp'] }}" selected>{{ $projecte['zip_cp'] }}</option>
+                    <option value="null"></option>
+                    
                 </select>
                 <input type="text" id="cpInput" name="zip_cp" value="" hidden>
             </div>
@@ -187,9 +194,38 @@
                 <div class="col-6">
                     <h6>Comprova si el resultat es el que vols a continuació.</h6>
                 </div>
-                <div class="col-6">
-                    @include('frontend/projecte')
+                <div class="col-12 m-5">
+                    @php
+                        $contador = 1;
+                    @endphp
+                    <div class="work mb-5">
+                        <div class="category-buttons d-none d-lg-block">
+                            <a href="#" class="active all" data-group="all" hidden>Tot</a>
+                        </div>
+                    
+                        <div id="grid"" class="grid">
+                            @include('frontend/projecte')
+                            <br>
+                            @php
+                                $contador ++;
+                            @endphp
+                        
+                            <a class="card" href="#" data-groups="" hidden>
+                                <img src="" />
+                                <div class="title">Project Title</div>
+                            </a>
+                            
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                    @php
+                        $contador = 1;
+                    @endphp
+                    
                     @include('frontend/modalProjecte')
+                    @php
+                        $contador ++;
+                    @endphp
                 </div>
                 
                 
@@ -200,8 +236,8 @@
                 
             </div>
             <br>
-            <div class="row">
-                <input type="submit" value="Crear" >
+            <div class="row mt-5">
+                <input type="submit" value="Editar" >
             </div>
         </div>
     </form>
@@ -214,6 +250,8 @@
     <script src="{{url('js/informacio.js')}}"></script>
     <script src="{{url('js/projectesfrontend.js')}}"></script>
     <script src="{{url('js/projectes.js')}}"></script>
+
+
 
     
 

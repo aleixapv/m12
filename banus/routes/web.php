@@ -22,7 +22,8 @@ use App\Http\Controllers\CarouselController;
 //principal
 Route::get('/admin', [BackEndController::class, 'index'])->name('b.index');
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    //return view('dashboard');
+    return redirect()->route('carousel.index');
 })->middleware(['auth'])->name('dashboard');
 
 //contacte

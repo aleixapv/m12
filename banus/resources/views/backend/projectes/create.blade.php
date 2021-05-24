@@ -48,10 +48,18 @@
                 <textarea name="descripcio_detallada" rows="6" id="descripcio_detallada">{{ old('descripcio_detallada') }}</textarea>
             </div>
         </div>
-       
+        <hr>
         <div class="row">
             <div class="col-25">
-                <label for="categories">Categorias del projecte: <i class="req">*</i></label>
+                <h3>Categories:</h3>
+            </div>
+            <div class="col-75">
+                
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-25">
+                <label for="categories">Categories del projecte: <i class="req">*</i></label>
             </div>
             <div class="col-75">
                 <div class="d-flex justify-content-start">
@@ -116,6 +124,7 @@
             </div>
             <div class="col-75">
                 <select id="selecProvincia">
+                    <option value="null"></option>
                 </select>
                 <input type="text" id="provinciaInput" name="provincia" value="" hidden>
             </div>
@@ -127,7 +136,7 @@
             </div>
             <div class="col-75">
                 <select name="" id="selecPoblacio">
-                    
+                    <option value="null"></option>
                 </select>
                 <input type="text" id="poblacioInput" name="ciutat" value="" hidden>
             </div>
@@ -140,7 +149,7 @@
             </div>
             <div class="col-75">
                 <select name="" id="selecCp">
-                    
+                    <option value="null"></option>
                 </select>
                 <input type="text" id="cpInput" name="zip_cp" value="" hidden>
             </div>
@@ -156,11 +165,11 @@
                 <div class="col-6">
                     <h6>Comprova si el resultat es el que vols a continuació.</h6>
                 </div>
-                <div class="col-6">
+                <div class="col-12 m-5">
                     @php
                         $contador = 1;
                     @endphp
-                    <div class="work">
+                    <div class="work mb-5">
                         <div class="category-buttons d-none d-lg-block">
                             <a href="#" class="active all" data-group="all" hidden>Tot</a>
                         </div>
@@ -183,15 +192,22 @@
                     @php
                         $contador = 1;
                     @endphp
-    
+                    
                     @include('frontend/modalProjecte')
                     @php
                         $contador ++;
                     @endphp
                 </div>
+                
+                
+                    
+                    
+                
+                   
+                
             </div>
             <br>
-            <div class="row">
+            <div class="row mt-5">
                 <input type="submit" value="Crear" >
             </div>
         </div>
@@ -199,18 +215,11 @@
     <script src="https://cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
     <script src="{{url('js/src/nanospell/autoload.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
+    <link rel="stylesheet" href="{{url('css/projectes.css')}}">
     <script src="{{url('js/src/jquery.min.js')}}"></script>
     <script src="{{url('js/sortable.js')}}"></script>
     <script src="{{url('js/informacio.js')}}"></script>
+    <script src="{{url('js/projectesfrontend.js')}}"></script>
     <script src="{{url('js/projectes.js')}}"></script>
 
-    <link rel="stylesheet" href="{{url('css/projectes.css')}}">
-    <script src="{{url('js/projectesfrontend.js')}}"></script>
-    
-
-
-
-    
-
-    
 @endsection

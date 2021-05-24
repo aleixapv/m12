@@ -48,12 +48,10 @@
                 <div class="col-6">
                     <h6>Comprova si el resultat es el que vols dins del recuadre.</h6>
                 </div>
-                <div class="col-6 container">
-                    <div>
-                        <h6 id="nomExemple"></h6>
-                        <h6 id="descripcioExemple"></h6>
-                        <img src="" alt="" id="imatgeExemple">
-                    </div>
+                <div class="col-12" id="containerprojecte">
+                    <div class="row d-flex justify-content-center" id="card_index"  style="display: none;" >
+                        @include('frontend/servei')
+                      </div>
                 </div>
             </div>
             <br>
@@ -67,4 +65,6 @@
     <script src="{{url('js/src/nanospell/autoload.js')}}"></script>
     <script src="{{url('js/src/jquery.min.js')}}"></script>
     <script src="{{url('js/serveis.js')}}"></script>
+    <link rel="stylesheet" href="{{url('css/index.css')}}">
+    <script src="{{url('js/indexfrontend.js')}}"></script>
 @endsection

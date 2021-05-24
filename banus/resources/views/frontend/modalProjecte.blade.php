@@ -63,7 +63,7 @@
                     <p class="text-center text-justify" id="localitzacioExemple" >@if(isset($projecte['provincia'])) Ubicació: {{$projecte['ciutat']}}, {{$projecte['provincia']}} @endif</p>
                 
                     {{--<p class="d-block d-lg-none" id="breuExemple">@if(isset($projecte)) {!!$projecte['descripcio_breu']!!} @endif</p>--}}
-                    <p class="detalladaExemple" >@if(isset($projecte)) {!!$projecte['descripcio_detallada']!!} @endif</p>
+                    <div class="detalladaExemple" >@if(isset($projecte)) {!!$projecte['descripcio_detallada']!!} @endif</div>
                     {{--<div id="detallada_boto{{$contador}}"  class=" ver_mas  d-block d-lg-none">
                       <p class="text-primary"">Click per veure més</p>
                         <div hidden="true">
