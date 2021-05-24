@@ -10,6 +10,18 @@
     #carousel-1z .carousel-item {
         height: 300px;
       }
+#ultims_projectes{
+  font: 300 30x 'Oswald', sans-serif;
+  letter-spacing: 6px;
+  margin-top: 2%;
+}
+.work{
+  padding-top: unset !important;
+  margin-left: unset !important;
+}
+.work .grid{
+  margin-left: 15% !important;
+}
 
 #carousel1 img{
   height: 200px !important;
@@ -78,12 +90,18 @@
     width: 100%;
     height: 100%;
   }
+  #carousel-1z .carousel-item{
+    height: 150px !important;
+}
   #carousel-1z{
     margin-left: 1.5%;
   }
   #service{
     margin-left: 3% !important;
     
+  }
+  .work .grid{
+    margin-left: 2% !important;;
   }
 }
 #carousel1 img{
@@ -122,13 +140,15 @@
   margin-right: 0px !important;
 }
 
+
 @media (max-width: 700px) {
     
-  #carousel-1z .carousel-item {
-    height: unset;
-}
 #card_index {
    margin-left: unset; 
    margin-right: unset; 
 }
+.work .grid{
+  margin-left: 1% !important;;
+}
+
 }

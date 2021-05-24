@@ -89,6 +89,11 @@ input[type=checkbox]:checked:after {
   text-align: justify;
   margin-right: 6%;
 }
+@media (max-width: 965px) and (min-width: 481px)  {  
+  #modalprojectes{
+    margin-left: 28% !important;
+  }
+} 
         
 
     @media (max-width: 900px) {

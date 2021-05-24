@@ -306,7 +306,6 @@ body {
 }
 
 .social-media-list li:after {
-  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -353,13 +352,21 @@ hr {
   #map{
     width: 330px;
     height: 200px;
+    margin-left: 9%;
   }
   .contact-list{
-    margin-left: 1%;
+    margin-left: -11%;
     width: 400px;
   }
+  
+.direct-contact-container {
+ float: unset;
+}
 }
 @media screen and (max-width: 760px) {
+  #map{
+    margin-left: unset;
+  }
   .direct-contact-container, .form-horizontal {
     float: none;
     margin: 10px auto;

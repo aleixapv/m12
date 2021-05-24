@@ -8376,6 +8376,9 @@
        margin-left: 10px;
   
     }
+    .navbar-collapse #navbar_menu{
+      margin-left: unset !important;
+    }
   }
   .site-footer
   {
@@ -8407,6 +8410,7 @@
   }
   #interes_footer{
     text-align: right;
+    margin-left: 6%;
   }
   .footer-links
   {
@@ -8586,6 +8590,7 @@
   float:right;
 }
 @media (max-width: 900px) {
+  
   #whatsapp{
     right: 20px;
     width: 50px;
@@ -8627,4 +8632,11 @@
     z-index: 999999;
     position: unset !important;
   }
+  #interes_footer {
+    text-align: left;
+    margin-left: 1%;
+}
+}
+#navbar_menu{
+  margin-left: 46% !important;
 }

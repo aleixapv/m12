@@ -153,6 +153,11 @@ $( document ).ready(function() {
             left = 0;
             totalHeight = totalHeight + $('.guide').height() + 20;
           }
+          else if ((i + 1) % 1 === 0 && projects.length > 1 && $(window).width() < 960 && $(window).width() > 481) {
+            top = top + $('.guide').height() + 20;
+            left = 0;
+            totalHeight = totalHeight + $('.guide').height() + 10;
+          }
           $('#grid').height(totalHeight + $('.guide').height());
         }
       }
