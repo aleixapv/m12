@@ -1,1 +1,1 @@
-<img src="{{asset('img/logo.jpeg')}}" alt="logo fusteria banus" style="width: 80px;">
+<img src="{{asset('img/logo.jpeg')}}" alt="logo fusteria banus" style="width: 50px;">
