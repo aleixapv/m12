@@ -354,7 +354,7 @@ hr {
   #map{
     width: 380px;
     height: 200px;
-    margin-left: 6%;
+    margin-left: 3%;
   }
   .contact-list{
     margin-left: 4% !important;
@@ -432,16 +432,26 @@ hr {
   }
   .form-horizontal {
     margin-left: 1% !important;
+    margin-bottom: 10% !important;;
   }
 }
 @media (max-width: 1024px) and (min-width: 966px)  {  
   #contact-form{
-    margin-left: 28% !important;
+    margin-left: 3% !important;
+  }
+  .form-horizontal {
+    margin-bottom: 7%;
+  }
+}
+@media (max-width: 1270px) and (min-width: 1025px)  {  
+  #map{
+    width: 900px;
   }
 }
 @media screen and (max-width: 600px) {
   .form-horizontal {
     margin-left: 1% !important;
+    margin-bottom: 7%;
   }
   .contact-list{
     margin-left: 2% !important;
@@ -460,7 +470,11 @@ hr {
     width: 99%;
   }
   #map{
-    width: 100% !important;
+    width: 315px !important;
     margin-left: -1%;
+  }
+  .contact-list{
+    margin-left: -9% !important;
+
   }
 }

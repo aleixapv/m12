@@ -1,6 +1,6 @@
 @extends('layouts.backEndLayout')
 @section('content')
-    <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">Enrrere</a>
+    <a href="{{ route('carousel.index') }}" class="btn btn-primary mb-2">Enrrere</a>
     @if($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
