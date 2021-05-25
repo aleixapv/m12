@@ -22,7 +22,7 @@
 }
 .work{
   padding-top: unset !important;
-  margin-left: unset !important;
+  margin-left: -4% !important;
   width: 100%;
 }
 .work .grid{
@@ -177,6 +177,18 @@
     width: 80% !important;
     margin-left: 4% !important;
   }
+  @media (max-width: 965px) and (min-width: 960px)  {  
+    #modalprojectes{
+      width: 100%;
+      margin-left: unset !important;
+    }
+  }
+  @media (max-width: 959px) and (min-width: 801px)  {  
+    #modalprojectes{
+      width: 80%;
+      margin-left: -6% !important;
+    }
+  }
   #modalprojectes img{
     width: 250px !important;
   }
@@ -184,7 +196,13 @@
     top: 30px;
 }
 }
-@media (max-width: 975px) {
+@media (max-width: 1100px) and (min-width: 966px)  {  
+  #modalprojectes{
+    width: 100%;
+    margin-left: 1% !important;
+  }
+}
+@media (max-width: 990px) {
   #modalprojectes {
     margin-left: 42% !important;
 }
@@ -194,11 +212,36 @@
     margin-left: 23% !important;
   }
 }
+@media (max-width: 600px) and (min-width: 500px)  {  
+  #modalprojectes{
+    margin-left: 30% !important;
+  }
+}
+@media (max-width: 700px) and (min-width: 600px)  {  
+  #modalprojectes{
+    margin-left: 40% !important;
+  }
+}
+@media (max-width: 800px) and (min-width: 700px)  {  
+  #modalprojectes{
+    margin-left: 40% !important;
+  }
+}
+@media (max-width: 900px) and (min-width: 800px)  {  
+  #modalprojectes{
+    margin-left: 30% !important;
+  }
+}
+@media (max-width: 959px) and (min-width: 900px)  {  
+  #modalprojectes{
+    margin-left: 35% !important;
+  }
+}
 @media (max-width: 400px){
   #modalprojectes{
-    margin-left: 10% !important;
+    margin-left: 16% !important;
   }
-  #carousel-1z .carousel-item img{
+  #carousel-1z .carousel-item img{  
     height: 300px;
   }
 }

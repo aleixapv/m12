@@ -28,7 +28,7 @@
         
       </div>
     
-      <div id="grid"" class="grid">
+      <div id="grid"" class="grid ">
         @forelse ($projectesObj as $projecte)
           @include('frontend/projecte')
           <br>
