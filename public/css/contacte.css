@@ -352,12 +352,12 @@ hr {
     margin-left: 1%;
   }
   #map{
-    width: 330px;
+    width: 380px;
     height: 200px;
-    margin-left: 9%;
+    margin-left: 6%;
   }
   .contact-list{
-    margin-left: -11%;
+    margin-left: 4% !important;
     width: 400px;
   }
   
@@ -425,6 +425,36 @@ hr {
   
 }
 
+
+@media screen and (max-width: 965px){ 
+  #map{
+    margin-left: 1%;
+  }
+  .form-horizontal {
+    margin-left: 1% !important;
+  }
+}
+@media (max-width: 1024px) and (min-width: 966px)  {  
+  #contact-form{
+    margin-left: 28% !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .form-horizontal {
+    margin-left: 1% !important;
+  }
+  .contact-list{
+    margin-left: 2% !important;
+
+  }
+  #map{
+    width: 84% !important;
+    margin-left: 6% !important;
+  }
+  .form-check{
+    margin-left: 8% !important;
+  }
+}
 @media screen and (max-width: 410px) {
   .send-button {
     width: 99%;
@@ -432,15 +462,5 @@ hr {
   #map{
     width: 100% !important;
     margin-left: -1%;
-  }
-}
-@media screen and (max-width: 965px){ 
-  #map{
-    width: 100% !important;
-  }
-}
-@media (max-width: 1024px) and (min-width: 966px)  {  
-  #contact-form{
-    margin-left: 28% !important;
   }
 }

@@ -78,17 +78,18 @@ $( document ).ready(function() {
 
 
     Provicia("Provincies",$selectProvincia,$provinciaInput);
+
     $selectProvincia.on('change',function() {
         $provinciaInput.val($( "#selecProvincia option:selected" ).text());
         $selectPoblacio.empty();
 		Poblacio("Poblacions",$selectProvincia.val(),$selectPoblacio,$poblacioInput);
 	});
-    $selectPoblacio.change(function(){
+    $selectPoblacio.on('change',function(){
         $poblacioInput.val($( "#selecPoblacio option:selected" ).text());
         $selectCp.empty();
 		Postal("Codis_Postals",$selectPoblacio.val(),$selectCp,$cpInput);
 	}); 
-    $selectCp.change(function(){
+    $selectCp.on('change',function(){
         $cpInput.val($( "#selecCp option:selected" ).text());
     });
     

@@ -11,11 +11,12 @@
   height: 300px;
 }
 #projectes_body #modalprojectes {
-  width: unset !important;
+  width: 300px !important;
 }
 #modalprojectes img{
   width: 300px !important;
 }
+
 #ultims_projectes{
   font: 300 30x 'Oswald', sans-serif;
   letter-spacing: 6px;
@@ -24,10 +25,16 @@
 .work{
   padding-top: unset !important;
   margin-left: unset !important;
+  width: 80%;
+}
+@media screen and  (min-width: 1073px) and (max-width: 1180px) {
+  .work{
+    margin-left: -11% !important;
+  }
 }
 .work .grid{
-  margin-left: 22% !important;
-  width: 49.8%;
+ /* margin-left: 22% !important;*/
+  width: 100%;
 }
 
 #carousel1 img{
@@ -69,6 +76,8 @@
 #containerprojecte{
   background-color: whitesmoke;
 }
+
+
 @media (max-width: 800px) {
   .carousel-caption h1 {
     font-size: 22px;
@@ -146,8 +155,6 @@
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
-
-
 @media (max-width: 700px) {
     
 #card_index {
@@ -162,9 +169,10 @@
 @media (max-width: 965px){  
   .work .grid {
     margin-left: 13% !important;
+    width: 80% !important;
   }
   #modalprojectes{
-    margin-left: 26% !important;
+    margin-left: 10% !important;
   }
 }
 @media (max-width: 400px) {
@@ -183,3 +191,8 @@
     top: 30px;
 }
 }
+@media (max-width: 975px) {
+  #modalprojectes {
+    margin-left: 42% !important;
+}
+  }

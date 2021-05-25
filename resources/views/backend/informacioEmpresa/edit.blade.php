@@ -165,6 +165,7 @@
             <div class="col-75">
                 <select id="selecProvincia" class="ubicacio">
                     <option value="{{ $informacio->provincia }}">{{ $informacio->provincia }}</option>
+                    <option value="null"></option>
                 </select>
                 <input type="text" id="provinciaInput" name="provincia" value="{{ $informacio->provincia }}" hidden class="ubicacio">
             </div>
@@ -177,6 +178,7 @@
             <div class="col-75">
                 <select name="" id="selecPoblacio" class="ubicacio">
                     <option value="{{ $informacio->ciutat }}">{{ $informacio->ciutat }}</option>
+                    <option value="null"></option>
                 </select>
                 <input type="text" id="poblacioInput" name="ciutat" value="{{ $informacio->ciutat }}" hidden class="ubicacio">
             </div>
@@ -189,7 +191,8 @@
             </div>
             <div class="col-75">
                 <select name="" id="selecCp" class="ubicacio">
-                    <option value="{{ $informacio->zip_cp }}">{{ $informacio->zip_cp }}</option>
+                    <option {{ $informacio->zip_cp }}value="{{ $informacio->zip_cp }}">{{ $informacio->zip_cp }}</option>
+                    <option value="null"></option>
                 </select>
                 <input type="text" id="cpInput" name="zip_cp" value="{{ $informacio->zip_cp }}" hidden class="ubicacio">
             </div>

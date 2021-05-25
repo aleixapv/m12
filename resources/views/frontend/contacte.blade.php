@@ -27,7 +27,7 @@
         @endif
         <div class="card" >
           <div class="card-body">
-            <form id="contact-form" class="form-horizontal col-6 .col-sm-12 " role="form" action="{{route('contacte.mail')}}" method="POST">
+            <form id="contact-form" class="form-contacta form-horizontal col-6 .col-sm-12 " role="form" action="{{route('contacte.mail')}}" method="POST">
               @csrf
               <div class="form-group">
                 <div class="col-sm-12">

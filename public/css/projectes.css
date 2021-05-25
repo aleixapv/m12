@@ -1,9 +1,9 @@
 #projectes_body{
   background-color: whitesmoke;
 }
-#modalprojectes{
-  width: 31.4% !important;
-}
+/*#modalprojectes{
+  width: 375px !important;
+}*/
 .carousel-item .img-fluid {
   width:900px;
   height:450px;
@@ -92,17 +92,23 @@ input[type=checkbox]:checked:after {
   text-align: justify;
   margin-right: 6%;
 }
-@media (max-width: 980px) and (min-width: 481px)  {  
+@media (max-width: 1090px) and (min-width: 481px)  { 
+  #dropdownMenuLink {
+    margin-top: 10% !important;
+    margin-left: 10% !important;
+}
+} 
+@media (max-width: 976px) and (min-width: 481px)  { 
   #modalprojectes{
     margin-left: 28% !important;
-    width: 43% !important;
+    width: 300px !important;
   }
 } 
         
 
     @media (max-width: 900px) {
       .modal_projectes img{
-        width: 375px !important;
+        width: 300px !important;
         height: 200px;
       }
       #menu_categories{
@@ -256,7 +262,6 @@ input[type=checkbox]:checked:after {
     .work .cardProjecte img {
       display: block;
       width: 100%;
-      width: 300px;
       height: 200px;
     }
     .work .cardProjecte .title {
@@ -298,16 +303,15 @@ input[type=checkbox]:checked:after {
       .work .card img {
         display: block;
         width: 100%;
-        width: 300px !important;
         height: 150px !important;
       }
       #modalprojectes{
         width: 300px !important;
-        margin-left: 10%;
+        margin-left: 23% !important;
       }
-      #dropdownMenuLink{
-        margin-top: 20%;
-        margin-left: 10%;
+      #menu_categories{
+        margin-top: 20% !important;
+        margin-left: 10% !important;
       }
       .carousel-control-prev{
         height: 200px;
@@ -315,4 +319,19 @@ input[type=checkbox]:checked:after {
       .carousel-control-next{
         height: 200px;
       }
+    }
+    @media (max-width: 1090px){
+      #dropdownMenuLink{
+        margin-top: 20% !important;
+      }
+    }
+    @media (max-width: 520px) and (min-width: 500px) {
+      #modalprojectes {
+        margin-left: 19% !important;
+    }
+    }
+    @media (max-width: 800px) and (min-width: 600px) {
+      #modalprojectes {
+        margin-left: 28% !important;
+    }
     }
