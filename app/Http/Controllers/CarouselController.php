@@ -45,7 +45,7 @@ class CarouselController extends Controller
         //
         
         $data = $request->validate([
-            'imatge' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'imatge' => 'required|image|mimes:jpeg,png,jpg,gif,svg|dimensions:width=1920,height=800',
             'alt' => 'nullable',
             'color' => 'nullable',
             'titol' => 'nullable',

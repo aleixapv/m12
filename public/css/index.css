@@ -7,12 +7,10 @@
     padding-left: 0px !important;
     padding-right: 0px !important;
     }
-#carousel-1z .carousel-item {
+#carousel-1z .carousel-item{
   height: 300px;
 }
-#projectes_body #modalprojectes {
-  width: 300px !important;
-}
+
 #modalprojectes img{
   width: 300px !important;
 }
@@ -193,7 +191,14 @@
   }
 @media (max-width: 800px){
   #modalprojectes{
-    width: 300px !important;
-    margin-left: 12% !important;
+    margin-left: 23% !important;
+  }
+}
+@media (max-width: 400px){
+  #modalprojectes{
+    margin-left: 10% !important;
+  }
+  #carousel-1z .carousel-item img{
+    height: 300px;
   }
 }
