@@ -20,7 +20,7 @@ class ServeisController extends Controller
     {
         //
         $serveis = Servei::all();
-        return view('backend.serveis.index',compact('serveis'));
+        
 
     }
 
@@ -33,7 +33,12 @@ class ServeisController extends Controller
     {
         //
         $serveis = Servei::all();
-        return view('backend.serveis.create');
+        if(count($serveis) => 3){
+            return view('backend.serveis.index',compact('serveis'));
+        }else{
+            return view('backend.serveis.create');
+        }
+        
     }
 
     /**
