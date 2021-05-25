@@ -27,11 +27,6 @@
   margin-left: unset !important;
   width: 80%;
 }
-@media screen and  (min-width: 1073px) and (max-width: 1180px) {
-  .work{
-    margin-left: -11% !important;
-  }
-}
 .work .grid{
  /* margin-left: 22% !important;*/
   width: 100%;

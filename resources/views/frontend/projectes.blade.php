@@ -32,7 +32,7 @@
           <a class="dropdown-item" href="#">Sense categories</a>
         @endforelse
       </div>
-     <div id="grid" class="grid">
+     <div id="grid" class="grid col-12">
         @forelse ($projectesObj as $projecte)
           @include('frontend/projecte')
           <br>
