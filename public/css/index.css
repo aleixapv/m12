@@ -7,9 +7,15 @@
     padding-left: 0px !important;
     padding-right: 0px !important;
     }
-    #carousel-1z .carousel-item {
-        height: 300px;
-      }
+#carousel-1z .carousel-item {
+  height: 300px;
+}
+#projectes_body #modalprojectes {
+  width: unset !important;
+}
+#modalprojectes img{
+  width: 300px !important;
+}
 #ultims_projectes{
   font: 300 30x 'Oswald', sans-serif;
   letter-spacing: 6px;
@@ -20,7 +26,8 @@
   margin-left: unset !important;
 }
 .work .grid{
-  margin-left: 15% !important;
+  margin-left: 22% !important;
+  width: 49.8%;
 }
 
 #carousel1 img{
@@ -148,7 +155,31 @@
    margin-right: unset; 
 }
 .work .grid{
-  margin-left: 1% !important;;
+  margin-left: 1% !important;
 }
 
+}
+@media (max-width: 965px){  
+  .work .grid {
+    margin-left: 13% !important;
+  }
+  #modalprojectes{
+    margin-left: 26% !important;
+  }
+}
+@media (max-width: 400px) {
+  .work .grid {
+    width: 85%
+    !important;
+  }
+  #modalprojectes{
+    width: 80% !important;
+    margin-left: 4% !important;
+  }
+  #modalprojectes img{
+    width: 250px !important;
+  }
+  .carousel_index .carousel-caption {
+    top: 30px;
+}
 }

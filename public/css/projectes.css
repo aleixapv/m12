@@ -1,6 +1,9 @@
 #projectes_body{
   background-color: whitesmoke;
 }
+#modalprojectes{
+  width: 31.4% !important;
+}
 .carousel-item .img-fluid {
   width:900px;
   height:450px;
@@ -76,7 +79,7 @@ input[type=checkbox]:checked:after {
         color: #40bfc1 !important;
     }
 .modal_projectes img{
-  width: 307.2px !important;
+  width: 300x !important;
 }
 .carousel-control-prev{
   height: 450px;
@@ -89,9 +92,10 @@ input[type=checkbox]:checked:after {
   text-align: justify;
   margin-right: 6%;
 }
-@media (max-width: 965px) and (min-width: 481px)  {  
+@media (max-width: 980px) and (min-width: 481px)  {  
   #modalprojectes{
     margin-left: 28% !important;
+    width: 43% !important;
   }
 } 
         
@@ -197,12 +201,13 @@ input[type=checkbox]:checked:after {
     }
     @media (max-width: 960px) {
       .work .grid {
-        width: 700px;
+        width: 700px 
+        !important;
       }
     }
     @media (max-width: 720px) {
       .work .grid {
-        width: 100%;
+        width: 100% !important;
       }
     }
     .work .grid .animating {
@@ -297,7 +302,7 @@ input[type=checkbox]:checked:after {
         height: 150px !important;
       }
       #modalprojectes{
-        width: 300px;
+        width: 300px !important;
         margin-left: 10%;
       }
       #dropdownMenuLink{

@@ -263,7 +263,7 @@ body {
 }
 
 .contact-text a {
-  color: #40bfc1
+  color: #40bfc1;
   font-family: "Poppins", Arial, sans-serif;
   text-decoration: none;
   transition-duration: 0.2s;
@@ -343,9 +343,11 @@ body {
 hr {
   border-color: rgba(138, 135, 135, 0.8); ;
 }
+ 
 
 /* Begin Media Queries*/
-@media screen and (max-width: 820px) {
+
+@media screen and (max-width: 1024px) {
   #submit{
     margin-left: 1%;
   }
@@ -363,7 +365,8 @@ hr {
  float: unset;
 }
 }
-@media screen and (max-width: 760px) {
+
+@media screen and (max-width: 400px) {
   #map{
     margin-left: unset;
   }
@@ -425,5 +428,19 @@ hr {
 @media screen and (max-width: 410px) {
   .send-button {
     width: 99%;
+  }
+  #map{
+    width: 100% !important;
+    margin-left: -1%;
+  }
+}
+@media screen and (max-width: 965px){ 
+  #map{
+    width: 100% !important;
+  }
+}
+@media (max-width: 1024px) and (min-width: 966px)  {  
+  #contact-form{
+    margin-left: 28% !important;
   }
 }

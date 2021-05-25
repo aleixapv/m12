@@ -8356,7 +8356,7 @@
     #logo_navbar {
       position: absolute;
       left: 16px;
-      top: 5px;
+      top: 12px;
       margin: 2px;
       width: 40px;
       height: 40px;
@@ -8606,7 +8606,7 @@
     position: absolute;
     right: 15%;
     bottom: 20px;
-    top: 70px;
+    top: 22px;
     color: #fff;
     text-align: center;
   }
@@ -8632,11 +8632,19 @@
     z-index: 999999;
     position: unset !important;
   }
+  .direct-contact-container{
+    margin-right: 23% !important;
+  }
+  .form-horizontal{
+    margin-left: 23%;
+  }
+}
+#navbar_menu{
+  margin-left: 46% !important;
+}
+@media screen and (max-width: 450px){
   #interes_footer {
     text-align: left;
     margin-left: 1%;
 }
-}
-#navbar_menu{
-  margin-left: 46% !important;
 }
